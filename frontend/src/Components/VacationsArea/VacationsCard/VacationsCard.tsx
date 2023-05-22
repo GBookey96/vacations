@@ -15,7 +15,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
             <img src={logo} alt="Vacation Image" className="Image" />
             <p className="Dates">{props.vacation.vacationStart} - {props.vacation.vacationEnd}</p>
             <p className="Description">{props.vacation.vacationDescription}</p>
-            <p className="Price">{props.vacation.vacationPrice}</p>
+            <p className="Price">${props.vacation.vacationPrice}</p>
         </div>
     );
 }

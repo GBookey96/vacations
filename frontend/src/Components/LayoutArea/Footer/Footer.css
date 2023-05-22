@@ -1,4 +1,7 @@
 .Footer {
     margin: auto;
     padding: 20px;
+    position: sticky;
+    background-color: #374151;
+    bottom: 0;
 }

@@ -15,7 +15,7 @@ function AllVacations(): JSX.Element {
     },[])
     return (
         <div className="AllVacations">
-			{vacations.map(v => <VacationsCard key={v.vacationId} vacation={v} />)}
+			{vacations.map(v => <VacationsCard key={v.vacationId} vacation={v}/>)}
         </div>
     );
 }
