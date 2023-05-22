@@ -18,29 +18,38 @@ function getNewToken(user: UserModel): string{
 function verifyToken(request: Request): Promise<boolean> {
     return new Promise<boolean>((resolve, reject) => {
         try {
-            const header = request.header("authorization")
-            if(!header) {
-                resolve(false)
-                return
+            const header = request.header("authorization");
+            if (!header) {
+                resolve(false);
+                return;
             }
-            const token = header.substring(7)
-            if(!token) {
-                resolve(false)
-                return
+            const token = header.substring(7);
+            if (!token) {
+                resolve(false);
+                return;
             }
             jwt.verify(token, jwtSecretKey, err => {
-                if(err) {
-                    resolve(false)
-                    return
+                if (err) {
+                    resolve(false);
+                    return;
                 }
-                resolve(true)
-            })
+                resolve(true);
+            });
         }
-        catch(err: any) {
-            reject(err)
+        catch (err: any) {
+            reject(err);
         }
-    })
+    });
 }
+
+
+
+
+
+
+
+
+
 
 const salt = "LifeIsGood"
 

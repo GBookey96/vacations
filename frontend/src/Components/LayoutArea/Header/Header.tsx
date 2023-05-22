@@ -1,9 +1,10 @@
 import "./Header.css";
+import logo from "../../../assets/travelhub-logo.png"
 
 function Header(): JSX.Element {
     return (
         <div className="Header">
-			<h2>Header</h2>
+			<img src={logo}/>
         </div>
     );
 }

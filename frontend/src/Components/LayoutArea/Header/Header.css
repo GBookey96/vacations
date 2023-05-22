@@ -1,3 +1,5 @@
-.Header {
-	
+.Header > img{
+	object-fit: cover;
+    height: 140px;
+    
 }
