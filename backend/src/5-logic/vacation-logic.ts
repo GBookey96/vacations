@@ -20,9 +20,9 @@ async function addVacation(vacation: VacationModel): Promise<VacationModel> {
     if(error) throw new ValidationErrorModel(error)
 
     const sql = `
-    INSERT INTO vacations VALUES( DEFAULT, ?, ?, ?, ?, ?, ?)
+    INSERT INTO vacations VALUES( DEFAULT, ?, ?, ?, ?, ?, ?, ?)
     `
-    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationPrice, vacation.vacationImg])
+    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationOneLine, vacation.vacationPrice, vacation.vacationImg])
     vacation.vacationId = info.insertId
     return vacation
 }
@@ -42,11 +42,12 @@ async function updateVacation(vacation: VacationModel): Promise<VacationModel> {
                     vacationDescription = ?,
                     vacationStart = ?,
                     vacationEnd = ?,
+                    vacationOneLine = ?,
                     vacationPrice = ?,
                     vacationImg = ?
                 WHERE vacationId = ?
     `
-    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationPrice, vacation.vacationImg, vacation.vacationId])
+    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationOneLine, vacation.vacationPrice, vacation.vacationImg, vacation.vacationId])
     if(info.affectedRows === 0) throw new ResourceNotFoundErrorModel(vacation.vacationId)
     return vacation
 }

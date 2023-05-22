@@ -1,3 +1,49 @@
 .VacationsCard {
-	
-}
+    position: relative;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 20px;
+    background-color: #374151;
+    color: #f5f5f5
+  }
+  
+  .Destination {
+    font-size: 20px;
+    margin-top: 0;
+  }
+  
+  .Image {
+    width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+  
+  .Dates, .Description, .Price {
+    margin-top: 10px;
+  }
+  
+  .Price {
+    font-weight: bold;
+  }
+
+  .OneLine {
+    position: absolute;
+    top: 155px;
+    left: 6px;
+    z-index: 2;
+    padding: 4px;
+    height: 100%;
+    color: black;
+    background-image: url("../../../assets/banner.png");
+    background-repeat: no-repeat;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    margin: 0;
+    font-size: 18px;
+    width: 100px;
+    
+  }
