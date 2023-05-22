@@ -7,7 +7,8 @@ class VacationModel {
     public vacationEnd: string
     public vacationOneLine: string
     public vacationPrice: number
-    public vacationImg: string
+    public vacationImg: FileList
+    public vacationImgName: string
 }
 
 export default VacationModel

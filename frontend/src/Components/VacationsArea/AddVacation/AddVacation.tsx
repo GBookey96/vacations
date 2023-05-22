@@ -43,7 +43,7 @@ function AddVacation(): JSX.Element {
                 <input type="number" {...register("vacationPrice")} />
 
                 <label>Image</label>
-                <input type="file" />
+                <input type="file" {...register("vacationImg")}/>
 
                 <button>Add</button>
             </form>

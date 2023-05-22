@@ -5,12 +5,15 @@ import routeNotFound from "./3-middleware/route-not-found";
 import cors from "cors";
 import vacationController from "./6-controllers/vacation-controller";
 import authController from "./6-controllers/auth-controller";
+import expressFileUpload from 'express-fileupload'
 
 const server = express()
 
 server.use(cors())
 
 server.use(express.json())
+server.use(expressFileUpload())
+
 server.use("/api", vacationController);
 server.use("/api", authController);
 server.use("*", routeNotFound)

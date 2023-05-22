@@ -1,46 +1,43 @@
-.Register > form {
-    width: 250px;
-    margin: 20px auto;
-    text-align: left;
-    padding: 10px;
-    border: 1px solid;
-    border-radius: 10px;
+.Register > Form {
+  width: 250px;
+  margin: 20px auto;
+  text-align: left;
+  padding: 10px;
+  border: 1px solid;
+  border-radius: 10px;
+  background-color: #E2CFAD;
 }
 
 .Register .ReCaptchaContainer {
-    transform: scale(0.82);
-    transform-origin: 0 0;
+  transform: scale(0.82);
+  transform-origin: 0 0;
 }
 
 .Register .Login {
-    text-align: center;
+  text-align: center;
+}
+  
+.Register > h2 {
+  text-align: center;
+  color: #003366;
 }
 
-.Register {
-    background-color: #E2CFAD;
-  }
-  
-  .Register > h2 {
-    text-align: center;
-    color: #003366;
-  }
-  
-  .Register input {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    background-color: #F7F7F7;
-    color: #333333;
-  }
-  
-  ::placeholder {
-    color: #999999
-  }
-  
-  .Register button {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    background-color: #003366;
-    color: #F7F7F7;
-  }
+.Register input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  background-color: #F7F7F7;
+  color: #333333;
+}
+
+::placeholder {
+  color: #999999
+}
+
+.Register button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  background-color: #003366;
+  color: #F7F7F7;
+}

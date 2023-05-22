@@ -50,3 +50,312 @@ Stack: TypeError: Cannot read properties of undefined (reading 'name')
     at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
     at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
     at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 11:02:48 GMT
+catchAll error
+Stack: TypeError: Cannot read properties of undefined (reading 'substring')
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:23:49)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.addVacation (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:76:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 11:06:35 GMT
+catchAll error
+Stack: TypeError: Cannot read properties of undefined (reading 'substring')
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:23:49)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.addVacation (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:76:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 11:22:36 GMT
+catchAll error
+Stack: TypeError: Cannot read properties of undefined (reading 'substr')
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:26:54)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.addVacation (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:76:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 11:24:16 GMT
+catchAll error
+Stack: TypeError: Cannot read properties of undefined (reading 'substr')
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:26:54)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.addVacation (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:76:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 16:56:27 GMT
+catchAll error
+Stack: TypeError: Cannot read properties of undefined (reading 'name')
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:26:49)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.addVacation (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:76:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 16:57:45 GMT
+catchAll error
+Stack: Error: ER_BAD_NULL_ERROR: Column 'vacationImgName' cannot be null
+    at Query.Sequence._packetToError (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emit (node:domain:489:12)
+    --------------------
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:199:23)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:36:38)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 16:58:19 GMT
+catchAll error
+Stack: TypeError: Cannot read properties of undefined (reading 'name')
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:26:53)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.addVacation (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:76:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 16:59:08 GMT
+catchAll error
+Stack: TypeError: Cannot read properties of undefined (reading 'name')
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:26:53)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.addVacation (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:76:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 16:59:26 GMT
+catchAll error
+Stack: Error: ER_WRONG_VALUE_COUNT_ON_ROW: Column count doesn't match value count at row 1
+    at Query.Sequence._packetToError (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emit (node:domain:489:12)
+    --------------------
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:199:23)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:36:38)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 17:00:02 GMT
+catchAll error
+Stack: Error: ER_BAD_NULL_ERROR: Column 'vacationImgName' cannot be null
+    at Query.Sequence._packetToError (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emit (node:domain:489:12)
+    --------------------
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:199:23)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:38)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 17:00:14 GMT
+catchAll error
+Stack: Error: ER_BAD_NULL_ERROR: Column 'vacationImgName' cannot be null
+    at Query.Sequence._packetToError (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emit (node:domain:489:12)
+    --------------------
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:199:23)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:38)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 17:01:23 GMT
+catchAll error
+Stack: Error: ER_BAD_NULL_ERROR: Column 'vacationImgName' cannot be null
+    at Query.Sequence._packetToError (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emit (node:domain:489:12)
+    --------------------
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:199:23)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:38)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 17:01:58 GMT
+catchAll error
+Stack: Error: ER_BAD_NULL_ERROR: Column 'vacationImgName' cannot be null
+    at Query.Sequence._packetToError (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emit (node:domain:489:12)
+    --------------------
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:199:23)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:38)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 17:02:47 GMT
+catchAll error
+Stack: Error: ER_BAD_NULL_ERROR: Column 'vacationImgName' cannot be null
+    at Query.Sequence._packetToError (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emit (node:domain:489:12)
+    --------------------
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:199:23)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:34:38)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 17:03:24 GMT
+catchAll error
+Stack: Error: ER_BAD_NULL_ERROR: Column 'vacationImgName' cannot be null
+    at Query.Sequence._packetToError (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emit (node:domain:489:12)
+    --------------------
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:199:23)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:38)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 17:03:50 GMT
+catchAll error
+Stack: TypeError: Cannot read properties of undefined (reading 'name')
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:23:53)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.addVacation (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:76:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Mon, 22 May 2023 17:04:05 GMT
+catchAll error
+Stack: TypeError: Cannot read properties of undefined (reading 'name')
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:23:53)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.addVacation (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:76:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------

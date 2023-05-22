@@ -7,6 +7,7 @@ interface VacationsCardProps {
 }
 
 function VacationsCard(props: VacationsCardProps): JSX.Element {
+    
     return (
         <div className="VacationsCard">
             <h2 className="destination">{props.vacation.vacationDestination}</h2>

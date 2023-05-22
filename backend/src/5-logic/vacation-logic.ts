@@ -19,16 +19,17 @@ async function getOneVacation(vacationId: number): Promise<VacationModel> {
 async function addVacation(vacation: VacationModel): Promise<VacationModel> {
     const error = vacation.validate()
     if(error) throw new ValidationErrorModel(error)
+        
+        const imageExtension = vacation.vacationImg.name.substr(vacation.vacationImg.name.lastIndexOf("."))
+        
+        vacation.vacationImgName = uuid() + imageExtension
+        
+        await vacation.vacationImg.mv("./src/1-assets/vacationImages/" + vacation.vacationImgName)
+        delete vacation.vacationImg
     
-    const extension = vacation.vacationImg.name.substring(vacation.vacationImg.name.lastIndexOf("."))
-    vacation.vacationImgName = uuid() + extension
-    await vacation.vacationImg.mv("./src/1-assets/vacationImages/" + vacation.vacationImgName)
-    delete vacation.vacationImg
 
-    const sql = `
-    INSERT INTO vacations VALUES( DEFAULT, ?, ?, ?, ?, ?, ?, ?)
-    `
-    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationOneLine, vacation.vacationPrice, vacation.vacationImgName])
+    const sql = `INSERT INTO vacations VALUES( DEFAULT, ?, ?, ?, ?, ?, ?, ?)`
+    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationOneLine, +vacation.vacationPrice, vacation.vacationImgName])
     vacation.vacationId = info.insertId
     return vacation
 }
@@ -42,6 +43,14 @@ async function deleteVaction(id: number): Promise<void> {
 async function updateVacation(vacation: VacationModel): Promise<VacationModel> {
     const error = vacation.validate()
     if(error) throw new ValidationErrorModel(error)
+
+    if(vacation.vacationImg) {
+        const extension = vacation.vacationImg.name.substring(vacation.vacationImg.name.lastIndexOf("."))
+        vacation.vacationImgName = uuid() + extension
+        await vacation.vacationImg.mv("./src/1-assets/vacationImages/" + vacation.vacationImgName)
+        delete vacation.vacationImg
+    }
+
 
     const sql = `UPDATE vacations SET 
                     vacationDestination = ?,

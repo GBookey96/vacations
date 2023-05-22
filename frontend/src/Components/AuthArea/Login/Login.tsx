@@ -22,8 +22,9 @@ function Login(): JSX.Element {
 
     return (
         <div className="Login Form">
-            <h2>Login</h2>
 			<form onSubmit={handleSubmit(submit)}>
+            <h2>Login</h2>
+
                 <label>Email Address</label>
                 <input type="email" {...register("userEmail")} placeholder="example@example.com" required/>
                 <label>Password</label>

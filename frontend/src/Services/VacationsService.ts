@@ -29,13 +29,23 @@ class VacationsService {
 
 
     public async addVacations(vacation: VacationModel): Promise<void> {
-        const response = await axios.post<VacationModel>(appConfig.vacationsUrl, vacation)
+
+        const myFormData = new FormData()
+        myFormData.append("vacationDestination", vacation.vacationDestination)
+        myFormData.append("vacationDescription", vacation.vacationDescription)
+        myFormData.append("vacationStart", vacation.vacationStart)
+        myFormData.append("vacationEnd", vacation.vacationEnd)
+        myFormData.append("vacationOneLine", vacation.vacationOneLine)
+        myFormData.append("vacationPrice", vacation.vacationPrice.toString())
+        myFormData.append("vacationImg", vacation.vacationImg[0])
+        console.log(myFormData)
+        const response = await axios.post<VacationModel>(appConfig.vacationsUrl, myFormData)
         const addedVacation = response.data
         vacationsStore.dispatch({type: VacationsActionType.AddVacations, payload: addedVacation})
     }
 
     public async updateVacation(vacation: VacationModel): Promise<void> {
-        const response = await axios.patch<VacationModel>(appConfig.vacationsUrl + vacation.vacationId, vacation)
+        const response = await axios.put<VacationModel>(appConfig.vacationsUrl + vacation.vacationId, vacation)
         const updatedVacation = response.data
         vacationsStore.dispatch({type: VacationsActionType.UpdateVacations, payload: updatedVacation})
     }

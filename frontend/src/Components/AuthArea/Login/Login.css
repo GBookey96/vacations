@@ -1,4 +1,4 @@
-.Login {
+.Login > Form {
     width: 250px;
     margin: 20px auto;
     text-align: left;
@@ -12,7 +12,7 @@
     text-align: center;
 }
 
-.Login > h2 {
+.Login h2 {
   text-align: center;
   color: #003366;
 }
