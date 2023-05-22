@@ -2,6 +2,7 @@ import { OkPacket } from "mysql"
 import dal from "../2-utils/dal"
 import VacationModel from "../4-models/vacation-model"
 import { ResourceNotFoundErrorModel, ValidationErrorModel } from "../4-models/error-model"
+import { v4 as uuid } from "uuid";
 
 async function getAllVacations(): Promise<VacationModel[]> {
     const sql = "SELECT * FROM vacations"
@@ -18,11 +19,16 @@ async function getOneVacation(vacationId: number): Promise<VacationModel> {
 async function addVacation(vacation: VacationModel): Promise<VacationModel> {
     const error = vacation.validate()
     if(error) throw new ValidationErrorModel(error)
+    
+    const extension = vacation.vacationImg.name.substring(vacation.vacationImg.name.lastIndexOf("."))
+    vacation.vacationImgName = uuid() + extension
+    await vacation.vacationImg.mv("./src/1-assets/vacationImages/" + vacation.vacationImgName)
+    delete vacation.vacationImg
 
     const sql = `
     INSERT INTO vacations VALUES( DEFAULT, ?, ?, ?, ?, ?, ?, ?)
     `
-    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationOneLine, vacation.vacationPrice, vacation.vacationImg])
+    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationOneLine, vacation.vacationPrice, vacation.vacationImgName])
     vacation.vacationId = info.insertId
     return vacation
 }
@@ -43,11 +49,10 @@ async function updateVacation(vacation: VacationModel): Promise<VacationModel> {
                     vacationStart = ?,
                     vacationEnd = ?,
                     vacationOneLine = ?,
-                    vacationPrice = ?,
-                    vacationImg = ?
+                    vacationPrice = ?
                 WHERE vacationId = ?
     `
-    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationOneLine, vacation.vacationPrice, vacation.vacationImg, vacation.vacationId])
+    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationOneLine, vacation.vacationPrice, vacation.vacationId])
     if(info.affectedRows === 0) throw new ResourceNotFoundErrorModel(vacation.vacationId)
     return vacation
 }

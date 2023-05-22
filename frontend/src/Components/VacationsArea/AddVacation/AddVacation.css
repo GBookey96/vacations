@@ -1,3 +1,38 @@
 .AddVacation {
-	
+    width: 250px;
+    margin: 20px auto;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    background-color: #E2CFAD;
+}
+
+.AddVacation .Register {
+    text-align: center;
+}
+
+.AddVacation > h2 {
+  text-align: center;
+  color: #003366;
+}
+
+.AddVacation input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  background-color: #F7F7F7;
+  color: #333333;
+}
+
+::placeholder {
+  color: #999999
+}
+
+.AddVacation button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  background-color: #003366;
+  color: #F7F7F7;
 }

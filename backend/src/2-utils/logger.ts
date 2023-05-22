@@ -1,4 +1,3 @@
-import fsPromises from "fs/promises"
 import fs from "fs";
 import path from "path"
 

@@ -1,3 +1,4 @@
+import { UploadedFile } from "express-fileupload"
 import Joi from "joi"
 
 class VacationModel {
@@ -8,7 +9,8 @@ class VacationModel {
     public vacationEnd: string
     public vacationOneLine: string
     public vacationPrice: number
-    public vacationImg: string
+    public vacationImg: UploadedFile
+    public vacationImgName: string
 
     public constructor(vacation: VacationModel) {
         this.vacationId = vacation.vacationId
@@ -19,6 +21,7 @@ class VacationModel {
         this.vacationOneLine = vacation.vacationOneLine
         this.vacationPrice = vacation.vacationPrice
         this.vacationImg = vacation.vacationImg
+        this.vacationImgName = vacation.vacationImgName
     }
 
     public static validationSchema = Joi.object({
@@ -29,7 +32,8 @@ class VacationModel {
         vacationEnd: Joi.string().required(),
         vacationOneLine: Joi.string().required().min(3).max(15),
         vacationPrice: Joi.number().required().positive().integer().max(10000),
-        vacationImg: Joi.string().required()
+        vacationImg: Joi.object().optional(),
+        vacationImgName: Joi.string().optional()
     })
 
     public validate(): string {

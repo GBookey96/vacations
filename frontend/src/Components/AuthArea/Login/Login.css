@@ -5,38 +5,34 @@
     padding: 10px;
     border: 1px solid;
     border-radius: 10px;
+    background-color: #E2CFAD;
 }
 
 .Login .Register {
     text-align: center;
 }
 
+.Login > h2 {
+  text-align: center;
+  color: #003366;
+}
 
-.Form {
-    background-color: #E2CFAD;
-  }
-  
-  .Form > h2 {
-    text-align: center;
-    color: #003366;
-  }
-  
-  .Form input {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    background-color: #F7F7F7;
-    color: #333333;
-  }
-  
-  ::placeholder {
-    color: #999999
-  }
-  
-  .Form button {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-    background-color: #003366;
-    color: #F7F7F7;
-  }
+.Login input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  background-color: #F7F7F7;
+  color: #333333;
+}
+
+::placeholder {
+  color: #999999
+}
+
+.Login button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  background-color: #003366;
+  color: #F7F7F7;
+}

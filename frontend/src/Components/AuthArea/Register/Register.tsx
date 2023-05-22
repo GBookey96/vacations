@@ -29,7 +29,7 @@ function Register(): JSX.Element {
     }
 
     return (
-        <div className="Register">
+        <div className="Register Form">
             <h2>Register</h2>
             <form onSubmit={handleSubmit(submit)}>
 
