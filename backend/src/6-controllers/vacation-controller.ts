@@ -27,6 +27,7 @@ router.get("/vacations/:id", async(request: Request, response: Response, next: N
 
 router.post("/vacations", async(request: Request, response: Response, next: NextFunction)=> {
     try {
+        request.body.vacationImg = request.files?.vacationImg
         const vacation = new VacationModel(request.body)
         const addedVacation = await vacationLogic.addVacation(vacation)
         response.status(201).json(addedVacation)

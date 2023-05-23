@@ -11,28 +11,28 @@
     color: #f5f5f5
   }
   
-  .Destination {
+  .VacationsCard > .Destination {
     font-size: 20px;
     margin-top: 0;
   }
   
-  .Image {
+  .VacationsCard > .Image {
     width: 100%;
     height: auto;
     margin-top: 10px;
   }
   
-  .Dates, .Description, .Price {
+  .VacationsCard > .Dates, .VacationsCard > .Description, .VacationsCard > .Price {
     margin-top: 10px;
   }
   
-  .Price {
+  .VacationsCard > .Price {
     font-weight: bold;
   }
 
-  .OneLine {
+  .VacationsCard > .OneLine {
     position: absolute;
-    top: 155px;
+    top: 154px;
     left: 6px;
     padding: 4px;
     height: 100%;
@@ -43,6 +43,18 @@
     transform-origin: top left;
     margin: 0;
     font-size: 18px;
-    width: 100px;
-    
+    width: 100px; 
+  }
+
+  .VacationsCard > .Like {
+    background-color: #814eaf;
+    position: absolute;
+    left: 5%;
+    top: 1%;
+    box-shadow: none;
+    width: 50px;
+  }
+
+  .VacationsCard .Liked {
+    color: red;
   }

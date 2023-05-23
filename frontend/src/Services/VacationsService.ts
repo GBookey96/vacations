@@ -38,7 +38,6 @@ class VacationsService {
         myFormData.append("vacationOneLine", vacation.vacationOneLine)
         myFormData.append("vacationPrice", vacation.vacationPrice.toString())
         myFormData.append("vacationImg", vacation.vacationImg[0])
-        console.log(myFormData)
         const response = await axios.post<VacationModel>(appConfig.vacationsUrl, myFormData)
         const addedVacation = response.data
         vacationsStore.dispatch({type: VacationsActionType.AddVacations, payload: addedVacation})

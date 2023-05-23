@@ -21,7 +21,6 @@ async function addVacation(vacation: VacationModel): Promise<VacationModel> {
     if(error) throw new ValidationErrorModel(error)
         
         const imageExtension = vacation.vacationImg.name.substr(vacation.vacationImg.name.lastIndexOf("."))
-        
         vacation.vacationImgName = uuid() + imageExtension
         
         await vacation.vacationImg.mv("./src/1-assets/vacationImages/" + vacation.vacationImgName)

@@ -359,3 +359,29 @@ Stack: TypeError: Cannot read properties of undefined (reading 'name')
     at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
     at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
     at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Tue, 23 May 2023 07:14:46 GMT
+catchAll error
+Stack: TypeError: Cannot read properties of undefined (reading 'name')
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:23:53)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.addVacation (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:76:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Tue, 23 May 2023 07:15:11 GMT
+catchAll error
+Stack: TypeError: Cannot read properties of undefined (reading 'name')
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:22:38)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.addVacation (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:76:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:31:51
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------

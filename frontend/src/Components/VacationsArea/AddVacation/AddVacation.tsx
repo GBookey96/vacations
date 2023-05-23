@@ -23,7 +23,6 @@ function AddVacation(): JSX.Element {
         <div className="AddVacation">
             <h2>Add Vacation</h2>
             <form onSubmit={handleSubmit(submit)}>
-                
                 <label>Destination</label>
                 <input type="text" {...register("vacationDestination")} />
 
