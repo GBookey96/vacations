@@ -11,7 +11,8 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
 
     const [isFollowing, setIsFollowing] = useState<boolean>(false)
     const [followerCount, setFollowerCount] = useState<number>(0)
-    
+    const [img, setImg] = useState<any>()
+
     function follow() {
         if(isFollowing) {
             setIsFollowing(false)

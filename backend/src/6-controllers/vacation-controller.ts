@@ -1,6 +1,7 @@
 import express, {Request, Response, NextFunction} from "express"
 import vacationLogic from "../5-logic/vacation-logic"
 import VacationModel from "../4-models/vacation-model"
+import path from "path"
 
 const router = express.Router()
 
@@ -21,6 +22,17 @@ router.get("/vacations/:id", async(request: Request, response: Response, next: N
         response.json(vacation)
     }
     catch (err: any) {
+        next(err)
+    }
+})
+
+router.get("/vacations/img/:imageName", async(request: Request, response: Response, next: NextFunction)=> {
+    try {
+        const imageName = request.params.imageName
+        const absolutePath = path.join(__dirname, "..", "1-assets", "vacationImages", imageName)
+        response.sendFile(absolutePath)
+    }
+    catch(err: any) {
         next(err)
     }
 })
@@ -61,7 +73,5 @@ router.put("/vacations/update/:id", async(request: Request, response: Response, 
         next(err)
     }
 })
-
-
 
 export default router

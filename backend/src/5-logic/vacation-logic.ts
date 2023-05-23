@@ -3,6 +3,7 @@ import dal from "../2-utils/dal"
 import VacationModel from "../4-models/vacation-model"
 import { ResourceNotFoundErrorModel, ValidationErrorModel } from "../4-models/error-model"
 import { v4 as uuid } from "uuid";
+import { UploadedFile } from "express-fileupload";
 
 async function getAllVacations(): Promise<VacationModel[]> {
     const sql = "SELECT * FROM vacations"

@@ -27,6 +27,7 @@ function AllVacations(): JSX.Element {
             .then(vacations => setVacations(vacations))
             .catch(err => alert(err))
     },[])
+
     return (
         <div className="AllVacations">
             {isLoggedIn && <>{vacations.map(v => <VacationsCard key={v.vacationId} vacation={v}/>)}</>}

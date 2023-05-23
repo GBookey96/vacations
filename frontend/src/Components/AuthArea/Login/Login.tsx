@@ -26,7 +26,7 @@ function Login(): JSX.Element {
             <h2>Login</h2>
 
                 <label>Email Address</label>
-                <input type="email" {...register("userEmail")} placeholder="example@example.com" required/>
+                <input type="email" {...register("userEmail")} placeholder="example@example.com" required autoFocus/>
                 <label>Password</label>
                 <input type="password" {...register("userPassword")} required placeholder="******"/>
                 <button>Login</button>
