@@ -1,4 +1,5 @@
 import Joi from 'joi';
+import RoleModel from './role-model';
 
 class UserModel {
     public userId: number
@@ -6,6 +7,7 @@ class UserModel {
     public userLastName: string
     public userEmail: string
     public userPassword: string
+    public userRole = RoleModel
 
     public constructor(user: UserModel) {
         this.userId = user.userId
@@ -13,6 +15,7 @@ class UserModel {
         this.userLastName = user.userLastName
         this.userEmail = user.userEmail
         this.userPassword = user.userPassword
+        this.userRole = user.userRole
     }
 
     public static validationSchema = Joi.object({

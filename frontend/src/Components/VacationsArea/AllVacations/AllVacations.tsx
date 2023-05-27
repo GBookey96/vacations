@@ -9,18 +9,18 @@ import { authStore } from "../../../Redux/AuthState";
 function AllVacations(): JSX.Element {
 
     const [vacations, setVacations] = useState<VacationModel[]>([])
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+    // const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
     const navigate = useNavigate()
 
-    useEffect(()=>{
-        let user = authStore.getState().user
-        if(user) setIsLoggedIn(true)
-        const unsubscribe = authStore.subscribe(()=>{
-            user = authStore.getState().user
-            user ? setIsLoggedIn(true) : setIsLoggedIn(false)
-        })
-        return unsubscribe
-    },[])
+    // useEffect(()=>{
+    //     let user = authStore.getState().user
+    //     if(user) setIsLoggedIn(true)
+    //     const unsubscribe = authStore.subscribe(()=>{
+    //         user = authStore.getState().user
+    //         user ? setIsLoggedIn(true) : setIsLoggedIn(false)
+    //     })
+    //     return unsubscribe
+    // },[])
 
     useEffect(()=>{
         vacationsService.getAllVacations()
@@ -30,8 +30,12 @@ function AllVacations(): JSX.Element {
 
     return (
         <div className="AllVacations">
-            {isLoggedIn && <>{vacations.map(v => <VacationsCard key={v.vacationId} vacation={v}/>)}</>}
-            {!isLoggedIn && <>{navigate("/home")}</>}
+            {/* {isLoggedIn && <> */}
+                {vacations.map(v => <VacationsCard key={v.vacationId} vacation={v}/>)}
+            {/* </>}
+            {!isLoggedIn && 
+            <>{navigate("/home")}</>
+            } */}
 			
         </div>
     );
