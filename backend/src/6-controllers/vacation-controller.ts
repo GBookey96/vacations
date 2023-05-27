@@ -28,7 +28,7 @@ router.get("/vacations/:id", blockNonLoggedIn, async(request: Request, response:
     }
 })
 
-router.get("/vacations/img/:imageName", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
+router.get("/vacations/img/:imageName", async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const imageName = request.params.imageName
         const absolutePath = path.join(__dirname, "..", "1-assets", "vacationImages", imageName)
