@@ -3,16 +3,29 @@ import "./AddVacation.css";
 import VacationModel from "../../../Models/vacations-model";
 import { useNavigate } from "react-router-dom";
 import vacationsService from "../../../Services/VacationsService";
+import { useEffect, useState } from "react";
+import { authStore } from "../../../Redux/AuthState";
 
 function AddVacation(): JSX.Element {
     const {register, handleSubmit} = useForm<VacationModel>()
+    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
     const navigate = useNavigate()
+
+    useEffect(()=>{
+        let user = authStore.getState().user
+        if(user) setIsLoggedIn(true)
+        const unsubscribe = authStore.subscribe(()=>{
+            user = authStore.getState().user
+            user ? setIsLoggedIn(true) : setIsLoggedIn(false)
+        })
+        return unsubscribe
+    },[])
 
     async function submit(vacation: VacationModel) {
         try {
             await vacationsService.addVacations(vacation)
             alert("Vacation Added")
-            navigate("/home")
+            // navigate("/add-vacation")
         }
         catch(err: any) {
             alert(err)

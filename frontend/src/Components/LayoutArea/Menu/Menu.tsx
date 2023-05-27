@@ -33,6 +33,8 @@ function Menu(): JSX.Element {
                 <>
                     <span>Hello {user.userFirstName}</span>
                     <span> | </span>
+                    <span><NavLink to={"/add-vacation"}>Add Vacation</NavLink></span>
+                    <span> | </span>
                     <NavLink to={"/profile/edit/" + user.userId}>Edit Profile</NavLink>
                     <span> | </span>
                     <NavLink to="/logout">Logout</NavLink>

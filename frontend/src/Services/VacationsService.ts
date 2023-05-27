@@ -27,12 +27,6 @@ class VacationsService {
         return vacation
     }
 
-    public async getVacationImg(imgName: string): Promise<FileList> {
-        const response = await axios.get(appConfig.vacationsUrl + "img/" + imgName)
-        const vacationImg = response.data
-        return vacationImg
-    }
-
     public async addVacations(vacation: VacationModel): Promise<void> {
 
         const myFormData = new FormData()
