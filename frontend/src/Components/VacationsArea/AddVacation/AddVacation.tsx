@@ -37,10 +37,10 @@ function AddVacation(): JSX.Element {
             <h2>Add Vacation</h2>
             <form onSubmit={handleSubmit(submit)}>
                 <label>Destination</label>
-                <input type="text" {...register("vacationDestination")} />
+                <input type="text" maxLength={30} {...register("vacationDestination")} placeholder="Enter Destination name" />
 
                 <label>Vacation Description</label>
-                <textarea cols={30} rows={10} {...register("vacationDescription")}></textarea>
+                <textarea cols={30} rows={10} maxLength={1000} {...register("vacationDescription")} placeholder="Provide a description of the vacation in less than 1000 characters"></textarea>
 
                 <label>Start Date</label>
                 <input type="date" {...register("vacationStart")}/>
@@ -49,13 +49,13 @@ function AddVacation(): JSX.Element {
                 <input type="date" {...register("vacationEnd")}/>
 
                 <label>One Word Description</label>
-                <input type="text" {...register("vacationOneLine")} />
+                <input type="text" {...register("vacationOneLine")} placeholder="One-word description"/>
                 
                 <label>Price</label>
-                <input type="number" {...register("vacationPrice")} />
+                <input type="number" {...register("vacationPrice")} placeholder="Enter Price"/>
 
                 <label>Image</label>
-                <input type="file" {...register("vacationImg")}/>
+                <input type="file" accept="image/*" {...register("vacationImg")} />
 
                 <button>Add</button>
             </form>

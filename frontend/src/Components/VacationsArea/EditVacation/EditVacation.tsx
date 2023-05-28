@@ -26,7 +26,7 @@ function EditVacation(): JSX.Element {
         const id = +params.vacationId
         vacationsService.getOneVacation(id)
             .then(v => {
-                console.log(v)
+                console.log(typeof v)
                 setValue("vacationId", v.vacationId)
                 setValue("vacationDestination", v.vacationDestination)
                 setValue("vacationDescription", v.vacationDescription)

@@ -4,6 +4,7 @@ import logo from "../../../assets/Rome-Inside-the-Colosseum-or-Coliseum-in-summe
 import { useEffect, useState } from "react";
 import vacationsService from "../../../Services/VacationsService";
 import appConfig from "../../../Utils/config";
+import { useNavigate } from "react-router-dom";
 
 interface VacationsCardProps {
 	vacation: VacationModel,
@@ -13,6 +14,8 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
 
     const [isFollowing, setIsFollowing] = useState<boolean>(false)
     const [followerCount, setFollowerCount] = useState<number>(0)
+
+    const navigate = useNavigate()
 
     function follow() {
         if(isFollowing) {
@@ -42,6 +45,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
                 {!isFollowing && <>🤍</>}
                 <span> {followerCount}</span>
             </button>
+            <button onClick={()=>navigate("/vacation/edit/" + props.vacation.vacationId)}>Edit</button>
             <h2 className="destination">{props.vacation.vacationDestination}</h2>
             <p className="OneLine">{props.vacation.vacationOneLine}</p>
             <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />

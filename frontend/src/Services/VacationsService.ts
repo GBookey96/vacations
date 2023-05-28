@@ -19,7 +19,7 @@ class VacationsService {
 
     public async getOneVacation(id: number): Promise<VacationModel> {
         let vacations = vacationsStore.getState().vacations
-        let vacation: VacationModel = vacations.find(v => v.vacationId === id)
+        let vacation = vacations.find(v => v.vacationId === id)
         if(!vacation) {
             const response = await axios.get<VacationModel>(appConfig.vacationsUrl + id)
             vacation = response.data
