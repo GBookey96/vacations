@@ -1,13 +1,14 @@
 import Joi from 'joi';
 import RoleModel from './role-model';
 
+
 class UserModel {
     public userId: number
     public userFirstName: string
     public userLastName: string
     public userEmail: string
     public userPassword: string
-    public userRole = RoleModel
+    public userRole: RoleModel
 
     public constructor(user: UserModel) {
         this.userId = user.userId

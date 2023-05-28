@@ -53,9 +53,7 @@ async function verifyAdmin(request: Request): Promise<boolean> {
 
     const user: UserModel = container.user
 
-    // return user.userRole === RoleModel.Admin
-
-    return true
+    return user.userRole === RoleModel.Admin
 }
 
 const salt = "LifeIsGood"

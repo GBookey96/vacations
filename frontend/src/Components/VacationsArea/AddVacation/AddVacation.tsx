@@ -25,7 +25,7 @@ function AddVacation(): JSX.Element {
         try {
             await vacationsService.addVacations(vacation)
             alert("Vacation Added")
-            // navigate("/add-vacation")
+            navigate("/home")
         }
         catch(err: any) {
             alert(err)
