@@ -1,3 +1,31 @@
 .PageNotFound {
-	
+	margin: 25px;
+    position: relative;
+}
+
+.PageNotFound > img {
+    width: 100%;
+}
+
+.PageNotFound .TextOverlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 1);
+    color: #f5f5f5;
+}
+
+.PageNotFound > .TextOverlay > h2 {
+    font-size: 50px;
+}
+
+.PageNotFound > .TextOverlay > h3 {
+    font-size: x-large;
+}
+
+.PageNotFound > .TextOverlay > h3 > .NavLink {
+    color: inherit;
+    text-decoration: none;
 }

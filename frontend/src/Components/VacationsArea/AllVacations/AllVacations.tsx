@@ -14,18 +14,8 @@ function AllVacations(): JSX.Element {
     const [notYetStarted, setNotYetStarted] = useState<VacationModel[]>()
     const [activeVacations, setActiveVacations] = useState<VacationModel[]>()
     const [showVacations, setShowVacations] = useState<VacationModel[]>()
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
-    const navigate = useNavigate()
 
-    useEffect(()=>{
-        let user = authStore.getState().user
-        if(user) setIsLoggedIn(true)
-        const unsubscribe = authStore.subscribe(()=>{
-            user = authStore.getState().user
-            user ? setIsLoggedIn(true) : setIsLoggedIn(false)
-        })
-        return unsubscribe
-    },[])
+    const navigate = useNavigate()
 
     useEffect(()=>{
         vacationsService.getAllVacations()
@@ -44,9 +34,9 @@ function AllVacations(): JSX.Element {
     }
 
     function showNotYetStartedVacations() {
-        // let now = new Date()
-        // const sortedVacations = allVacations.filter(v => v.vacationStart = now.getUTCDate().toString())
-        // console.log(sortedVacations)
+        let now = new Date()
+        const sortedVacations = allVacations.filter(v => v.vacationStart = now.getUTCDate().toString())
+        console.log(sortedVacations)
     }
 
     function showActiveVacations() {
@@ -55,7 +45,6 @@ function AllVacations(): JSX.Element {
 
     return (
         <div className="AllVacations">
-            {isLoggedIn && <>
             <div className="FilterOptions">
                 <h3>Filter Options</h3>
                 <button>Only show vacations you are following</button>
@@ -66,12 +55,8 @@ function AllVacations(): JSX.Element {
             </div>
             <br />
             <div className="Vacations">
-                {showVacations.map(v => <VacationsCard key={v.vacationId} vacation={v}/>)}
+                {allVacations.map(v => <VacationsCard key={v.vacationId} vacation={v}/>)}
             </div>
-            </>}
-            {/* {!isLoggedIn && <>{navigate("/home")}</>} */}
-            {!isLoggedIn && <Home />}
-			
         </div>
     );
 }

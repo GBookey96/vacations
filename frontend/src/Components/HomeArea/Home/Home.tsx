@@ -2,6 +2,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "./Home.css";
 import { useEffect, useState } from "react";
 import { authStore } from "../../../Redux/AuthState";
+import AllVacations from "../../VacationsArea/AllVacations/AllVacations";
 
 function Home(): JSX.Element {
 
@@ -21,7 +22,7 @@ function Home(): JSX.Element {
         <div className="Home">
 			{isLoggedIn &&
             <>
-            {navigate("/vacations")}
+            <AllVacations />
             </>}
             {!isLoggedIn && 
             <>

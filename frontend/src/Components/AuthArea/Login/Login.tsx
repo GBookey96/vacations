@@ -13,7 +13,7 @@ function Login(): JSX.Element {
         try {
             await authService.login(credentials)
             alert("Login Successful")
-            navigate("/vacations")
+            navigate("/home")
         }
         catch(err: any) {
             alert(err)
