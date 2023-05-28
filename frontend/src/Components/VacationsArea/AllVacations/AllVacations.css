@@ -1,5 +1,31 @@
 .AllVacations {
+    justify-content: center;
+}
+
+.AllVacations .Vacations {
 	display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.AllVacations .FilterOptions {
+    height: fit-content;
+    width: 300px;
+    padding: 10px;
+    margin: auto;
+    border: 1px solid #001f3f;
+    background-color: #E2CFAD;
+    border-radius: 10px;
+    color: #001f3f;
+}
+
+.AllVacations > .FilterOptions > h3 {
+    color: #003366
+}
+
+.AllVacations > .FilterOptions > button {
+    margin: 5px;
+    background-color: #003366;
+    color: #F7F7F7;
+}
+
