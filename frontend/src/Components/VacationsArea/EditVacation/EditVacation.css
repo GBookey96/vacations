@@ -1,0 +1,39 @@
+.EditVacation {
+    width: 250px;
+    margin: 20px auto;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #001f3f;
+    border-radius: 10px;
+    background-color: #E2CFAD;
+    color: #001f3f;
+}
+
+.EditVacation .Register {
+    text-align: center;
+}
+
+.EditVacation > h2 {
+  text-align: center;
+  color: #003366;
+}
+
+.EditVacation input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  background-color: #F7F7F7;
+  color: #333333;
+}
+
+::placeholder {
+  color: #999999
+}
+
+.EditVacation button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  background-color: #003366;
+  color: #F7F7F7;
+}

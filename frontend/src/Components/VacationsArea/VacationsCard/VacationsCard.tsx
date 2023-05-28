@@ -24,6 +24,16 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
             setFollowerCount(followerCount + 1)
         }
     }
+
+    function formatDate(inputDate: string): string {
+        const date = new Date(inputDate)
+        const options: Intl.DateTimeFormatOptions = {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric'
+        }
+        return date.toLocaleDateString('en-GB', options)
+    }
     
     return (
         <div className="VacationsCard">
@@ -35,7 +45,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
             <h2 className="destination">{props.vacation.vacationDestination}</h2>
             <p className="OneLine">{props.vacation.vacationOneLine}</p>
             <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />
-            <p className="Dates">{props.vacation.vacationStart} - {props.vacation.vacationEnd}</p>
+            <p className="Dates">{formatDate(props.vacation.vacationStart)} - {formatDate(props.vacation.vacationEnd)}</p>
             <p className="Description">{props.vacation.vacationDescription}</p>
             <h3 className="Price">${props.vacation.vacationPrice}</h3>
         </div>

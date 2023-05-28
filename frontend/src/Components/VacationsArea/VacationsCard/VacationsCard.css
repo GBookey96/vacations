@@ -5,7 +5,6 @@
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
     margin: 20px;
     background-color: #374151;
     color: #f5f5f5
@@ -25,6 +24,10 @@
   
   .VacationsCard > .Dates, .VacationsCard > .Description, .VacationsCard > .Price {
     margin-top: 10px;
+  }
+
+  .VacationsCard > .Description {
+    text-align: justify;
   }
   
   .VacationsCard > .Price {

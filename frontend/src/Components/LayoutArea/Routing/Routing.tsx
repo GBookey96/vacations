@@ -8,6 +8,7 @@ import Logout from "../../AuthArea/Logout/Logout";
 import EditUser from "../../AuthArea/EditUser/EditUser";
 import AllVacations from "../../VacationsArea/AllVacations/AllVacations";
 import AddVacation from "../../VacationsArea/AddVacation/AddVacation";
+import EditVacation from "../../VacationsArea/EditVacation/EditVacation";
 
 function Routing(): JSX.Element {
     return (
@@ -21,6 +22,7 @@ function Routing(): JSX.Element {
                 <Route path="/profile/edit/:userId" element={<EditUser />} />
 
                 <Route path="/add-vacation" element={<AddVacation />} />
+                <Route path="/vacation/edit/:vacationId" element={<EditVacation />} />
 
                 <Route path="/" element={<Home />} />
                 <Route path="/*" element={<PageNotFound />} />

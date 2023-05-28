@@ -7,9 +7,10 @@ import "./Layout.css";
 function Layout(): JSX.Element {
     return (
         <div className="Layout">
+            <Header />
+
 			<Menu />
 
-            <Header />
             <Routing />
             <Footer />
         </div>

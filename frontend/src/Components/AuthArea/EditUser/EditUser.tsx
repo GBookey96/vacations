@@ -13,10 +13,9 @@ function EditUser(): JSX.Element {
 
     useEffect(()=>{
         const id = +params.userId
-        console.log(typeof id)
-        console.log(id)
         authService.getOneUser(id)
             .then(user => {
+                console.log(user)
                 setValue("userId", user.userId)
                 setValue("userFirstName", user.userFirstName)
                 setValue("userLastName", user.userLastName)

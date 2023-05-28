@@ -19,7 +19,7 @@ class VacationsService {
 
     public async getOneVacation(id: number): Promise<VacationModel> {
         let vacations = vacationsStore.getState().vacations
-        let vacation = vacations.find(v => v.vacationId === id)
+        let vacation: VacationModel = vacations.find(v => v.vacationId === id)
         if(!vacation) {
             const response = await axios.get<VacationModel>(appConfig.vacationsUrl + id)
             vacation = response.data
@@ -28,7 +28,6 @@ class VacationsService {
     }
 
     public async addVacations(vacation: VacationModel): Promise<void> {
-
         const myFormData = new FormData()
         myFormData.append("vacationDestination", vacation.vacationDestination)
         myFormData.append("vacationDescription", vacation.vacationDescription)
@@ -43,7 +42,15 @@ class VacationsService {
     }
 
     public async updateVacation(vacation: VacationModel): Promise<void> {
-        const response = await axios.put<VacationModel>(appConfig.vacationsUrl + vacation.vacationId, vacation)
+        const myFormData = new FormData()
+        myFormData.append("vacationDestination", vacation.vacationDestination)
+        myFormData.append("vacationDescription", vacation.vacationDescription)
+        myFormData.append("vacationStart", vacation.vacationStart)
+        myFormData.append("vacationEnd", vacation.vacationEnd)
+        myFormData.append("vacationOneLine", vacation.vacationOneLine)
+        myFormData.append("vacationPrice", vacation.vacationPrice.toString())
+        myFormData.append("vacationImg", vacation.vacationImg[0])
+        const response = await axios.put<VacationModel>(appConfig.vacationsUrl + vacation.vacationId, myFormData)
         const updatedVacation = response.data
         vacationsStore.dispatch({type: VacationsActionType.UpdateVacations, payload: updatedVacation})
     }
