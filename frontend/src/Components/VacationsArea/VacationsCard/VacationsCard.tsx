@@ -1,8 +1,7 @@
 import VacationModel from "../../../Models/vacations-model";
 import "./VacationsCard.css";
 import logo from "../../../assets/Rome-Inside-the-Colosseum-or-Coliseum-in-summer.jpg"
-import { useEffect, useState } from "react";
-import vacationsService from "../../../Services/VacationsService";
+import { useState } from "react";
 import appConfig from "../../../Utils/config";
 import { useNavigate } from "react-router-dom";
 
@@ -29,13 +28,8 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     }
 
     function formatDate(inputDate: string): string {
-        const date = new Date(inputDate)
-        const options: Intl.DateTimeFormatOptions = {
-            day: '2-digit',
-            month: '2-digit',
-            year: 'numeric'
-        }
-        return date.toLocaleDateString('en-GB', options)
+        const date = new Date(inputDate).toISOString().split("T")[0]
+        return date
     }
     
     return (
@@ -49,7 +43,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
             <h2 className="destination">{props.vacation.vacationDestination}</h2>
             <p className="OneLine">{props.vacation.vacationOneLine}</p>
             <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />
-            <p className="Dates">{formatDate(props.vacation.vacationStart)} - {formatDate(props.vacation.vacationEnd)}</p>
+            <p className="Dates">{formatDate(props.vacation.vacationStart)} ➡ {formatDate(props.vacation.vacationEnd)}</p>
             <p className="Description">{props.vacation.vacationDescription}</p>
             <h3 className="Price">${props.vacation.vacationPrice}</h3>
         </div>

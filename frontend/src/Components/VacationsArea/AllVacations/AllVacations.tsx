@@ -4,58 +4,77 @@ import vacationsService from "../../../Services/VacationsService";
 import VacationsCard from "../VacationsCard/VacationsCard";
 import "./AllVacations.css";
 import { useState, useEffect } from 'react';
-import { authStore } from "../../../Redux/AuthState";
-import Home from "../../HomeArea/Home/Home";
+
+
 
 function AllVacations(): JSX.Element {
 
     const [allVacations, setAllVacations] = useState<VacationModel[]>([])
-    const [vacationsFollowing, setVacationsFollowing] = useState<VacationModel[]>()
-    const [notYetStarted, setNotYetStarted] = useState<VacationModel[]>()
-    const [activeVacations, setActiveVacations] = useState<VacationModel[]>()
-    const [showVacations, setShowVacations] = useState<VacationModel[]>()
+    const [vacationsFollowing, setVacationsFollowing] = useState<VacationModel[]>([])
+    const [notYetStarted, setNotYetStarted] = useState<VacationModel[]>([])
+    const [activeVacations, setActiveVacations] = useState<VacationModel[]>([])
+    const [showVacations, setShowVacations] = useState<VacationModel[]>([])
 
     const navigate = useNavigate()
 
     useEffect(()=>{
         vacationsService.getAllVacations()
-            .then(vacations => sortVacationsByDate(vacations))
+            .then(vacations => arrangeVacations(vacations))
             .catch(err => console.log(err))
     },[])
 
-    function sortVacationsByDate(vacations: VacationModel[]) {
+    function arrangeVacations(vacations: VacationModel[]) {
+
+        const currentDate = new Date().toISOString().split("T")[0]
+
         const sortedVacations = vacations.sort((a, b) => a.vacationStart.localeCompare(b.vacationStart))
+
+        // Set showVacations first
         setAllVacations(sortedVacations)
-        setShowVacations(sortedVacations)
+    
+        // find vacations following
+        setVacationsFollowing(sortedVacations)
+    
+        // find vacations not yet started
+        const notYetStartedList = sortedVacations.filter(v => v.vacationStart >= currentDate)
+        setNotYetStarted(notYetStartedList)
+    
+        // find active vacations
+        const activeVacationsList = sortedVacations.filter(v => v.vacationStart <= currentDate && v.vacationEnd >= currentDate)
+        setActiveVacations(activeVacationsList)
     }
 
-    function sortVacationsByFollowing() {
+    function showAll() {
+        setShowVacations(allVacations)
+    }
 
+    function showOnlyFollowing() {
+        setShowVacations(vacationsFollowing)
     }
 
     function showNotYetStartedVacations() {
-        let now = new Date()
-        const sortedVacations = allVacations.filter(v => v.vacationStart = now.getUTCDate().toString())
-        console.log(sortedVacations)
+        setShowVacations(notYetStarted)
     }
 
     function showActiveVacations() {
-
+        setShowVacations(activeVacations)
     }
 
     return (
         <div className="AllVacations">
             <div className="FilterOptions">
                 <h3>Filter Options</h3>
-                <button>Only show vacations you are following</button>
+                <button onClick={showOnlyFollowing}>Only show vacations you are following</button>
                 <br />
                 <button onClick={showNotYetStartedVacations}>Only show vacations that have not yet started</button>
                 <br />
-                <button>Only show active vacations</button>
+                <button onClick={showActiveVacations}>Only show active vacations</button>
+                <br />
+                <button onClick={showAll}>Show All</button>
             </div>
             <br />
             <div className="Vacations">
-                {allVacations.map(v => <VacationsCard key={v.vacationId} vacation={v}/>)}
+                {showVacations.map(v => <VacationsCard key={v.vacationId} vacation={v}/>)}
             </div>
         </div>
     );
