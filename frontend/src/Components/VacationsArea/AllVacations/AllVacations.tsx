@@ -10,10 +10,10 @@ import { useState, useEffect } from 'react';
 function AllVacations(): JSX.Element {
 
     const [allVacations, setAllVacations] = useState<VacationModel[]>([])
+    const [showVacations, setShowVacations] = useState<VacationModel[]>([])
     const [vacationsFollowing, setVacationsFollowing] = useState<VacationModel[]>([])
     const [notYetStarted, setNotYetStarted] = useState<VacationModel[]>([])
     const [activeVacations, setActiveVacations] = useState<VacationModel[]>([])
-    const [showVacations, setShowVacations] = useState<VacationModel[]>([])
 
     const navigate = useNavigate()
 
@@ -25,16 +25,16 @@ function AllVacations(): JSX.Element {
 
     function arrangeVacations(vacations: VacationModel[]) {
 
-        const currentDate = new Date().toISOString().split("T")[0]
-
         const sortedVacations = vacations.sort((a, b) => a.vacationStart.localeCompare(b.vacationStart))
 
-        // Set showVacations first
         setAllVacations(sortedVacations)
+        setShowVacations(sortedVacations)
     
         // find vacations following
         setVacationsFollowing(sortedVacations)
-    
+
+        const currentDate = new Date().toISOString().split("T")[0]
+
         // find vacations not yet started
         const notYetStartedList = sortedVacations.filter(v => v.vacationStart >= currentDate)
         setNotYetStarted(notYetStartedList)
@@ -57,6 +57,7 @@ function AllVacations(): JSX.Element {
     }
 
     function showActiveVacations() {
+
         setShowVacations(activeVacations)
     }
 

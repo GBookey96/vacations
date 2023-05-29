@@ -28,7 +28,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     }
 
     function formatDate(inputDate: string): string {
-        const date = new Date(inputDate).toISOString().split("T")[0]
+        const date = new Date(inputDate).toLocaleDateString().split("T")[0]
         return date
     }
     
