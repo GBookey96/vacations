@@ -1,9 +1,9 @@
-import { NavLink } from "react-router-dom";
 import "./Menu.css";
 import { useEffect, useState } from "react";
-import UserModel from "../../../Models/user-model";
+import { NavLink } from "react-router-dom";
 import { authStore } from "../../../Redux/AuthState";
-import menuIcon from "../../../assets/menu-icon.png"
+import UserModel from "../../../Models/user-model";
+
 
 function Menu(): JSX.Element {
     
@@ -23,7 +23,6 @@ function Menu(): JSX.Element {
             {!user &&
                 <>
                     <span>Hello Guest</span>
-                    {/* <span><img className="MenuIcon" src={menuIcon} alt="" /></span>  */}
                     <span> | </span>
                     <NavLink to="/login">Login</NavLink>
                     <span> | </span>
@@ -34,9 +33,6 @@ function Menu(): JSX.Element {
                 user &&
                 <>
                     <span>Hello {user.userFirstName}</span>
-                    {/* <span><img className="MenuIcon" src={menuIcon} alt="" /></span> */}
-                    <span> | </span>
-                    <span><NavLink to={"/add-vacation"}>Add Vacation</NavLink></span>
                     <span> | </span>
                     <NavLink to={"/profile/edit/" + user.userId}>Edit Profile</NavLink>
                     <span> | </span>

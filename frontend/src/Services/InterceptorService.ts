@@ -1,6 +1,6 @@
+import { authStore } from "../Redux/AuthState";
 import axios from "axios";
 import authService from "./AuthService";
-import { authStore } from "../Redux/AuthState";
 
 class InterceptorsService {
 

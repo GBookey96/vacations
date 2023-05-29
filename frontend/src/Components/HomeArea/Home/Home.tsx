@@ -1,5 +1,5 @@
-import { NavLink, useNavigate } from "react-router-dom";
 import "./Home.css";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { authStore } from "../../../Redux/AuthState";
 import AllVacations from "../../VacationsArea/AllVacations/AllVacations";
@@ -20,6 +20,17 @@ function Home(): JSX.Element {
 
     return (
         <div className="Home">
+            <div className="container">
+                <h1>Welcome to Your Dream Vacation!</h1>
+                <p className="description">Discover the world with our all-inclusive package vacations to diverse destinations around the globe.
+                    Skip the hassle of arranging accommodations, activities, and services separately—we've got you covered.</p>
+                <p className="description">Whether you're dreaming of sandy beaches, vibrant cities, or breathtaking landscapes, our carefully curated packages offer the perfect escape.
+                    From tropical paradises to cultural hotspots, our vacations ensure you can relax and enjoy every moment.</p>
+                <p className="description">Picture yourself lounging by the pool, exploring local attractions, and immersing yourself in new experiences, all without the stress of planning.
+                    Start your adventure today and let us handle the details while you create lifelong memories.</p>
+                <p className="note">Please note that our packages do not include flights to and from the vacation, allowing you the flexibility to choose your preferred travel arrangements.</p>
+            </div>
+
 			{isLoggedIn &&
             <>
             <AllVacations />

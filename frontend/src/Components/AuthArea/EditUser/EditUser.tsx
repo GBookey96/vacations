@@ -1,13 +1,13 @@
 import "./EditUser.css";
-import { useForm } from "react-hook-form";
-import UserModel from "../../../Models/user-model";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from 'react';
+import { useForm } from "react-hook-form";
+import UserModel from "../../../Models/user-model";
 import authService from "../../../Services/AuthService";
 
 function EditUser(): JSX.Element {
     
-    const {register, handleSubmit, formState, setValue} = useForm<UserModel>()
+    const {register, handleSubmit, setValue} = useForm<UserModel>()
     const navigate = useNavigate()
     const params = useParams()
 

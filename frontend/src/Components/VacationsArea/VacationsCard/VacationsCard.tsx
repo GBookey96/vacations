@@ -1,9 +1,9 @@
-import VacationModel from "../../../Models/vacations-model";
 import "./VacationsCard.css";
-import logo from "../../../assets/Rome-Inside-the-Colosseum-or-Coliseum-in-summer.jpg"
-import { useState } from "react";
-import appConfig from "../../../Utils/config";
 import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import VacationModel from "../../../Models/vacations-model";
+import appConfig from "../../../Utils/config";
+import { authStore } from "../../../Redux/AuthState";
 
 interface VacationsCardProps {
 	vacation: VacationModel,
@@ -13,6 +13,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
 
     const [isFollowing, setIsFollowing] = useState<boolean>(false)
     const [followerCount, setFollowerCount] = useState<number>(0)
+    const [isAdmin, setIsAdmin] = useState<boolean>()
 
     const navigate = useNavigate()
 
@@ -31,15 +32,25 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
         const date = new Date(inputDate).toLocaleDateString().split("T")[0]
         return date
     }
+
+    useEffect(()=>{
+        let userRole = authStore.getState().user.userRole
+        if(userRole === "Admin") setIsAdmin(true)
+        const unsubscribe = authStore.subscribe(()=>{
+            userRole = authStore.getState().user.userRole
+            userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
+        })
+        return unsubscribe
+    },[])
     
     return (
         <div className="VacationsCard">
-            <button onClick={follow} className="Like">
+            <div onClick={follow} className="Like">
                 {isFollowing && <><span className="Liked">❤</span></>}
                 {!isFollowing && <>🤍</>}
                 <span> {followerCount}</span>
-            </button>
-            <button onClick={()=>navigate("/vacation/edit/" + props.vacation.vacationId)}>Edit</button>
+            </div>
+            {isAdmin && <button onClick={()=>navigate("/vacation/edit/" + props.vacation.vacationId)} className="EditVacationButton">Edit</button>}
             <h2 className="destination">{props.vacation.vacationDestination}</h2>
             <p className="OneLine">{props.vacation.vacationOneLine}</p>
             <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />

@@ -1,6 +1,6 @@
+import { AuthActionType, authStore } from "../Redux/AuthState"
 import axios from "axios"
 import appConfig from "../Utils/config"
-import { AuthActionType, authStore } from "../Redux/AuthState"
 import UserModel from "../Models/user-model"
 import CredentialsModel from "../Models/credentials-model"
 

@@ -37,7 +37,7 @@
 
   .VacationsCard > .OneLine {
     position: absolute;
-    top: 154px;
+    top: 175px;
     left: 6px;
     padding: 4px;
     height: 100%;
@@ -52,7 +52,8 @@
   }
 
   .VacationsCard > .Like {
-    background-color: #814eaf;
+    background-color: none;
+    box-shadow: 10px 10px white;
     position: absolute;
     left: 5%;
     top: 1%;
@@ -62,4 +63,11 @@
 
   .VacationsCard .Liked {
     color: red;
+  }
+
+  .VacationsCard .EditVacationButton {
+    background-color: transparent;
+    position: absolute;
+    top: 1%;
+    right: 1%;
   }

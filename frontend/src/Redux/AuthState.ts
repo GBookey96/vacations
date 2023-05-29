@@ -1,6 +1,6 @@
+import { createStore } from "redux";
 import jwtDecode from "jwt-decode";
 import UserModel from "../Models/user-model";
-import { createStore } from "redux";
 
 export class AuthState {
     public token: string = null;

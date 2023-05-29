@@ -1,9 +1,9 @@
 import "./Login.css";
 import { useForm } from "react-hook-form";
-import CredentialsModel from "../../../Models/credentials-model";
 import { useNavigate } from "react-router-dom";
-import authService from "../../../Services/AuthService";
 import { NavLink } from "react-router-dom";
+import CredentialsModel from "../../../Models/credentials-model";
+import authService from "../../../Services/AuthService";
 
 function Login(): JSX.Element {
     const { register, handleSubmit} = useForm<CredentialsModel>()

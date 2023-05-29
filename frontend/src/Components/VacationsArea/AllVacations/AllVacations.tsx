@@ -1,10 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import "./AllVacations.css";
+import { useState, useEffect } from 'react';
 import VacationModel from "../../../Models/vacations-model";
 import vacationsService from "../../../Services/VacationsService";
 import VacationsCard from "../VacationsCard/VacationsCard";
-import "./AllVacations.css";
-import { useState, useEffect } from 'react';
-
+import { NavLink } from "react-router-dom";
+import { authStore } from "../../../Redux/AuthState";
 
 
 function AllVacations(): JSX.Element {
@@ -14,17 +14,27 @@ function AllVacations(): JSX.Element {
     const [vacationsFollowing, setVacationsFollowing] = useState<VacationModel[]>([])
     const [notYetStarted, setNotYetStarted] = useState<VacationModel[]>([])
     const [activeVacations, setActiveVacations] = useState<VacationModel[]>([])
-
-    const navigate = useNavigate()
+    const [isAdmin, setIsAdmin] = useState<boolean>(false)
 
     useEffect(()=>{
         vacationsService.getAllVacations()
             .then(vacations => arrangeVacations(vacations))
             .catch(err => console.log(err))
     },[])
+    
+    useEffect(()=>{
+        let userRole = authStore.getState().user.userRole
+        if(userRole === "Admin") setIsAdmin(true)
+        const unsubscribe = authStore.subscribe(()=>{
+            userRole = authStore.getState().user.userRole
+            userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
+        })
+        return unsubscribe
+    },[])
 
     function arrangeVacations(vacations: VacationModel[]) {
-
+        
+        // sort all vacations by date
         const sortedVacations = vacations.sort((a, b) => a.vacationStart.localeCompare(b.vacationStart))
 
         setAllVacations(sortedVacations)
@@ -57,22 +67,26 @@ function AllVacations(): JSX.Element {
     }
 
     function showActiveVacations() {
-
         setShowVacations(activeVacations)
     }
 
     return (
         <div className="AllVacations">
+
+            {isAdmin && <NavLink to="/add-vacation">Add New Vacation</NavLink>}
+            {!isAdmin && <>
             <div className="FilterOptions">
-                <h3>Filter Options</h3>
-                <button onClick={showOnlyFollowing}>Only show vacations you are following</button>
+                <h3>Filters</h3>
+                <button onClick={showOnlyFollowing}>Vacations you are following</button>
                 <br />
-                <button onClick={showNotYetStartedVacations}>Only show vacations that have not yet started</button>
+                <button onClick={showNotYetStartedVacations}>Vacations that have not yet started</button>
                 <br />
-                <button onClick={showActiveVacations}>Only show active vacations</button>
+                <button onClick={showActiveVacations}>Active vacations</button>
                 <br />
                 <button onClick={showAll}>Show All</button>
             </div>
+            </>}
+            
             <br />
             <div className="Vacations">
                 {showVacations.map(v => <VacationsCard key={v.vacationId} vacation={v}/>)}

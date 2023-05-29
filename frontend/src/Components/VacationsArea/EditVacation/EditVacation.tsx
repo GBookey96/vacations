@@ -1,14 +1,14 @@
-import { useForm } from "react-hook-form";
 import "./EditVacation.css";
-import VacationModel from "../../../Models/vacations-model";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { authStore } from "../../../Redux/AuthState";
+import { useForm } from "react-hook-form";
+import VacationModel from "../../../Models/vacations-model";
 import vacationsService from "../../../Services/VacationsService";
 
 function EditVacation(): JSX.Element {
     
-    const {register, handleSubmit, formState, setValue} = useForm<VacationModel>()
+    const {register, handleSubmit, setValue} = useForm<VacationModel>()
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
     const navigate = useNavigate()
     const params = useParams()

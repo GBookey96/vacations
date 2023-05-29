@@ -6,7 +6,6 @@ import Register from "../../AuthArea/Register/Register";
 import Login from "../../AuthArea/Login/Login";
 import Logout from "../../AuthArea/Logout/Logout";
 import EditUser from "../../AuthArea/EditUser/EditUser";
-import AllVacations from "../../VacationsArea/AllVacations/AllVacations";
 import AddVacation from "../../VacationsArea/AddVacation/AddVacation";
 import EditVacation from "../../VacationsArea/EditVacation/EditVacation";
 

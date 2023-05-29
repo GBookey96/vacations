@@ -1,5 +1,5 @@
-import VacationModel from "../Models/vacations-model";
 import { createStore } from 'redux';
+import VacationModel from "../Models/vacations-model";
 
 
 export class VacationsState {

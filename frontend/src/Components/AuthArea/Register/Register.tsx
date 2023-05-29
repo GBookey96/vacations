@@ -1,11 +1,11 @@
 import "./Register.css";
 import { useForm } from "react-hook-form";
-import authService from "../../../Services/AuthService";
 import { useNavigate } from "react-router-dom";
-import ReCAPTCHA from "react-google-recaptcha";
 import { useState } from "react";
-import UserModel from "../../../Models/user-model";
 import { NavLink } from "react-router-dom";
+import authService from "../../../Services/AuthService";
+import ReCAPTCHA from "react-google-recaptcha";
+import UserModel from "../../../Models/user-model";
 
 function Register(): JSX.Element {
 

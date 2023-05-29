@@ -2,4 +2,6 @@ html, body, #root {
   height: 100%;
   text-align: center;
 	background-color: #8dbdff;
+  font-family: "Open Sans", Arial, sans-serif;
+  /* width: 1700px; */
 }
