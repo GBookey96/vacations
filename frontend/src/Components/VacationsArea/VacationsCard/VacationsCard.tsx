@@ -45,18 +45,22 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     
     return (
         <div className="VacationsCard">
-            <div onClick={follow} className="Like">
-                {isFollowing && <><span className="Liked">❤</span></>}
-                {!isFollowing && <>🤍</>}
-                <span> {followerCount}</span>
+            <div className="TopSection">
+                {isAdmin && <button onClick={()=>navigate("/vacation/edit/" + props.vacation.vacationId)} className="EditVacationButton">Edit</button>}
+                <h2 className="Destination">{props.vacation.vacationDestination}</h2>
+                <div onClick={follow} className="Like">
+                    {isFollowing && <><span className="Liked">❤</span></>}
+                    {!isFollowing && <>🤍</>}
+                    <span> {followerCount}</span>
+                </div>
             </div>
-            {isAdmin && <button onClick={()=>navigate("/vacation/edit/" + props.vacation.vacationId)} className="EditVacationButton">Edit</button>}
-            <h2 className="destination">{props.vacation.vacationDestination}</h2>
             <p className="OneLine">{props.vacation.vacationOneLine}</p>
             <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />
             <p className="Dates">{formatDate(props.vacation.vacationStart)} ➡ {formatDate(props.vacation.vacationEnd)}</p>
             <p className="Description">{props.vacation.vacationDescription}</p>
-            <h3 className="Price">${props.vacation.vacationPrice}</h3>
+            <div className="PriceContainer">
+                <h3 className="Price">${props.vacation.vacationPrice}</h3>
+            </div>
         </div>
     );
 }
