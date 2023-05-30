@@ -12,6 +12,7 @@ function EditVacation(): JSX.Element {
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
     const navigate = useNavigate()
     const params = useParams()
+    
     useEffect(()=>{
         let user = authStore.getState().user
         if(user) setIsLoggedIn(true)
@@ -26,13 +27,11 @@ function EditVacation(): JSX.Element {
         const id = +params.vacationId
         vacationsService.getOneVacation(id)
             .then(v => {
-                console.log(typeof v)
                 setValue("vacationId", v.vacationId)
                 setValue("vacationDestination", v.vacationDestination)
                 setValue("vacationDescription", v.vacationDescription)
-                setValue("vacationStart", v.vacationStart)
-                setValue("vacationEnd", v.vacationEnd)
-                setValue("vacationOneLine", v.vacationOneLine)
+                setValue("vacationStart", new Date(v.vacationStart).toISOString().split("T")[0])
+                setValue("vacationEnd", new Date(v.vacationEnd).toISOString().split("T")[0])
                 setValue("vacationPrice", v.vacationPrice)
             })
             .catch(err => alert(err.message))
@@ -57,25 +56,22 @@ function EditVacation(): JSX.Element {
                 <input type="hidden" {...register("vacationId")} />
 
                 <label>Destination</label>
-                <input type="text" {...register("vacationDestination")} required autoFocus/>
+                <input type="text" {...register("vacationDestination")} autoFocus/>
 
                 <label>Vacation Description</label>
-                <textarea cols={30} rows={10} {...register("vacationDescription")} required></textarea>
+                <textarea cols={30} rows={10} {...register("vacationDescription")}></textarea>
 
                 <label>Start Date</label>
-                <input type="date" {...register("vacationStart")} required/>
+                <input type="date" {...register("vacationStart")}/>
 
                 <label>End Date</label>
-                <input type="date" {...register("vacationEnd")} required/>
-
-                <label>One Word Description</label>
-                <input type="text" {...register("vacationOneLine")} required/>
+                <input type="date" {...register("vacationEnd")}/>
                 
                 <label>Price</label>
-                <input type="number" {...register("vacationPrice")} required/>
+                <input type="number" {...register("vacationPrice")}/>
 
                 <label>Image</label>
-                <input type="file" {...register("vacationImg")}/>
+                <input type="file" accept="image/*" {...register("vacationImg")}/>
 
                 <button>Update</button>
             </form>

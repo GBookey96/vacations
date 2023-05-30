@@ -5,7 +5,6 @@ class VacationModel {
     public vacationDescription: string
     public vacationStart: string
     public vacationEnd: string
-    public vacationOneLine: string
     public vacationPrice: number
     public vacationImg: FileList
     public vacationImgName: string

@@ -28,8 +28,8 @@ async function addVacation(vacation: VacationModel): Promise<VacationModel> {
         delete vacation.vacationImg
     
 
-    const sql = `INSERT INTO vacations VALUES( DEFAULT, ?, ?, ?, ?, ?, ?, ?)`
-    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationOneLine, +vacation.vacationPrice, vacation.vacationImgName])
+    const sql = `INSERT INTO vacations VALUES( DEFAULT, ?, ?, ?, ?, ?, ?)`
+    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, +vacation.vacationPrice, vacation.vacationImgName])
     vacation.vacationId = info.insertId
     return vacation
 }
@@ -57,11 +57,10 @@ async function updateVacation(vacation: VacationModel): Promise<VacationModel> {
                     vacationDescription = ?,
                     vacationStart = ?,
                     vacationEnd = ?,
-                    vacationOneLine = ?,
                     vacationPrice = ?
                 WHERE vacationId = ?
     `
-    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationOneLine, vacation.vacationPrice, vacation.vacationId])
+    const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationPrice, vacation.vacationId])
     if(info.affectedRows === 0) throw new ResourceNotFoundErrorModel(vacation.vacationId)
     return vacation
 }

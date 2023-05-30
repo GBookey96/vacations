@@ -7,7 +7,6 @@ class VacationModel {
     public vacationDescription: string
     public vacationStart: string
     public vacationEnd: string
-    public vacationOneLine: string
     public vacationPrice: number
     public vacationImg: UploadedFile
     public vacationImgName: string
@@ -18,7 +17,6 @@ class VacationModel {
         this.vacationDescription = vacation.vacationDescription
         this.vacationStart = vacation.vacationStart
         this.vacationEnd = vacation.vacationEnd
-        this.vacationOneLine = vacation.vacationOneLine
         this.vacationPrice = vacation.vacationPrice
         this.vacationImg = vacation.vacationImg
         this.vacationImgName = vacation.vacationImgName
@@ -30,7 +28,6 @@ class VacationModel {
         vacationDescription: Joi.string().required().min(100).max(5000),
         vacationStart: Joi.string().required(),
         vacationEnd: Joi.string().required(),
-        vacationOneLine: Joi.string().required().min(3).max(15),
         vacationPrice: Joi.number().required().positive().integer().max(10000),
         vacationImg: Joi.object().optional(),
         vacationImgName: Joi.string().optional()

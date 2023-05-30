@@ -47,9 +47,6 @@ function AddVacation(): JSX.Element {
 
                 <label>End Date</label>
                 <input type="date" {...register("vacationEnd")}/>
-
-                <label>One Word Description</label>
-                <input type="text" {...register("vacationOneLine")} placeholder="One-word description"/>
                 
                 <label>Price</label>
                 <input type="number" {...register("vacationPrice")} placeholder="Enter Price"/>

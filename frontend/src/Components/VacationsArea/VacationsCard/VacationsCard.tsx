@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import VacationModel from "../../../Models/vacations-model";
 import appConfig from "../../../Utils/config";
 import { authStore } from "../../../Redux/AuthState";
+import vacationsService from './../../../Services/VacationsService';
 
 interface VacationsCardProps {
 	vacation: VacationModel,
@@ -42,19 +43,25 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
         })
         return unsubscribe
     },[])
+
+    async function deleteVacation(id: number) {
+        const areYouSure = window.confirm(`Are you sure you want to delete the vacation to ${props.vacation.vacationDestination}?\nThis action is irreversible!`)
+        if(areYouSure) await vacationsService.deleteVacation(id)
+        // console.log(areYouSure)
+    }
     
     return (
         <div className="VacationsCard">
             <div className="TopSection">
-                {isAdmin && <button onClick={()=>navigate("/vacation/edit/" + props.vacation.vacationId)} className="EditVacationButton">Edit</button>}
+                {isAdmin && <button onClick={()=>navigate("/vacation/edit/" + props.vacation.vacationId)} className="Button">Edit</button>}
+                {isAdmin && <button onClick={()=>deleteVacation(props.vacation.vacationId)} className="Button">Delete</button>}
                 <h2 className="Destination">{props.vacation.vacationDestination}</h2>
-                <div onClick={follow} className="Like">
+                {!isAdmin && <><div onClick={follow} className="Like">
                     {isFollowing && <><span className="Liked">❤</span></>}
                     {!isFollowing && <>🤍</>}
                     <span> {followerCount}</span>
-                </div>
+                </div></>}
             </div>
-            <p className="OneLine">{props.vacation.vacationOneLine}</p>
             <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />
             <p className="Dates">{formatDate(props.vacation.vacationStart)} ➡ {formatDate(props.vacation.vacationEnd)}</p>
             <p className="Description">{props.vacation.vacationDescription}</p>
@@ -62,6 +69,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
                 <h3 className="Price">${props.vacation.vacationPrice}</h3>
             </div>
         </div>
+
     );
 }
 

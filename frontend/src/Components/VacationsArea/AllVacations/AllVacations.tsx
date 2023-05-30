@@ -16,23 +16,14 @@ function AllVacations(): JSX.Element {
     const [activeVacations, setActiveVacations] = useState<VacationModel[]>([])
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
 
+    // brings all vacations from backend
     useEffect(()=>{
         vacationsService.getAllVacations()
-            .then(vacations => arrangeVacations(vacations))
+            .then(vacations => sortByDate(vacations))
             .catch(err => console.log(err))
     },[])
-    
-    useEffect(()=>{
-        let userRole = authStore.getState().user.userRole
-        if(userRole === "Admin") setIsAdmin(true)
-        const unsubscribe = authStore.subscribe(()=>{
-            userRole = authStore.getState().user.userRole
-            userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
-        })
-        return unsubscribe
-    },[])
 
-    function arrangeVacations(vacations: VacationModel[]) {
+    function sortByDate(vacations: VacationModel[]) {
         
         // sort all vacations by date
         const sortedVacations = vacations.sort((a, b) => a.vacationStart.localeCompare(b.vacationStart))
@@ -54,6 +45,8 @@ function AllVacations(): JSX.Element {
         setActiveVacations(activeVacationsList)
     }
 
+    
+
     function showAll() {
         setShowVacations(allVacations)
     }
@@ -69,6 +62,17 @@ function AllVacations(): JSX.Element {
     function showActiveVacations() {
         setShowVacations(activeVacations)
     }
+
+    // checks if user is admin or not, to decide which elements to show
+    useEffect(()=>{
+        let userRole = authStore.getState().user.userRole
+        if(userRole === "Admin") setIsAdmin(true)
+        const unsubscribe = authStore.subscribe(()=>{
+            userRole = authStore.getState().user.userRole
+            userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
+        })
+        return unsubscribe
+    },[])
 
     return (
         <div className="AllVacations">

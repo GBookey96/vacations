@@ -33,7 +33,6 @@ class VacationsService {
         myFormData.append("vacationDescription", vacation.vacationDescription)
         myFormData.append("vacationStart", vacation.vacationStart)
         myFormData.append("vacationEnd", vacation.vacationEnd)
-        myFormData.append("vacationOneLine", vacation.vacationOneLine)
         myFormData.append("vacationPrice", vacation.vacationPrice.toString())
         myFormData.append("vacationImg", vacation.vacationImg[0])
         const response = await axios.post<VacationModel>(appConfig.vacationsUrl, myFormData)
@@ -47,16 +46,15 @@ class VacationsService {
         myFormData.append("vacationDescription", vacation.vacationDescription)
         myFormData.append("vacationStart", vacation.vacationStart)
         myFormData.append("vacationEnd", vacation.vacationEnd)
-        myFormData.append("vacationOneLine", vacation.vacationOneLine)
         myFormData.append("vacationPrice", vacation.vacationPrice.toString())
         myFormData.append("vacationImg", vacation.vacationImg[0])
-        const response = await axios.put<VacationModel>(appConfig.vacationsUrl + vacation.vacationId, myFormData)
+        const response = await axios.put<VacationModel>(appConfig.updateVacationsUrl + vacation.vacationId, myFormData)
         const updatedVacation = response.data
         vacationsStore.dispatch({type: VacationsActionType.UpdateVacations, payload: updatedVacation})
     }
 
     public async deleteVacation(id: number): Promise<void> {
-        await axios.delete(appConfig.vacationsUrl + id)
+        await axios.delete(appConfig.deleteVacationsUrl + id)
         vacationsStore.dispatch({type: VacationsActionType.DeleteVacations, payload: id})
     }
 
