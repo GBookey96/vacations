@@ -62,7 +62,7 @@ function EditVacation(): JSX.Element {
                 <textarea cols={30} rows={10} {...register("vacationDescription")}></textarea>
 
                 <label>Start Date</label>
-                <input type="date" {...register("vacationStart")}/>
+                <input type="date" min={new Date().toISOString().split("T")[0]} {...register("vacationStart")}/>
 
                 <label>End Date</label>
                 <input type="date" {...register("vacationEnd")}/>

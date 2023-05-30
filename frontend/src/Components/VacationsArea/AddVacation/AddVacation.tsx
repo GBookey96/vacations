@@ -43,10 +43,10 @@ function AddVacation(): JSX.Element {
                 <textarea cols={30} rows={10} maxLength={1000} {...register("vacationDescription")} placeholder="Provide a description of the vacation in less than 1000 characters"></textarea>
 
                 <label>Start Date</label>
-                <input type="date" {...register("vacationStart")}/>
+                <input type="date" id="start" min={new Date().toISOString().split("T")[0]} {...register("vacationStart")}/>
 
                 <label>End Date</label>
-                <input type="date" {...register("vacationEnd")}/>
+                <input type="date" id="end" {...register("vacationEnd")}/>
                 
                 <label>Price</label>
                 <input type="number" {...register("vacationPrice")} placeholder="Enter Price"/>
