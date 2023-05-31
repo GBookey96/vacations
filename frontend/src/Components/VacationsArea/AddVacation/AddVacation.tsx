@@ -35,30 +35,36 @@ function AddVacation(): JSX.Element {
     }
 
     return (
-        <div className="AddVacation">
+        <div>
+
             {isAdmin && <>
-                <h2>Add Vacation</h2>
-            <form onSubmit={handleSubmit(submit)}>
-                <label>Destination</label>
-                <input type="text" maxLength={30} {...register("vacationDestination")} placeholder="Enter Destination name" />
-
-                <label>Vacation Description</label>
-                <textarea cols={30} rows={10} maxLength={1000} {...register("vacationDescription")} placeholder="Provide a description of the vacation in less than 1000 characters"></textarea>
-
-                <label>Start Date</label>
-                <input type="date" id="start" min={new Date().toISOString().split("T")[0]} {...register("vacationStart")}/>
-
-                <label>End Date</label>
-                <input type="date" id="end" {...register("vacationEnd")}/>
+                <div className="AddVacation">
                 
-                <label>Price</label>
-                <input type="number" {...register("vacationPrice")} placeholder="Enter Price"/>
+                    <h2>Add Vacation</h2>
 
-                <label>Image</label>
-                <input type="file" accept="image/*" {...register("vacationImg")} />
+                    <form onSubmit={handleSubmit(submit)}>
 
-                <button>Add</button>
-            </form>
+                        <label>Destination</label>
+                        <input type="text" maxLength={30} {...register("vacationDestination")} placeholder="Enter Destination name" />
+
+                        <label>Vacation Description</label>
+                        <textarea cols={30} rows={10} maxLength={1000} {...register("vacationDescription")} placeholder="Provide a description of the vacation in less than 1000 characters"></textarea>
+
+                        <label>Start Date</label>
+                        <input type="date" id="start" min={new Date().toISOString().split("T")[0]} {...register("vacationStart")}/>
+
+                        <label>End Date</label>
+                        <input type="date" id="end" {...register("vacationEnd")}/>
+                        
+                        <label>Price</label>
+                        <input type="number" {...register("vacationPrice")} placeholder="Enter Price"/>
+
+                        <label>Image</label>
+                        <input type="file" accept="image/*" {...register("vacationImg")} />
+
+                        <button>Add</button>
+                    </form>
+                </div>
             </>}
             {!isAdmin && <>
                 <AdminOnly />

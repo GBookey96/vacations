@@ -52,38 +52,40 @@ function EditVacation(): JSX.Element {
     }
 
     return (
-        <div className="EditVacation">
+        <div>
             {isAdmin && <>
-            
-            <h2>Update Vacation</h2>
-            <form onSubmit={handleSubmit(submit)}>
+                <div className="EditVacation">
+                    <h2>Update Vacation</h2>
+                    <form onSubmit={handleSubmit(submit)}>
 
-                <input type="hidden" {...register("vacationId")} />
+                        <input type="hidden" {...register("vacationId")} />
 
-                <label>Destination</label>
-                <input type="text" {...register("vacationDestination")} autoFocus/>
+                        <label>Destination</label>
+                        <input type="text" {...register("vacationDestination")} autoFocus/>
 
-                <label>Vacation Description</label>
-                <textarea cols={30} rows={10} {...register("vacationDescription")}></textarea>
+                        <label>Vacation Description</label>
+                        <textarea cols={30} rows={10} {...register("vacationDescription")}></textarea>
 
-                <label>Start Date</label>
-                <input type="date" min={new Date().toISOString().split("T")[0]} {...register("vacationStart")}/>
+                        <label>Start Date</label>
+                        <input type="date" min={new Date().toISOString().split("T")[0]} {...register("vacationStart")}/>
 
-                <label>End Date</label>
-                <input type="date" {...register("vacationEnd")}/>
-                
-                <label>Price</label>
-                <input type="number" {...register("vacationPrice")}/>
+                        <label>End Date</label>
+                        <input type="date" {...register("vacationEnd")}/>
+                        
+                        <label>Price</label>
+                        <input type="number" {...register("vacationPrice")}/>
 
-                <label>Image</label>
-                <input type="file" accept="image/*" {...register("vacationImg")}/>
+                        <label>Image</label>
+                        <input type="file" accept="image/*" {...register("vacationImg")}/>
 
-                <button>Update</button>
-            </form>
+                        <button>Update</button>
+                    </form>
+                </div>
             </>}
             {!isAdmin && <>
                 <AdminOnly />
             </>}
+        
         </div>
     );
 }

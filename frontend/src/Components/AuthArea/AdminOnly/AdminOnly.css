@@ -4,4 +4,13 @@
     color: #555;
     margin-bottom: 20px;
     text-align: justify;
+
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #001f3f;
+    border-radius: 10px;
+    background-color: #E2CFAD;
+    color: #001f3f;
 }
