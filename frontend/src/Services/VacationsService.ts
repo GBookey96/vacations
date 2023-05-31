@@ -47,7 +47,7 @@ class VacationsService {
         myFormData.append("vacationStart", vacation.vacationStart)
         myFormData.append("vacationEnd", vacation.vacationEnd)
         myFormData.append("vacationPrice", vacation.vacationPrice.toString())
-        myFormData.append("vacationImg", vacation.vacationImg[0])
+        if(vacation.vacationImg[0]) myFormData.append("vacationImg", vacation.vacationImg[0])
         const response = await axios.put<VacationModel>(appConfig.updateVacationsUrl + vacation.vacationId, myFormData)
         const updatedVacation = response.data
         vacationsStore.dispatch({type: VacationsActionType.UpdateVacations, payload: updatedVacation})

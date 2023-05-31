@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import VacationModel from "../../../Models/vacations-model";
 import appConfig from "../../../Utils/config";
 import { authStore } from "../../../Redux/AuthState";
-import vacationsService from './../../../Services/VacationsService';
+import vacationsService from "../../../Services/VacationsService";
 
 interface VacationsCardProps {
 	vacation: VacationModel,
@@ -44,18 +44,32 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
         return unsubscribe
     },[])
 
+    const [showModal, setShowModal] = useState<boolean>(false)
+    function toggleDeleteModal() {
+        setShowModal(!showModal)
+    }
+
     async function deleteVacation(id: number) {
-        const areYouSure = window.confirm(`Are you sure you want to delete the vacation to ${props.vacation.vacationDestination}?\nThis action is irreversible!`)
-        if(areYouSure) await vacationsService.deleteVacation(id)
-        // console.log(areYouSure)
+        await vacationsService.deleteVacation(id)
+        alert("Vacation has been deleted!")
+        navigate("/add-vacation")
     }
     
     return (
         <div className="VacationsCard">
             <div className="TopSection">
                 {isAdmin && <button onClick={()=>navigate("/vacation/edit/" + props.vacation.vacationId)} className="Button">Edit</button>}
-                {isAdmin && <button onClick={()=>deleteVacation(props.vacation.vacationId)} className="Button">Delete</button>}
+                {isAdmin && <button onClick={()=>toggleDeleteModal()} className="Button">Delete</button>}
+
                 <h2 className="Destination">{props.vacation.vacationDestination}</h2>
+                {showModal && <>
+                <div className="ConfirmDeleteModelContent" onClick={toggleDeleteModal}>
+                    <p>Are you sure you want to delete this vacation?</p>
+                    <p>This action is irreversible?</p>
+                    <button className="Button" onClick={()=>deleteVacation(props.vacation.vacationId)}>Confirm</button>
+                    <button className="Button" onClick={toggleDeleteModal}>Cancel</button>
+                </div>
+                </>}
                 {!isAdmin && <><div onClick={follow} className="Like">
                     {isFollowing && <><span className="Liked">❤</span></>}
                     {!isFollowing && <>🤍</>}
