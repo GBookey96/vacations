@@ -1,4 +1,4 @@
-.AddVacation {
+div.AddVacation {
     width: 250px;
     margin: 20px auto;
     text-align: left;
@@ -7,10 +7,6 @@
     border-radius: 10px;
     background-color: #E2CFAD;
     color: #001f3f;
-}
-
-.AddVacation .Register {
-    text-align: center;
 }
 
 .AddVacation > h2 {

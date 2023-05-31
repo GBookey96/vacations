@@ -5,18 +5,20 @@ import { useNavigate } from "react-router-dom";
 import { authStore } from "../../../Redux/AuthState";
 import vacationsService from "../../../Services/VacationsService";
 import VacationModel from "../../../Models/vacations-model";
+import AdminOnly from "../../AuthArea/AdminOnly/AdminOnly";
 
 function AddVacation(): JSX.Element {
     const {register, handleSubmit} = useForm<VacationModel>()
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+    const [isAdmin, setIsAdmin] = useState<boolean>(false)
     const navigate = useNavigate()
 
     useEffect(()=>{
         let user = authStore.getState().user
-        if(user) setIsLoggedIn(true)
+        let userRole = user?.userRole
+        if(user && userRole === "Admin") setIsAdmin(true)
         const unsubscribe = authStore.subscribe(()=>{
-            user = authStore.getState().user
-            user ? setIsLoggedIn(true) : setIsLoggedIn(false)
+            userRole = authStore.getState().user.userRole
+            userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
         })
         return unsubscribe
     },[])
@@ -34,7 +36,8 @@ function AddVacation(): JSX.Element {
 
     return (
         <div className="AddVacation">
-            <h2>Add Vacation</h2>
+            {isAdmin && <>
+                <h2>Add Vacation</h2>
             <form onSubmit={handleSubmit(submit)}>
                 <label>Destination</label>
                 <input type="text" maxLength={30} {...register("vacationDestination")} placeholder="Enter Destination name" />
@@ -56,6 +59,10 @@ function AddVacation(): JSX.Element {
 
                 <button>Add</button>
             </form>
+            </>}
+            {!isAdmin && <>
+                <AdminOnly />
+            </>}
         </div>
     );
 }

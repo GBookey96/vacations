@@ -5,20 +5,23 @@ import { authStore } from "../../../Redux/AuthState";
 import { useForm } from "react-hook-form";
 import VacationModel from "../../../Models/vacations-model";
 import vacationsService from "../../../Services/VacationsService";
+import AdminOnly from "../../AuthArea/AdminOnly/AdminOnly";
 
 function EditVacation(): JSX.Element {
     
     const {register, handleSubmit, setValue} = useForm<VacationModel>()
-    const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
+    const [isAdmin, setIsAdmin] = useState<boolean>(false)
     const navigate = useNavigate()
     const params = useParams()
     
     useEffect(()=>{
         let user = authStore.getState().user
-        if(user) setIsLoggedIn(true)
+        let userRole = user?.userRole
+        if(user && userRole === "Admin") setIsAdmin(true)
         const unsubscribe = authStore.subscribe(()=>{
             user = authStore.getState().user
-            user ? setIsLoggedIn(true) : setIsLoggedIn(false)
+            userRole = user?.userRole
+            userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
         })
         return unsubscribe
     },[])
@@ -50,6 +53,8 @@ function EditVacation(): JSX.Element {
 
     return (
         <div className="EditVacation">
+            {isAdmin && <>
+            
             <h2>Update Vacation</h2>
             <form onSubmit={handleSubmit(submit)}>
 
@@ -75,6 +80,10 @@ function EditVacation(): JSX.Element {
 
                 <button>Update</button>
             </form>
+            </>}
+            {!isAdmin && <>
+                <AdminOnly />
+            </>}
         </div>
     );
 }
