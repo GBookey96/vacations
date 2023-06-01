@@ -1,14 +1,16 @@
 import "./AllVacations.css";
 import { useState, useEffect } from 'react';
+import { NavLink } from "react-router-dom";
+import { authStore } from "../../../Redux/AuthState";
+import { vacationsStore } from "../../../Redux/VacationsState";
 import VacationModel from "../../../Models/vacations-model";
 import vacationsService from "../../../Services/VacationsService";
 import VacationsCard from "../VacationsCard/VacationsCard";
-import { NavLink } from "react-router-dom";
-import { authStore } from "../../../Redux/AuthState";
-
 
 function AllVacations(): JSX.Element {
 
+
+    
     const [allVacations, setAllVacations] = useState<VacationModel[]>([])
     const [showVacations, setShowVacations] = useState<VacationModel[]>([])
     const [vacationsFollowing, setVacationsFollowing] = useState<VacationModel[]>([])
@@ -19,11 +21,21 @@ function AllVacations(): JSX.Element {
     // brings all vacations from backend
     useEffect(()=>{
         vacationsService.getAllVacations()
-            .then(vacations => sortByDate(vacations))
+            .then(vacations => {
+                setAllVacations(vacations)
+                arrangeVacations(vacations)
+            })
             .catch(err => console.log(err))
+
+        const unsubscribe = vacationsStore.subscribe(()=>{
+            const vacations = vacationsStore.getState().vacations
+            setAllVacations(vacations)
+            arrangeVacations(vacations)
+        })
+        return unsubscribe
     },[])
 
-    function sortByDate(vacations: VacationModel[]) {
+    function arrangeVacations(vacations: VacationModel[]) {
         
         // sort all vacations by date
         const sortedVacations = vacations.sort((a, b) => a.vacationStart.localeCompare(b.vacationStart))
@@ -32,7 +44,7 @@ function AllVacations(): JSX.Element {
         setShowVacations(sortedVacations)
     
         // find vacations following
-        setVacationsFollowing(sortedVacations)
+        setVacationsFollowing([])
 
         const currentDate = new Date().toISOString().split("T")[0]
 
@@ -45,23 +57,13 @@ function AllVacations(): JSX.Element {
         setActiveVacations(activeVacationsList)
     }
 
-    
+    function showAll() {setShowVacations(allVacations)}
 
-    function showAll() {
-        setShowVacations(allVacations)
-    }
+    function showOnlyFollowing() {setShowVacations(vacationsFollowing)}
 
-    function showOnlyFollowing() {
-        setShowVacations(vacationsFollowing)
-    }
+    function showNotYetStartedVacations() {setShowVacations(notYetStarted)}
 
-    function showNotYetStartedVacations() {
-        setShowVacations(notYetStarted)
-    }
-
-    function showActiveVacations() {
-        setShowVacations(activeVacations)
-    }
+    function showActiveVacations() {setShowVacations(activeVacations)}
 
     // checks if user is admin or not, to decide which elements to show
     useEffect(()=>{
@@ -73,7 +75,7 @@ function AllVacations(): JSX.Element {
         })
         return unsubscribe
     },[])
-
+    
     return (
         <div className="AllVacations">
 

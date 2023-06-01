@@ -11,6 +11,8 @@ function EditVacation(): JSX.Element {
     
     const {register, handleSubmit, setValue} = useForm<VacationModel>()
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
+    const [rerender, setRerender] = useState<boolean>(false)
+
     const navigate = useNavigate()
     const params = useParams()
     
@@ -44,6 +46,7 @@ function EditVacation(): JSX.Element {
         try {
             await vacationsService.updateVacation(vacation)
             alert("Vacation Updated Successfully")
+            setRerender(!rerender)
             navigate("/home")
         }
         catch(err: any) {

@@ -3,7 +3,7 @@
   width: 300px;
   border: 1px solid #ccc;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   margin: 20px;
   background-color: #374151;
@@ -44,7 +44,13 @@
   height: 200px;
   object-fit: cover;
   margin-top: 10px;
+  border-radius: 10px;
 }
+
+.VacationsCard > .TopSection > .ConfirmDeleteModal {
+  color: #FF0000;
+}
+
 
 .VacationsCard > .Dates, .VacationsCard > .Description, .VacationsCard > .Price {
   margin-top: 10px;
@@ -52,6 +58,8 @@
 
 .VacationsCard > .Description {
   text-align: justify;
+  /* max-height: 300px;
+  overflow: auto; */
 }
 
 .VacationsCard > .PriceContainer {
@@ -75,17 +83,4 @@
 
 .VacationsCard .Liked {
   color: red;
-}
-
-.VacationsCard > .ConfirmDeleteModal > .ConfirmDeleteModalContent {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  line-height: 1.4;
-  background: #f1f1f1;
-  padding: 14px 28px;
-  border-radius: 3px;
-  max-width: 600px;
-  min-width: 300px;
 }

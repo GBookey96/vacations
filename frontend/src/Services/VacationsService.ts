@@ -57,7 +57,6 @@ class VacationsService {
         await axios.delete(appConfig.deleteVacationsUrl + id)
         vacationsStore.dispatch({type: VacationsActionType.DeleteVacations, payload: id})
     }
-
 }
 
 const vacationsService = new VacationsService()

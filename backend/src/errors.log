@@ -6928,3 +6928,122 @@ Stack: TypeError: Cannot read properties of undefined (reading 'name')
     at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:46:51
     at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
     at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Wed, 31 May 2023 16:28:24 GMT
+catchAll error
+Stack: Error: ENOENT: no such file or directory, unlink './src/1-assets/vacationImages/undefined'
+    at Object.unlinkSync (node:fs:1780:3)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:64:8)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.deleteVaction (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:132:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:58:29
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)--------------------------------------------------------------------------------------------
+Wed, 31 May 2023 16:29:40 GMT
+catchAll error
+Stack: Error: ENOENT: no such file or directory, unlink './src/1-assets/vacationImages/undefined'
+    at Object.unlinkSync (node:fs:1780:3)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:64:8)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.deleteVaction (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:132:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:58:29
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)--------------------------------------------------------------------------------------------
+Wed, 31 May 2023 16:29:45 GMT
+catchAll error
+Stack: Error: ENOENT: no such file or directory, unlink './src/1-assets/vacationImages/undefined'
+    at Object.unlinkSync (node:fs:1780:3)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:64:8)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.deleteVaction (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:132:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:58:29
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)--------------------------------------------------------------------------------------------
+Wed, 31 May 2023 16:29:50 GMT
+catchAll error
+Stack: Error: ENOENT: no such file or directory, unlink './src/1-assets/vacationImages/undefined'
+    at Object.unlinkSync (node:fs:1780:3)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:64:8)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.deleteVaction (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:132:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:58:29
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)--------------------------------------------------------------------------------------------
+Wed, 31 May 2023 16:56:14 GMT
+catchAll error
+Stack: Error: ENOENT: no such file or directory, unlink './src/1-assets/vacationImages/undefined'
+    at Object.unlinkSync (node:fs:1780:3)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:65:8)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at fulfilled (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)--------------------------------------------------------------------------------------------
+Wed, 31 May 2023 16:59:36 GMT
+catchAll error
+Stack: Error: ENOENT: no such file or directory, unlink './src/1-assets/vacationImages/undefined'
+    at Object.unlinkSync (node:fs:1780:3)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:69:8)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at fulfilled (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)--------------------------------------------------------------------------------------------
+Wed, 31 May 2023 17:01:06 GMT
+catchAll error
+Stack: Error: ENOENT: no such file or directory, unlink './src/1-assets/vacationImages/undefined'
+    at Object.unlinkSync (node:fs:1780:3)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:69:8)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at fulfilled (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)--------------------------------------------------------------------------------------------
+Wed, 31 May 2023 17:01:57 GMT
+catchAll error
+Stack: TypeError: Cannot read properties of undefined (reading 'name')
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:24:53)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:8:71
+    at new Promise (<anonymous>)
+    at __awaiter (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:4:12)
+    at Object.addVacation (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:77:12)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:46:51
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\6-controllers\vacation-controller.ts:14:53)--------------------------------------------------------------------------------------------
+Wed, 31 May 2023 17:07:35 GMT
+catchAll error
+Stack: Error: ENOENT: no such file or directory, unlink './src/1-assets/vacationImages/undefined'
+    at Object.unlinkSync (node:fs:1780:3)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:66:8)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at fulfilled (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)--------------------------------------------------------------------------------------------
+Thu, 01 Jun 2023 08:06:21 GMT
+catchAll error
+Stack: Error: ENOENT: no such file or directory, unlink './src/1-assets/vacationImages/undefined'
+    at Object.unlinkSync (node:fs:1780:3)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:65:8)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at fulfilled (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)--------------------------------------------------------------------------------------------
+Thu, 01 Jun 2023 08:06:30 GMT
+catchAll error
+Stack: Error: ENOENT: no such file or directory, unlink './src/1-assets/vacationImages/undefined'
+    at Object.unlinkSync (node:fs:1780:3)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:65:8)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at fulfilled (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)--------------------------------------------------------------------------------------------

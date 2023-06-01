@@ -15,6 +15,8 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     const [isFollowing, setIsFollowing] = useState<boolean>(false)
     const [followerCount, setFollowerCount] = useState<number>(0)
     const [isAdmin, setIsAdmin] = useState<boolean>()
+    const [rerender, setRerender] = useState<boolean>(false)
+
 
     const navigate = useNavigate()
 
@@ -52,7 +54,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     async function deleteVacation(id: number) {
         await vacationsService.deleteVacation(id)
         alert("Vacation has been deleted!")
-        navigate("/add-vacation")
+        setRerender(!rerender)
     }
     
     return (
@@ -63,7 +65,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
 
                 <h2 className="Destination">{props.vacation.vacationDestination}</h2>
                 {showModal && <>
-                <div className="ConfirmDeleteModelContent" onClick={toggleDeleteModal}>
+                <div className="ConfirmDeleteModal" onClick={toggleDeleteModal}>
                     <p>Are you sure you want to delete this vacation?</p>
                     <p>This action is irreversible?</p>
                     <button className="Button" onClick={()=>deleteVacation(props.vacation.vacationId)}>Confirm</button>
