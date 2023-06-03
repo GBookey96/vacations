@@ -64,7 +64,7 @@ async function deleteVaction(id: number): Promise<void> {
     const thisVacation = await getOneVacation(id)
     const thisVacationImgName = thisVacation.vacationImgName
 
-    fs.unlinkSync("./src/1-assets/vacationImages/" + thisVacationImgName)
+    // fs.unlinkSync("./src/1-assets/vacationImages/" + thisVacationImgName)
     const info: OkPacket = await dal.execute(sql, [id])
 
     if(info.affectedRows === 0) throw new ResourceNotFoundErrorModel(id)

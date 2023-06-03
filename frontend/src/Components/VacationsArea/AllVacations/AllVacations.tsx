@@ -8,9 +8,6 @@ import vacationsService from "../../../Services/VacationsService";
 import VacationsCard from "../VacationsCard/VacationsCard";
 
 function AllVacations(): JSX.Element {
-
-
-    
     const [allVacations, setAllVacations] = useState<VacationModel[]>([])
     const [showVacations, setShowVacations] = useState<VacationModel[]>([])
     const [vacationsFollowing, setVacationsFollowing] = useState<VacationModel[]>([])

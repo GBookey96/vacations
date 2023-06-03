@@ -15,20 +15,13 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     const [isFollowing, setIsFollowing] = useState<boolean>(false)
     const [followerCount, setFollowerCount] = useState<number>(0)
     const [isAdmin, setIsAdmin] = useState<boolean>()
-    const [rerender, setRerender] = useState<boolean>(false)
-
 
     const navigate = useNavigate()
 
     function follow() {
-        if(isFollowing) {
-            setIsFollowing(false)
-            setFollowerCount(followerCount - 1)
-        }
-        if(!isFollowing) {
-            setIsFollowing(true)
-            setFollowerCount(followerCount + 1)
-        }
+        !isFollowing ? setFollowerCount(followerCount+1) : setFollowerCount(followerCount-1)
+
+        setIsFollowing(!isFollowing)
     }
 
     function formatDate(inputDate: string): string {
@@ -54,7 +47,6 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     async function deleteVacation(id: number) {
         await vacationsService.deleteVacation(id)
         alert("Vacation has been deleted!")
-        setRerender(!rerender)
     }
     
     return (

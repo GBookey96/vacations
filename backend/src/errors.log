@@ -7047,3 +7047,12 @@ Stack: Error: ENOENT: no such file or directory, unlink './src/1-assets/vacation
     at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
     at fulfilled (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:5:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5)--------------------------------------------------------------------------------------------
+Sat, 03 Jun 2023 19:17:57 GMT
+catchAll error
+Stack: Error: ENOENT: no such file or directory, unlink './src/1-assets/vacationImages/undefined'
+    at Object.unlinkSync (node:fs:1780:3)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:67:8)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at fulfilled (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)--------------------------------------------------------------------------------------------
