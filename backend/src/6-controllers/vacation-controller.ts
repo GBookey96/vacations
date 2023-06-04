@@ -51,26 +51,26 @@ router.post("/vacations", verifyAdmin, async(request: Request, response: Respons
     }
 })
 
-router.delete("/vacations/delete/:id", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
+router.put("/vacations/update/:id", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
     try {
-        const id = +request.params.id
-        let vacationToDelete = await vacationLogic.getOneVacation(id)
-        await vacationLogic.deleteVaction(vacationToDelete)
-        response.sendStatus(204)
+        request.body.id = +request.params.id
+        request.body.vacationImg = request.files?.vacationImg
+        const vacation = new VacationModel(request.body)
+        vacation.vacationId = +request.params.id
+        const updatedVacation  = await vacationLogic.updateVacation(vacation)
+        response.json(updatedVacation)
     }
     catch(err: any) {
         next(err)
     }
 })
 
-router.put("/vacations/update/:id", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
+router.delete("/vacations/delete/:id", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
     try {
-        request.body.id = +request.params.id
-        
-        const vacation = new VacationModel(request.body)
-        vacation.vacationId = +request.params.id
-        const updatedVacation  = await vacationLogic.updateVacation(vacation)
-        response.json(updatedVacation)
+        const id = +request.params.id
+        let vacationToDelete = await vacationLogic.getOneVacation(id)
+        await vacationLogic.deleteVaction(vacationToDelete)
+        response.sendStatus(204)
     }
     catch(err: any) {
         next(err)
