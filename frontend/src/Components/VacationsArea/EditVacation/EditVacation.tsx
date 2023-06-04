@@ -11,7 +11,6 @@ function EditVacation(): JSX.Element {
     
     const {register, handleSubmit, setValue} = useForm<VacationModel>()
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
-    const [rerender, setRerender] = useState<boolean>(false)
 
     const navigate = useNavigate()
     const params = useParams()
@@ -46,7 +45,6 @@ function EditVacation(): JSX.Element {
         try {
             await vacationsService.updateVacation(vacation)
             alert("Vacation Updated Successfully")
-            setRerender(!rerender)
             navigate("/home")
         }
         catch(err: any) {
@@ -70,7 +68,7 @@ function EditVacation(): JSX.Element {
                         <textarea cols={30} rows={10} {...register("vacationDescription")}></textarea>
 
                         <label>Start Date</label>
-                        <input type="date" min={new Date().toISOString().split("T")[0]} {...register("vacationStart")}/>
+                        <input type="date" {...register("vacationStart")}/>
 
                         <label>End Date</label>
                         <input type="date" {...register("vacationEnd")}/>

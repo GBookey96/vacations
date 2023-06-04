@@ -6,6 +6,7 @@ import cors from "cors";
 import vacationController from "./6-controllers/vacation-controller";
 import authController from "./6-controllers/auth-controller";
 import expressFileUpload from 'express-fileupload'
+import followersController from "./6-controllers/followers-controller"
 
 const server = express()
 
@@ -16,6 +17,7 @@ server.use(expressFileUpload())
 
 server.use("/api", vacationController);
 server.use("/api", authController);
+server.use("/api", followersController)
 server.use("*", routeNotFound)
 server.use(catchAll)
 

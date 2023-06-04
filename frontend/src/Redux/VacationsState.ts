@@ -18,7 +18,7 @@ export interface VacationsAction {
     payload?: any
 }
 
-export function vacationsReducer(currentState = new VacationsState, action: VacationsAction): VacationsState {
+export function vacationsReducer(currentState = new VacationsState(), action: VacationsAction): VacationsState {
     const newState = {...currentState}
 
     switch(action.type) {

@@ -20,7 +20,6 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
 
     function follow() {
         !isFollowing ? setFollowerCount(followerCount+1) : setFollowerCount(followerCount-1)
-
         setIsFollowing(!isFollowing)
     }
 
@@ -64,11 +63,13 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
                     <button className="Button" onClick={toggleDeleteModal}>Cancel</button>
                 </div>
                 </>}
-                {!isAdmin && <><div onClick={follow} className="Like">
+                {!isAdmin && <>
+                <div onClick={follow} className="Like">
                     {isFollowing && <><span className="Liked">❤</span></>}
                     {!isFollowing && <>🤍</>}
                     <span> {followerCount}</span>
-                </div></>}
+                </div>
+                </>}
             </div>
             <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />
             <p className="Dates">{formatDate(props.vacation.vacationStart)} ➡ {formatDate(props.vacation.vacationEnd)}</p>

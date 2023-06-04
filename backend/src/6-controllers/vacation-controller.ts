@@ -54,7 +54,8 @@ router.post("/vacations", verifyAdmin, async(request: Request, response: Respons
 router.delete("/vacations/delete/:id", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const id = +request.params.id
-        await vacationLogic.deleteVaction(id)
+        let vacationToDelete = await vacationLogic.getOneVacation(id)
+        await vacationLogic.deleteVaction(vacationToDelete)
         response.sendStatus(204)
     }
     catch(err: any) {

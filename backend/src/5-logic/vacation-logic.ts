@@ -37,8 +37,8 @@ async function addVacation(vacation: VacationModel): Promise<VacationModel> {
 async function updateVacation(vacation: VacationModel): Promise<VacationModel> {
     const error = vacation.validate()
     if(error) throw new ValidationErrorModel(error)
-
     if(vacation.vacationImg) {
+        console.log(vacation.vacationImgName)
         fs.unlinkSync("./src/1-assets/vacationImages/" + vacation.vacationImgName)
         const extension = vacation.vacationImg.name.substring(vacation.vacationImg.name.lastIndexOf("."))
         vacation.vacationImgName = uuid() + extension
@@ -59,16 +59,12 @@ async function updateVacation(vacation: VacationModel): Promise<VacationModel> {
     return vacation
 }
 
-async function deleteVaction(id: number): Promise<void> {
+async function deleteVaction(vacation: VacationModel): Promise<void> {
     const sql = "DELETE FROM vacations WHERE vacationId = ?"
-    const thisVacation = await getOneVacation(id)
-    const thisVacationImgName = thisVacation.vacationImgName
-
-    // fs.unlinkSync("./src/1-assets/vacationImages/" + thisVacationImgName)
-    const info: OkPacket = await dal.execute(sql, [id])
-
-    if(info.affectedRows === 0) throw new ResourceNotFoundErrorModel(id)
-
+    const thisVacationImgName = vacation[0].vacationImgName
+    const info: OkPacket = await dal.execute(sql, [vacation[0].vacationId])
+    if(info.affectedRows === 0) throw new ResourceNotFoundErrorModel(vacation[0].vacationId)
+    fs.unlinkSync("./src/1-assets/vacationImages/" + thisVacationImgName)
 }
 
 export default {
