@@ -19,14 +19,12 @@ function AllVacations(): JSX.Element {
     useEffect(()=>{
         vacationsService.getAllVacations()
             .then(vacations => {
-                setAllVacations(vacations)
                 arrangeVacations(vacations)
             })
             .catch(err => console.log(err))
 
         const unsubscribe = vacationsStore.subscribe(()=>{
             const vacations = vacationsStore.getState().vacations
-            setAllVacations(vacations)
             arrangeVacations(vacations)
         })
         return unsubscribe
@@ -36,7 +34,7 @@ function AllVacations(): JSX.Element {
         
         // sort all vacations by date
         const sortedVacations = vacations.sort((a, b) => a.vacationStart.localeCompare(b.vacationStart))
-
+        
         setAllVacations(sortedVacations)
         setShowVacations(sortedVacations)
     
