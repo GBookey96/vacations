@@ -18,7 +18,7 @@ class FollowerService {
         return response.data        
     }
 
-    public async howManyFollowing(vacationId: number): Promise<number> {
+    public async howManyFollowingThisVacation(vacationId: number): Promise<number> {
         const response = await axios.get(appConfig.howManyFollowingUrl + vacationId)
         return response.data
     }

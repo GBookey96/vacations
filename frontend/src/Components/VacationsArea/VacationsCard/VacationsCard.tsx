@@ -6,34 +6,23 @@ import appConfig from "../../../Utils/config";
 import { authStore } from "../../../Redux/AuthState";
 import vacationsService from "../../../Services/VacationsService";
 import followerService from "../../../Services/FollowerService";
-import LikeButton from "../LikeButton/LikeButton";
+import LikeButton from "./LikeButton/LikeButton";
+
 
 interface VacationsCardProps {
 	vacation: VacationModel,
 }
 
 function VacationsCard(props: VacationsCardProps): JSX.Element {
-
-    const [isFollowing, setIsFollowing] = useState<boolean>(false)
+    
     const [followerCount, setFollowerCount] = useState<number>(0)
     const [userId, setUserId] = useState<number>()
     const [isAdmin, setIsAdmin] = useState<boolean>()
 
     const navigate = useNavigate()
 
-    function follow() {
-        if(!isFollowing) {
-            followerService.follow(userId, props.vacation.vacationId)
-            setIsFollowing(true)
-        }
-        else{
-            followerService.unFollow(userId, props.vacation.vacationId)
-            setIsFollowing(false)
-        }
-    }
-
     useEffect(()=>{
-        followerService.howManyFollowing(props.vacation.vacationId)
+        followerService.howManyFollowingThisVacation(props.vacation.vacationId)
             .then(n => setFollowerCount(n))
             .catch(err => console.log(err))
     },[])
