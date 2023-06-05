@@ -6,12 +6,21 @@ import appConfig from "../Utils/config"
 class FollowerService {
 
     public async follow(userId: number, vacationId: number): Promise<void> {
-        const follow = new FollowersModel({userId, vacationId})
-        await axios.post<FollowersModel>(appConfig.followUrl, follow)
+        await axios.post<FollowersModel>(appConfig.followUrl + "userId=" + userId + "&vacationId=" + vacationId)
     }
 
     public async unFollow(userId: number, vacationId: number): Promise<void> {
         await axios.delete(appConfig.unFollowUrl + "?userId=" + userId + "&vacationId=" + vacationId)
+    }
+
+    public async getFollowByUser(userId: number): Promise<FollowersModel[]> {
+        const response = await axios.get(appConfig.isFollowingUrl + userId)
+        return response.data        
+    }
+
+    public async howManyFollowing(vacationId: number): Promise<number> {
+        const response = await axios.get(appConfig.howManyFollowingUrl + vacationId)
+        return response.data
     }
 }
 

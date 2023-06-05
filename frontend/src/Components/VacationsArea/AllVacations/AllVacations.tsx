@@ -6,6 +6,8 @@ import { vacationsStore } from "../../../Redux/VacationsState";
 import VacationModel from "../../../Models/vacations-model";
 import vacationsService from "../../../Services/VacationsService";
 import VacationsCard from "../VacationsCard/VacationsCard";
+import FollowersModel from "../../../Models/follower-model";
+import followerService from "../../../Services/FollowerService";
 
 function AllVacations(): JSX.Element {
     const [allVacations, setAllVacations] = useState<VacationModel[]>([])
@@ -31,7 +33,6 @@ function AllVacations(): JSX.Element {
     },[])
 
     function arrangeVacations(vacations: VacationModel[]) {
-        
         // sort all vacations by date
         const sortedVacations = vacations.sort((a, b) => a.vacationStart.localeCompare(b.vacationStart))
         
@@ -73,7 +74,6 @@ function AllVacations(): JSX.Element {
     
     return (
         <div className="AllVacations">
-
             {isAdmin && <NavLink to="/add-vacation">Add New Vacation</NavLink>}
             {!isAdmin && <>
             <div className="FilterOptions">
@@ -90,7 +90,7 @@ function AllVacations(): JSX.Element {
             
             <br />
             <div className="Vacations">
-                {showVacations.map(v => <VacationsCard key={v.vacationId} vacation={v}/>)}
+                {showVacations.map(v => <VacationsCard key={v.vacationId} vacation={v} />)}
             </div>
         </div>
     );

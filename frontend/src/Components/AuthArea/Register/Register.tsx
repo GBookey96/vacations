@@ -33,6 +33,8 @@ function Register(): JSX.Element {
             <h2>Register</h2>
             <form onSubmit={handleSubmit(submit)}>
 
+                <input type="hidden" value="User" {...register("userRole")} />
+
                 <label>First Name:</label>
                 <input type="text" {...register("userFirstName")} required autoFocus />
 

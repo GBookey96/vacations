@@ -1,0 +1,9 @@
+.LikeButton {
+    background-color: none;
+    box-shadow: none;
+    margin-left: 10px;
+}
+
+.LikeButton .Liked {
+    color: red;
+}

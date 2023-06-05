@@ -6,8 +6,10 @@ class Config {
     public updateVacationsUrl = "http://localhost:3001/api/vacations/update/"
     public deleteVacationsUrl = "http://localhost:3001/api/vacations/delete/"
     public vacationImgUrl = "http://localhost:3001/api/vacations/img/"
-    public followUrl = "http://localhost:3001/api/follow/"
+    public followUrl = "http://localhost:3001/api/follow?"
     public unFollowUrl = "http://localhost:3001/api/unfollow"
+    public isFollowingUrl = "http://localhost:3001/api/isfollowing?userId="
+    public howManyFollowingUrl = "http://localhost:3001/api/howmanyfollowing?vacationId="
     
 }
 

@@ -10,8 +10,8 @@ async function register(user: UserModel): Promise<string> {
     if(error) throw new ValidationErrorModel(error)
     if(await isEmailTaken(user.userEmail)) throw new ValidationErrorModel(`email address ${user.userEmail} is already associated with another account`)
     user.userPassword = cyber.hash(user.userPassword)
-    const sql = `INSERT INTO users VALUES(DEFAULT, ?,?,?,?, "user")`
-    await dal.execute(sql, [user.userFirstName, user.userLastName, user.userEmail, user.userPassword])
+    const sql = `INSERT INTO users VALUES(DEFAULT, ?, ?, ?, ?, ?)`
+    await dal.execute(sql, [user.userFirstName, user.userLastName, user.userEmail, user.userPassword, "User"])
 
     const token = cyber.getNewToken(user)
     return token

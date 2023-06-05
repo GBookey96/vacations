@@ -6,6 +6,7 @@ import appConfig from "../../../Utils/config";
 import { authStore } from "../../../Redux/AuthState";
 import vacationsService from "../../../Services/VacationsService";
 import followerService from "../../../Services/FollowerService";
+import LikeButton from "../LikeButton/LikeButton";
 
 interface VacationsCardProps {
 	vacation: VacationModel,
@@ -30,6 +31,12 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
             setIsFollowing(false)
         }
     }
+
+    useEffect(()=>{
+        followerService.howManyFollowing(props.vacation.vacationId)
+            .then(n => setFollowerCount(n))
+            .catch(err => console.log(err))
+    },[])
 
     function formatDate(inputDate: string): string {
         let date = new Date(inputDate).toDateString()
@@ -64,7 +71,6 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
             <div className="TopSection">
                 {isAdmin && <button onClick={()=>navigate("/vacation/edit/" + props.vacation.vacationId)} className="Button">Edit</button>}
                 {isAdmin && <button onClick={()=>toggleDeleteModal()} className="Button">Delete</button>}
-
                 <h2 className="Destination">{props.vacation.vacationDestination}</h2>
                 {showModal && <>
                 <div className="ConfirmDeleteModal" onClick={toggleDeleteModal}>
@@ -75,11 +81,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
                 </div>
                 </>}
                 {!isAdmin && <>
-                <div onClick={follow} className="Like">
-                    {isFollowing && <><span className="Liked">❤</span></>}
-                    {!isFollowing && <>🤍</>}
-                    <span> {followerCount}</span>
-                </div>
+                    <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId} followerCount={followerCount}/>
                 </>}
             </div>
             <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />
