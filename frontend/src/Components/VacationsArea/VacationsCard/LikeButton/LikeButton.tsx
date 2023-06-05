@@ -11,7 +11,6 @@ interface LikeButtonProps {
 
 function LikeButton(props: LikeButtonProps): JSX.Element {
     
-    const [toFollow, setToFollow] = useState<boolean>(false)
     const [isFollowing, setIsFollowing] = useState<boolean>(false)
 
     useEffect(()=>{
@@ -19,6 +18,7 @@ function LikeButton(props: LikeButtonProps): JSX.Element {
             .then(f => {
                 for(let i = 0; i <= f.length; i ++) {
                     f[i].vacationId === props.vacationId ? setIsFollowing(true) : setIsFollowing(false)
+                    const trueOrFalse = f[i].vacationId === props.vacationId ? true : false
                 }
             })
     },[])

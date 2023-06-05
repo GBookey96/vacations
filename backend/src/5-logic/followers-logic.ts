@@ -24,9 +24,16 @@ async function howManyFollowers(vacationId: number): Promise<number> {
     return followers.length
 }
 
+async function getAllFollowers(): Promise<FollowersModel[]> {
+    const sql = 'SELECT userId, vacationId FROM followers'
+    const allFollowers = await dal.execute(sql)
+    return allFollowers
+}
+
 export default {
     follow,
     unFollow,
     getFollowByUser,
-    howManyFollowers
+    howManyFollowers,
+    getAllFollowers
 }

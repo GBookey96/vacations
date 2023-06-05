@@ -10,6 +10,7 @@ class Config {
     public unFollowUrl = "http://localhost:3001/api/unfollow"
     public isFollowingUrl = "http://localhost:3001/api/isfollowing?userId="
     public howManyFollowingUrl = "http://localhost:3001/api/howmanyfollowing?vacationId="
+    public allFollowersUrl = "http://localhost:3001/api/allfollowers"
     
 }
 

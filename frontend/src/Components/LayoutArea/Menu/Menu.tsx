@@ -32,7 +32,7 @@ function Menu(): JSX.Element {
             {
                 user &&
                 <>
-                    <span>Hello {user.userFirstName}</span>
+                    <span>Hello {user.userFirstName} {user.userLastName}</span>
                     <span> | </span>
                     <NavLink to={"/profile/edit/" + user.userId}>Edit Profile</NavLink>
                     <span> | </span>

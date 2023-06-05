@@ -22,6 +22,11 @@ class FollowerService {
         const response = await axios.get(appConfig.howManyFollowingUrl + vacationId)
         return response.data
     }
+
+    public async getAllFollowers(): Promise<FollowersModel[]> {
+        const response = await axios.get(appConfig.allFollowersUrl)
+        return response.data
+    }
 }
 
 const followerService = new FollowerService()

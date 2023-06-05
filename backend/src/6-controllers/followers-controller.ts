@@ -53,4 +53,14 @@ router.get("/howmanyfollowing", async(request: Request, response: Response, next
     }
 })
 
+router.get("/allfollowers", async(request: Request, response: Response, next: NextFunction)=> {
+    try {
+        const allFollowers = await followersLogic.getAllFollowers()
+        response.json(allFollowers)
+    }
+    catch(err: any) {
+        next(err)
+    }
+})
+
 export default router

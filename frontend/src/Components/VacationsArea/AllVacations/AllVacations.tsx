@@ -6,6 +6,8 @@ import { vacationsStore } from "../../../Redux/VacationsState";
 import VacationModel from "../../../Models/vacations-model";
 import vacationsService from "../../../Services/VacationsService";
 import VacationsCard from "../VacationsCard/VacationsCard";
+import followerService from "../../../Services/FollowerService";
+import filterVacationsService from "../../../Services/FilterVacationService";
 
 function AllVacations(): JSX.Element {
     const [allVacations, setAllVacations] = useState<VacationModel[]>([])
@@ -14,42 +16,32 @@ function AllVacations(): JSX.Element {
     const [notYetStarted, setNotYetStarted] = useState<VacationModel[]>([])
     const [activeVacations, setActiveVacations] = useState<VacationModel[]>([])
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
+    const [userId, setUserId] = useState<number>()
 
     // brings all vacations from backend
     useEffect(()=>{
-        vacationsService.getAllVacations()
+        filterVacationsService.sortByDate()
             .then(vacations => {
-                arrangeVacations(vacations)
+                setAllVacations(vacations)
+                setShowVacations(vacations)
             })
+            .catch(err => console.log(err))
+
+        filterVacationsService.notyetStarted()
+            .then(vacations => setNotYetStarted(vacations))
+            .catch(err => console.log(err))
+
+        filterVacationsService.activeVacations()
+            .then(vacations => setActiveVacations(vacations))
             .catch(err => console.log(err))
 
         const unsubscribe = vacationsStore.subscribe(()=>{
             const vacations = vacationsStore.getState().vacations
-            arrangeVacations(vacations)
+            setAllVacations(vacations)
+            setShowVacations(vacations)
         })
         return unsubscribe
     },[])
-
-    function arrangeVacations(vacations: VacationModel[]) {
-        // sort all vacations by date
-        const sortedVacations = vacations.sort((a, b) => a.vacationStart.localeCompare(b.vacationStart))
-        
-        setAllVacations(sortedVacations)
-        setShowVacations(sortedVacations)
-    
-        // find vacations following
-        setVacationsFollowing([])
-
-        const currentDate = new Date().toISOString().split("T")[0]
-
-        // find vacations not yet started
-        const notYetStartedList = sortedVacations.filter(v => v.vacationStart >= currentDate)
-        setNotYetStarted(notYetStartedList)
-    
-        // find active vacations
-        const activeVacationsList = sortedVacations.filter(v => v.vacationStart <= currentDate && v.vacationEnd >= currentDate)
-        setActiveVacations(activeVacationsList)
-    }
 
     function showAll() {setShowVacations(allVacations)}
 
@@ -61,11 +53,13 @@ function AllVacations(): JSX.Element {
 
     // checks if user is admin or not, to decide which elements to show
     useEffect(()=>{
-        let userRole = authStore.getState().user.userRole
-        if(userRole === "Admin") setIsAdmin(true)
+        let user = authStore.getState().user
+        if(user.userRole === "Admin") setIsAdmin(true)
+        setUserId(user.userId)
         const unsubscribe = authStore.subscribe(()=>{
-            userRole = authStore.getState().user.userRole
-            userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
+            user = authStore.getState().user
+            setUserId(user.userId)
+            user.userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
         })
         return unsubscribe
     },[])
