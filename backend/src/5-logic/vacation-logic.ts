@@ -39,7 +39,7 @@ async function updateVacation(vacation: VacationModel): Promise<VacationModel> {
     if(error) throw new ValidationErrorModel(error)
     if(vacation.vacationImg) {
         const originalVacation = await getOneVacation(vacation.vacationId)
-        // fs.unlinkSync("./src/1-assets/vacationImages/" + originalVacation[0].vacationImgName)
+        fs.unlinkSync("./src/1-assets/vacationImages/" + originalVacation[0].vacationImgName)
         const extension = vacation.vacationImg.name.substring(vacation.vacationImg.name.lastIndexOf("."))
         vacation.vacationImgName = uuid() + extension
         await vacation.vacationImg.mv("./src/1-assets/vacationImages/" + vacation.vacationImgName)

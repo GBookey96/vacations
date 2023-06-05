@@ -17,7 +17,7 @@ router.get("/vacations", blockNonLoggedIn, async(request: Request, response: Res
     }
 })
 
-router.get("/vacations/:id", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
+router.get("/vacations/:id([0-9]+)", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const id = +request.params.id
         const vacation = await vacationLogic.getOneVacation(id)
@@ -51,7 +51,7 @@ router.post("/vacations", verifyAdmin, async(request: Request, response: Respons
     }
 })
 
-router.put("/vacations/update/:id", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
+router.put("/vacations/update/:id([0-9]+)", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
     try {
         request.body.id = +request.params.id
         request.body.vacationImg = request.files?.vacationImg
@@ -65,7 +65,7 @@ router.put("/vacations/update/:id", verifyAdmin, async(request: Request, respons
     }
 })
 
-router.delete("/vacations/delete/:id", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
+router.delete("/vacations/delete/:id([0-9]+)", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const id = +request.params.id
         let vacationToDelete = await vacationLogic.getOneVacation(id)

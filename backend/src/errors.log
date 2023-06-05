@@ -7401,3 +7401,101 @@ Stack: Error: EPERM: operation not permitted, unlink './src/1-assets/vacationIma
     at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
     at fulfilled (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:5:58)
     at processTicksAndRejections (node:internal/process/task_queues:95:5)--------------------------------------------------------------------------------------------
+Mon, 05 Jun 2023 08:42:36 GMT
+catchAll error
+Stack: Error: connect ECONNREFUSED ::1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1300:16)
+    --------------------
+    at Protocol._enqueue (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at PoolConnection.connect (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:116:18)
+    at Pool.getConnection (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:48:16)
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:202:8)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\auth-logic.ts:33:29)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\auth-logic.ts:33:23)--------------------------------------------------------------------------------------------
+Mon, 05 Jun 2023 08:42:38 GMT
+catchAll error
+Stack: Error: connect ECONNREFUSED ::1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1300:16)
+    --------------------
+    at Protocol._enqueue (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at PoolConnection.connect (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:116:18)
+    at Pool.getConnection (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:48:16)
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:202:8)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\auth-logic.ts:33:29)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\auth-logic.ts:33:23)--------------------------------------------------------------------------------------------
+Mon, 05 Jun 2023 08:43:15 GMT
+catchAll error
+Stack: Error: connect ECONNREFUSED ::1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1300:16)
+    --------------------
+    at Protocol._enqueue (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at PoolConnection.connect (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:116:18)
+    at Pool.getConnection (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:48:16)
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:202:8)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\auth-logic.ts:33:29)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\auth-logic.ts:33:23)--------------------------------------------------------------------------------------------
+Mon, 05 Jun 2023 08:43:32 GMT
+catchAll error
+Stack: Error: connect ECONNREFUSED ::1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1300:16)
+    --------------------
+    at Protocol._enqueue (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at PoolConnection.connect (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:116:18)
+    at Pool.getConnection (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:48:16)
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:202:8)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\auth-logic.ts:33:29)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\auth-logic.ts:33:23)--------------------------------------------------------------------------------------------
+Mon, 05 Jun 2023 08:43:41 GMT
+catchAll error
+Stack: Error: connect ECONNREFUSED ::1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1300:16)
+    --------------------
+    at Protocol._enqueue (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at PoolConnection.connect (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:116:18)
+    at Pool.getConnection (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:48:16)
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:202:8)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\auth-logic.ts:33:29)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\auth-logic.ts:33:23)--------------------------------------------------------------------------------------------
+Mon, 05 Jun 2023 08:47:30 GMT
+catchAll error
+Stack: Error: ER_PARSE_ERROR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE vacationId = 78' at line 8
+    at Query.Sequence._packetToError (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Sequence.js:47:14)
+    at Query.ErrorPacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\sequences\Query.js:79:18)
+    at Protocol._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:291:23)
+    at Parser._parsePacket (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:433:10)
+    at Parser.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Parser.js:43:10)
+    at Protocol.write (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\protocol\Protocol.js:38:16)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:88:28)
+    at Socket.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Connection.js:526:10)
+    at Socket.emit (node:events:513:28)
+    at Socket.emit (node:domain:489:12)
+    --------------------
+    at Pool.query (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\node_modules\mysql\lib\Pool.js:199:23)
+    at C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:15:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\2-utils\dal.ts:14:12)
+    at Object.<anonymous> (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:59:42)
+    at step (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:33:23)
+    at Object.next (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:14:53)
+    at fulfilled (C:\Users\Baily\Desktop\Full Stack Course\פרוייקט 3 vacations\vacations\backend\src\5-logic\vacation-logic.ts:5:58)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)--------------------------------------------------------------------------------------------

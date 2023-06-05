@@ -16,10 +16,10 @@ router.post("/follow", async(request: Request, response: Response, next: NextFun
     }
 })
 
-router.delete("/follow/delete/:userId/:vacationId", async(request: Request, response: Response, next: NextFunction)=> {
+router.delete("/follow/", async(request: Request, response: Response, next: NextFunction)=> {
     try {
-        const userId = +request.params.userId
-        const vacationId = +request.params.vacationId
+        const userId = +request.body.userId
+        const vacationId = +request.body.vacationId
         await followersLogic.unFollow(userId, vacationId)
         response.sendStatus(204)
     }
