@@ -7,9 +7,9 @@ async function follow(follow: FollowersModel) {
     await dal.execute(sql, [follow.userId, follow.vacationId])
 }
 
-async function unFollow(userId: number, vacationId: number) {
+async function unFollow(follow: FollowersModel) {
     const sql = 'DELETE FROM followers WHERE userId = ? AND vacationId = ?'
-    await dal.execute(sql, [userId, vacationId])
+    await dal.execute(sql, [follow.userId, follow.vacationId])
 }
 
 export default {

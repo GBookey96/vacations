@@ -5,6 +5,7 @@ import VacationModel from "../../../Models/vacations-model";
 import appConfig from "../../../Utils/config";
 import { authStore } from "../../../Redux/AuthState";
 import vacationsService from "../../../Services/VacationsService";
+import followerService from "../../../Services/FollowerService";
 
 interface VacationsCardProps {
 	vacation: VacationModel,
@@ -14,13 +15,20 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
 
     const [isFollowing, setIsFollowing] = useState<boolean>(false)
     const [followerCount, setFollowerCount] = useState<number>(0)
+    const [userId, setUserId] = useState<number>()
     const [isAdmin, setIsAdmin] = useState<boolean>()
 
     const navigate = useNavigate()
 
     function follow() {
-        !isFollowing ? setFollowerCount(followerCount+1) : setFollowerCount(followerCount-1)
-        setIsFollowing(!isFollowing)
+        if(!isFollowing) {
+            followerService.follow(userId, props.vacation.vacationId)
+            setIsFollowing(true)
+        }
+        else{
+            followerService.unFollow(userId, props.vacation.vacationId)
+            setIsFollowing(false)
+        }
     }
 
     function formatDate(inputDate: string): string {
@@ -30,11 +38,13 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     }
 
     useEffect(()=>{
-        let userRole = authStore.getState().user.userRole
-        if(userRole === "Admin") setIsAdmin(true)
+        let user = authStore.getState().user
+        if(user.userRole === "Admin") setIsAdmin(true)
+        setUserId(user.userId)
         const unsubscribe = authStore.subscribe(()=>{
-            userRole = authStore.getState().user.userRole
-            userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
+            user = authStore.getState().user
+            setUserId(user.userId)
+            user.userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
         })
         return unsubscribe
     },[])

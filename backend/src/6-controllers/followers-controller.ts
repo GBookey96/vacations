@@ -16,11 +16,12 @@ router.post("/follow", async(request: Request, response: Response, next: NextFun
     }
 })
 
-router.delete("/follow/", async(request: Request, response: Response, next: NextFunction)=> {
+router.delete("/unfollow", async(request: Request, response: Response, next: NextFunction)=> {
     try {
-        const userId = +request.body.userId
-        const vacationId = +request.body.vacationId
-        await followersLogic.unFollow(userId, vacationId)
+        const userId = +request.query.userId
+        const vacationId = +request.query.vacationId
+        const follow = new FollowersModel({userId, vacationId})
+        await followersLogic.unFollow(follow)
         response.sendStatus(204)
     }
     catch(err: any) {
