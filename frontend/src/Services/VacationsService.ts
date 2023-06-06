@@ -7,7 +7,6 @@ class VacationsService {
 
     public async getAllVacations(): Promise<VacationModel[]> {
         let vacations = vacationsStore.getState().vacations
-        
         if(vacations.length === 0) {
             const response = await axios.get<VacationModel[]>(appConfig.vacationsUrl)
             vacations = response.data
@@ -15,7 +14,6 @@ class VacationsService {
         }
         return vacations
     }
-
 
     public async getOneVacation(id: number): Promise<VacationModel> {
         let vacations = vacationsStore.getState().vacations

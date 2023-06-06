@@ -12,28 +12,21 @@ async function unFollow(follow: FollowersModel): Promise<void> {
     await dal.execute(sql, [follow.userId, follow.vacationId])
 }
 
-async function getFollowByUser(userId: number): Promise<FollowersModel[]> {
-    const sql = `SELECT userId, vacationId FROM followers WHERE userId = ?`
-    const vacations = await dal.execute(sql, [userId])
-    return vacations
+async function isFollowing(follow: FollowersModel): Promise<boolean> {
+    const sql = `SELECT * FROM followers WHERE userId = ? AND vacationId = ?`
+    const result = await dal.execute(sql, [follow.userId, follow.vacationId])
+    return result.length > 0 ? true : false
 }
 
-async function howManyFollowers(vacationId: number): Promise<number> {
-    const sql = 'SELECT userId, vacationId FROM followers WHERE vacationId = ?'
-    const followers = await dal.execute(sql, [vacationId])
-    return followers.length
-}
-
-async function getAllFollowers(): Promise<FollowersModel[]> {
-    const sql = 'SELECT userId, vacationId FROM followers'
-    const allFollowers = await dal.execute(sql)
-    return allFollowers
+async function followerCount(vacationId: number): Promise<number> {
+    const sql = `SELECT * FROM followers WHERE vacationId = ?`
+    const result = await dal.execute(sql, [vacationId])
+    return result.length
 }
 
 export default {
     follow,
     unFollow,
-    getFollowByUser,
-    howManyFollowers,
-    getAllFollowers
+    isFollowing,
+    followerCount
 }

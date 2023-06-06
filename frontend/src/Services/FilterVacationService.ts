@@ -1,5 +1,4 @@
 import VacationModel from "../Models/vacations-model"
-import followerService from "./FollowerService"
 import vacationsService from "./VacationsService"
 
 class FilterVacationsService {
@@ -22,11 +21,6 @@ class FilterVacationsService {
         const allVacations = await this.sortByDate()
         const activeVacations = allVacations.filter(v => v.vacationStart <= currentDate && v.vacationEnd >= currentDate)
         return activeVacations
-    }
-
-    public async vacationsWithFollowers() {
-        const allVacations = await this.sortByDate()
-        const allFollowers = await followerService.getAllFollowers()
     }
 }
 

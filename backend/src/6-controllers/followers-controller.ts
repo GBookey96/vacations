@@ -31,32 +31,24 @@ router.delete("/unfollow", blockNonLoggedIn, async(request: Request, response: R
     }
 })
 
-router.get("/isfollowing", async(request: Request, response: Response, next: NextFunction)=> {
+router.get("/isfollowing", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const userId = +request.query.userId
-        const getFollowByUser = await followersLogic.getFollowByUser(userId)
-        response.json(getFollowByUser)
+        const vacationId = +request.query.vacationId
+        const follow = new FollowersModel({userId, vacationId})
+        const result = await followersLogic.isFollowing(follow)
+        response.json(result)
     }
     catch(err: any) {
         next(err)
     }
 })
 
-router.get("/howmanyfollowing", async(request: Request, response: Response, next: NextFunction)=> {
+router.get("/followercountof", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const vacationId = +request.query.vacationId
-        const getFollowByUser = await followersLogic.howManyFollowers(vacationId)
-        response.json(getFollowByUser)
-    }
-    catch(err: any) {
-        next(err)
-    }
-})
-
-router.get("/allfollowers", async(request: Request, response: Response, next: NextFunction)=> {
-    try {
-        const allFollowers = await followersLogic.getAllFollowers()
-        response.json(allFollowers)
+        const result = await followersLogic.followerCount(vacationId)
+        response.json(result)
     }
     catch(err: any) {
         next(err)

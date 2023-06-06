@@ -4,15 +4,14 @@ import { NavLink } from "react-router-dom";
 import { authStore } from "../../../Redux/AuthState";
 import { vacationsStore } from "../../../Redux/VacationsState";
 import VacationModel from "../../../Models/vacations-model";
-import vacationsService from "../../../Services/VacationsService";
 import VacationsCard from "../VacationsCard/VacationsCard";
-import followerService from "../../../Services/FollowerService";
 import filterVacationsService from "../../../Services/FilterVacationService";
+import FollowersModel from "../../../Models/follower-model";
 
 function AllVacations(): JSX.Element {
     const [allVacations, setAllVacations] = useState<VacationModel[]>([])
     const [showVacations, setShowVacations] = useState<VacationModel[]>([])
-    const [vacationsFollowing, setVacationsFollowing] = useState<VacationModel[]>([])
+    const [vacationsFollowing, setVacationsFollowing] = useState<FollowersModel[]>([])
     const [notYetStarted, setNotYetStarted] = useState<VacationModel[]>([])
     const [activeVacations, setActiveVacations] = useState<VacationModel[]>([])
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
@@ -43,19 +42,12 @@ function AllVacations(): JSX.Element {
         return unsubscribe
     },[])
 
-    function showAll() {setShowVacations(allVacations)}
-
-    function showOnlyFollowing() {setShowVacations(vacationsFollowing)}
-
-    function showNotYetStartedVacations() {setShowVacations(notYetStarted)}
-
-    function showActiveVacations() {setShowVacations(activeVacations)}
-
-    // checks if user is admin or not, to decide which elements to show
+    
     useEffect(()=>{
         let user = authStore.getState().user
         if(user.userRole === "Admin") setIsAdmin(true)
         setUserId(user.userId)
+
         const unsubscribe = authStore.subscribe(()=>{
             user = authStore.getState().user
             setUserId(user.userId)
@@ -63,7 +55,18 @@ function AllVacations(): JSX.Element {
         })
         return unsubscribe
     },[])
-    
+
+
+    function showAll() {setShowVacations(allVacations)}
+
+    function showOnlyFollowing() {
+        // setShowVacations(vacationsFollowing)
+    }
+
+    function showNotYetStartedVacations() {setShowVacations(notYetStarted)}
+
+    function showActiveVacations() {setShowVacations(activeVacations)}
+
     return (
         <div className="AllVacations">
             {isAdmin && <NavLink to="/add-vacation">Add New Vacation</NavLink>}

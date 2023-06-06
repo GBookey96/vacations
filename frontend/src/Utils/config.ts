@@ -8,10 +8,8 @@ class Config {
     public vacationImgUrl = "http://localhost:3001/api/vacations/img/"
     public followUrl = "http://localhost:3001/api/follow?"
     public unFollowUrl = "http://localhost:3001/api/unfollow"
-    public isFollowingUrl = "http://localhost:3001/api/isfollowing?userId="
-    public howManyFollowingUrl = "http://localhost:3001/api/howmanyfollowing?vacationId="
-    public allFollowersUrl = "http://localhost:3001/api/allfollowers"
-    
+    public isFollowingUrl = "http://localhost:3001/api/isfollowing?"
+    public followerCountUrl = "http://localhost:3001/api/followercountof?vacationId="
 }
 
 const appConfig = new Config()

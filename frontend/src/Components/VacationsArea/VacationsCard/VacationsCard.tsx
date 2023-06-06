@@ -5,7 +5,6 @@ import VacationModel from "../../../Models/vacations-model";
 import appConfig from "../../../Utils/config";
 import { authStore } from "../../../Redux/AuthState";
 import vacationsService from "../../../Services/VacationsService";
-import followerService from "../../../Services/FollowerService";
 import LikeButton from "./LikeButton/LikeButton";
 
 
@@ -14,17 +13,13 @@ interface VacationsCardProps {
 }
 
 function VacationsCard(props: VacationsCardProps): JSX.Element {
-    
-    const [followerCount, setFollowerCount] = useState<number>(0)
     const [userId, setUserId] = useState<number>()
     const [isAdmin, setIsAdmin] = useState<boolean>()
 
     const navigate = useNavigate()
 
     useEffect(()=>{
-        followerService.howManyFollowingThisVacation(props.vacation.vacationId)
-            .then(n => setFollowerCount(n))
-            .catch(err => console.log(err))
+
     },[])
 
     function formatDate(inputDate: string): string {
@@ -70,7 +65,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
                 </div>
                 </>}
                 {!isAdmin && <>
-                    <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId} followerCount={followerCount}/>
+                    <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId}/>
                 </>}
             </div>
             <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />

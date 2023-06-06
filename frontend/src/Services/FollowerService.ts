@@ -13,18 +13,13 @@ class FollowerService {
         await axios.delete(appConfig.unFollowUrl + "?userId=" + userId + "&vacationId=" + vacationId)
     }
 
-    public async getFollowByUser(userId: number): Promise<FollowersModel[]> {
-        const response = await axios.get(appConfig.isFollowingUrl + userId)
-        return response.data        
-    }
-
-    public async howManyFollowingThisVacation(vacationId: number): Promise<number> {
-        const response = await axios.get(appConfig.howManyFollowingUrl + vacationId)
+    public async isFollowing(userId: number, vacationId: number): Promise<boolean> {
+        const response = await axios.get(appConfig.isFollowingUrl + "userId=" + userId + "&vacationId=" + vacationId)
         return response.data
     }
 
-    public async getAllFollowers(): Promise<FollowersModel[]> {
-        const response = await axios.get(appConfig.allFollowersUrl)
+    public async followerCount(vacationId: number): Promise<number> {
+        const response = await axios.get<number>(appConfig.followerCountUrl + vacationId)
         return response.data
     }
 }
