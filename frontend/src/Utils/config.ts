@@ -10,6 +10,8 @@ class Config {
     public unFollowUrl = "http://localhost:3001/api/unfollow"
     public isFollowingUrl = "http://localhost:3001/api/isfollowing?"
     public followerCountUrl = "http://localhost:3001/api/followercountof?vacationId="
+    public listOfVacationsUrl = "http://localhost:3001/api/listofvacations"
+    
 }
 
 const appConfig = new Config()

@@ -45,6 +45,9 @@
   color: #FF0000;
 }
 
+.VacationsCard > .TopSection > .FollowerCount {
+  padding-left: 10px;
+}
 
 .VacationsCard > .Dates, .VacationsCard > .Description, .VacationsCard > .Price {
   margin-top: 10px;

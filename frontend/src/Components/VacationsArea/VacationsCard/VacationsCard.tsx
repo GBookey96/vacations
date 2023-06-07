@@ -6,6 +6,7 @@ import appConfig from "../../../Utils/config";
 import { authStore } from "../../../Redux/AuthState";
 import vacationsService from "../../../Services/VacationsService";
 import LikeButton from "./LikeButton/LikeButton";
+import followerService from "../../../Services/FollowerService";
 
 
 interface VacationsCardProps {
@@ -15,6 +16,8 @@ interface VacationsCardProps {
 function VacationsCard(props: VacationsCardProps): JSX.Element {
     const [userId, setUserId] = useState<number>()
     const [isAdmin, setIsAdmin] = useState<boolean>()
+    const [followerCount, setFollowerCount] = useState<number>()
+    
     const navigate = useNavigate()
 
     function formatDate(inputDate: string): string {
@@ -24,6 +27,10 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     }
 
     useEffect(()=>{
+        followerService.followerCount(props.vacation.vacationId)
+            .then(result => setFollowerCount(result))
+            .catch(err => console.log(err))
+
         let user = authStore.getState().user
         if(user.userRole === "Admin") setIsAdmin(true)
         setUserId(user.userId)
@@ -59,13 +66,14 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
                     <button className="Button" onClick={toggleDeleteModal}>Cancel</button>
                 </div>
                 </>}
-                {!isAdmin && <>
-                    <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId}/>
-                </>}
             </div>
             <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />
             <p className="Dates">{formatDate(props.vacation.vacationStart)} ➡ {formatDate(props.vacation.vacationEnd)}</p>
             <p className="Description">{props.vacation.vacationDescription}</p>
+                {!isAdmin && <>
+                    <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId}/>
+                </>}
+                <small className="FollowerCount">{followerCount} following</small>
             <div className="PriceContainer">
                 <h3 className="Price">${props.vacation.vacationPrice}</h3>
             </div>

@@ -10,7 +10,6 @@ interface LikeButtonProps {
 function LikeButton(props: LikeButtonProps): JSX.Element {
     
     const [isFollowing, setIsFollowing] = useState<boolean>(false)
-    const [followerCount, setFollowerCount] = useState<number>()
 
     useEffect(()=>{
         followerService.isFollowing(props.userId, props.vacationId)
@@ -20,8 +19,7 @@ function LikeButton(props: LikeButtonProps): JSX.Element {
             })
             .catch(err => console.log(err))
 
-        followerService.followerCount(props.vacationId)
-            .then(result => setFollowerCount(result))
+
     },[])
 
     function follow() {
@@ -36,7 +34,6 @@ function LikeButton(props: LikeButtonProps): JSX.Element {
                 <div onClick={follow} className="Like">
                     {isFollowing && <><span className="Liked">❤</span></>}
                     {!isFollowing && <>🤍</>}
-                    <span>{followerCount}</span>
                 </div>
         </div>
     );
