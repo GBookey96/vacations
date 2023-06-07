@@ -15,12 +15,7 @@ interface VacationsCardProps {
 function VacationsCard(props: VacationsCardProps): JSX.Element {
     const [userId, setUserId] = useState<number>()
     const [isAdmin, setIsAdmin] = useState<boolean>()
-
     const navigate = useNavigate()
-
-    useEffect(()=>{
-
-    },[])
 
     function formatDate(inputDate: string): string {
         let date = new Date(inputDate).toDateString()

@@ -10,7 +10,7 @@ class FollowerService {
     }
 
     public async unFollow(userId: number, vacationId: number): Promise<void> {
-        await axios.delete(appConfig.unFollowUrl + "?userId=" + userId + "&vacationId=" + vacationId)
+        await axios.delete<FollowersModel>(appConfig.unFollowUrl + "?userId=" + userId + "&vacationId=" + vacationId)
     }
 
     public async isFollowing(userId: number, vacationId: number): Promise<boolean> {

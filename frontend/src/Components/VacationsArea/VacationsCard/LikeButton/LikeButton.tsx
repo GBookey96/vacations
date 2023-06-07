@@ -14,7 +14,10 @@ function LikeButton(props: LikeButtonProps): JSX.Element {
 
     useEffect(()=>{
         followerService.isFollowing(props.userId, props.vacationId)
-            .then(result => setIsFollowing(result))
+            .then(result => {
+                setIsFollowing(result)
+                console.log(props.userId)
+            })
             .catch(err => console.log(err))
 
         followerService.followerCount(props.vacationId)
