@@ -6,7 +6,11 @@ import { v4 as uuid } from "uuid";
 import fs from "fs"
 
 async function getAllVacations(): Promise<VacationModel[]> {
-    const sql = "SELECT * FROM vacations"
+    const sql = `
+            SELECT V.*, COUNT(DISTINCT F.userId) AS followerCount
+            FROM vacations AS V
+            LEFT JOIN followers AS F ON V.vacationId = F.vacationId
+            GROUP BY V.vacationId, V.vacationDestination`
     const vacations = await dal.execute(sql)
     return vacations
 }
@@ -79,13 +83,13 @@ async function deleteVaction(vacation: VacationModel): Promise<void> {
     fs.unlinkSync("./src/1-assets/vacationImages/" + thisVacationImgName)
 }
 
-async function listOfVacationsWithFollowerCount(): Promise<[]>{
-    const sql = `SELECT V.vacationId, V.vacationDestination, COUNT(DISTINCT F.userId) AS followerCount
-    FROM vacations AS V
-    LEFT JOIN followers AS F ON V.vacationId = F.vacationId
-    GROUP BY V.vacationId, V.vacationDestination`
-    return await dal.execute(sql)
-}
+// async function listOfVacationsWithFollowerCount(): Promise<[]>{
+//     const sql = `SELECT V.vacationId, V.vacationDestination, COUNT(DISTINCT F.userId) AS followerCount
+//     FROM vacations AS V
+//     LEFT JOIN followers AS F ON V.vacationId = F.vacationId
+//     GROUP BY V.vacationId, V.vacationDestination`
+//     return await dal.execute(sql)
+// }
 
 export default {
     getAllVacations,
@@ -93,5 +97,5 @@ export default {
     addVacation,
     updateVacation,
     deleteVaction,
-    listOfVacationsWithFollowerCount
+    // listOfVacationsWithFollowerCount
 }

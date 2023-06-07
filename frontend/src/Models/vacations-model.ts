@@ -9,6 +9,7 @@ class VacationModel {
     public vacationPrice: number
     public vacationImg: FileList
     public vacationImgName: string
+    public followerCount: number
 }
 
 export default VacationModel

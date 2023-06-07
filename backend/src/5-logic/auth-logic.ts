@@ -40,7 +40,11 @@ async function login(credentials: CredentialsModel): Promise<string> {
 }
 
 async function getOneUser(id: number): Promise<UserModel> {
-    const sql = `SELECT * FROM users WHERE userId = ?`
+    const sql = `SELECT u.*, GROUP_CONCAT(f.vacationId) AS followedVacations
+                FROM users AS u
+                LEFT JOIN followers AS f ON u.userId = f.userId
+                WHERE u.userId = ?
+                GROUP BY u.userId;`
     const users = await dal.execute(sql, [id])
     if(users.length === 0) throw new ResourceNotFoundErrorModel(id)
     const user = users[0]

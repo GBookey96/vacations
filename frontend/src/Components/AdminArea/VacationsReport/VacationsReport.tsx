@@ -6,29 +6,29 @@ import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "rec
 
 function VacationsReport(): JSX.Element {
     
-    const [listOfVacations, setListOfVacations] = useState<[]>([])
-    const [vacationsWithFollowers, setVacationsWithFollowers] = useState<[]>([])
+    // const [listOfVacations, setListOfVacations] = useState<[]>([])
+    // const [vacationsWithFollowers, setVacationsWithFollowers] = useState<[]>([])
 
-    useEffect(()=>{
-        vacationsService.listOfVacationsWithFollowerCount()
-            .then(vacations => {
-                setListOfVacations(vacations)
-                console.log(vacations)
-            })
-            .catch(err => console.log(err))
-    },[])
+    // useEffect(()=>{
+    //     // vacationsService.listOfVacationsWithFollowerCount()
+    //     //     .then(vacations => {
+    //     //         setListOfVacations(vacations)
+    //     //         console.log(vacations)
+    //     //     })
+    //     //     .catch(err => console.log(err))
+    // },[])
 
     return (
         <div className="VacationsReport">
 			<h2>Vacations Report</h2>
-            <BarChart width={1500} height={250} data={listOfVacations}>
+            {/* <BarChart width={1500} height={250} data={listOfVacations}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="vacationDestination" />
                 <YAxis dataKey="followerCount"/>
                 <Tooltip />
                 <Legend />
                 <Bar dataKey="pv" fill="#8884d8" />
-            </BarChart>
+            </BarChart> */}
         </div>
     );
 }

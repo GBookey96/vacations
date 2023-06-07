@@ -7,7 +7,7 @@ import verifyAdmin from "../3-middleware/verify-admin"
 
 const router = express.Router()
 
-router.get("/vacations", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
+router.get("/vacations", async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const allVacations = await vacationLogic.getAllVacations()
         response.json(allVacations)
@@ -77,14 +77,14 @@ router.delete("/vacations/delete/:id([0-9]+)", verifyAdmin, async(request: Reque
     }
 })
 
-router.get("/listofvacations", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
-    try {
-        const listOFVacations = await vacationLogic.listOfVacationsWithFollowerCount()
-        response.json(listOFVacations)
-    }
-    catch(err: any) {
-        next(err)
-    }
-})
+// router.get("/listofvacations", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
+//     try {
+//         const listOFVacations = await vacationLogic.listOfVacationsWithFollowerCount()
+//         response.json(listOFVacations)
+//     }
+//     catch(err: any) {
+//         next(err)
+//     }
+// })
 
 export default router

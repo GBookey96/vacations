@@ -9,6 +9,7 @@ class UserModel {
     public userEmail: string
     public userPassword: string
     public userRole: RoleModel
+    public followedVacations: []
 
     public constructor(user: UserModel) {
         this.userId = user.userId
@@ -17,6 +18,7 @@ class UserModel {
         this.userEmail = user.userEmail
         this.userPassword = user.userPassword
         this.userRole = user.userRole
+        this.followedVacations = user.followedVacations
     }
 
     public static validationSchema = Joi.object({
@@ -25,7 +27,8 @@ class UserModel {
         userLastName: Joi.string().required().min(3).max(20),
         userEmail: Joi.string().required().min(4).max(50),
         userPassword: Joi.string().required().min(3).max(20),
-        userRole: Joi.required()
+        userRole: Joi.required(),
+        followedVacations: Joi.array().optional()
     })
 
     public validate(): string {

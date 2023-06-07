@@ -6,7 +6,6 @@ import appConfig from "../../../Utils/config";
 import { authStore } from "../../../Redux/AuthState";
 import vacationsService from "../../../Services/VacationsService";
 import LikeButton from "./LikeButton/LikeButton";
-import followerService from "../../../Services/FollowerService";
 
 
 interface VacationsCardProps {
@@ -27,10 +26,6 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     }
 
     useEffect(()=>{
-        followerService.followerCount(props.vacation.vacationId)
-            .then(result => setFollowerCount(result))
-            .catch(err => console.log(err))
-
         let user = authStore.getState().user
         if(user.userRole === "Admin") setIsAdmin(true)
         setUserId(user.userId)
@@ -73,7 +68,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
                 {!isAdmin && <>
                     <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId}/>
                 </>}
-                <small className="FollowerCount">{followerCount} following</small>
+                <small className="FollowerCount">{props.vacation.followerCount} following</small>
             <div className="PriceContainer">
                 <h3 className="Price">${props.vacation.vacationPrice}</h3>
             </div>
