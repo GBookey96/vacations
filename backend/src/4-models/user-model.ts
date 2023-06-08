@@ -9,7 +9,7 @@ class UserModel {
     public userEmail: string
     public userPassword: string
     public userRole: RoleModel
-    public followedVacations: []
+    public followedVacations: number[]
 
     public constructor(user: UserModel) {
         this.userId = user.userId
@@ -28,7 +28,7 @@ class UserModel {
         userEmail: Joi.string().required().min(4).max(50),
         userPassword: Joi.string().required().min(3).max(20),
         userRole: Joi.required(),
-        followedVacations: Joi.array().optional()
+        followedVacations: Joi.optional()
     })
 
     public validate(): string {

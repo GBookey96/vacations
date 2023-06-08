@@ -48,6 +48,8 @@ async function getOneUser(id: number): Promise<UserModel> {
     const users = await dal.execute(sql, [id])
     if(users.length === 0) throw new ResourceNotFoundErrorModel(id)
     const user = users[0]
+    user.followedVacations = user.followedVacations.split(",")
+    user.followedVacations = user.followedVacations.map((Number))
     return user
 }
 

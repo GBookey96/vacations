@@ -1,26 +1,17 @@
 import followerService from "../../../../Services/FollowerService";
 import "./LikeButton.css";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 interface LikeButtonProps {
 	userId: number,
     vacationId: number,
+    following: number[],
 }
 
 function LikeButton(props: LikeButtonProps): JSX.Element {
     
-    const [isFollowing, setIsFollowing] = useState<boolean>(false)
-
-    useEffect(()=>{
-        followerService.isFollowing(props.userId, props.vacationId)
-            .then(result => {
-                setIsFollowing(result)
-            })
-            .catch(err => console.log(err))
-
-
-    },[])
-
+    const [isFollowing, setIsFollowing] = useState<boolean>(props.following.includes(props.vacationId))
+    
     function follow() {
         if(!isFollowing) followerService.follow(props.userId, props.vacationId)
         else followerService.unFollow(props.userId, props.vacationId)

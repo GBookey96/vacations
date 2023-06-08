@@ -19,7 +19,7 @@ export enum AuthActionType {
     Register = "Register",
     Login = "Login",
     Logout = "Logout",
-    Update = "Update"
+    Update = "Update",
 }
 
 export interface AuthAction {

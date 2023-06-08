@@ -31,28 +31,28 @@ router.delete("/unfollow", blockNonLoggedIn, async(request: Request, response: R
     }
 })
 
-router.get("/isfollowing", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
-    try {
-        const userId = +request.query.userId
-        const vacationId = +request.query.vacationId
-        const follow = new FollowersModel({userId, vacationId})
-        const result = await followersLogic.isFollowing(follow)
-        response.json(result)
-    }
-    catch(err: any) {
-        next(err)
-    }
-})
+// router.get("/isfollowing", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
+//     try {
+//         const userId = +request.query.userId
+//         const vacationId = +request.query.vacationId
+//         const follow = new FollowersModel({userId, vacationId})
+//         const result = await followersLogic.isFollowing(follow)
+//         response.json(result)
+//     }
+//     catch(err: any) {
+//         next(err)
+//     }
+// })
 
-router.get("/followercountof", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
-    try {
-        const vacationId = +request.query.vacationId
-        const result = await followersLogic.followerCount(vacationId)
-        response.json(result)
-    }
-    catch(err: any) {
-        next(err)
-    }
-})
+// router.get("/followercountof", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
+//     try {
+//         const vacationId = +request.query.vacationId
+//         const result = await followersLogic.followerCount(vacationId)
+//         response.json(result)
+//     }
+//     catch(err: any) {
+//         next(err)
+//     }
+// })
 
 export default router

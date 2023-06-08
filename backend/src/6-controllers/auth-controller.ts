@@ -29,10 +29,10 @@ router.post("/auth/login", async(request: Request, response: Response, next: Nex
     }
 })
 
-router.get("/users/:id", async(request: Request, response: Response, next: NextFunction)=> {
+router.get("/users/:userId", async(request: Request, response: Response, next: NextFunction)=> {
     try {
-        const id = +request.params.id
-        const user = await authLogic.getOneUser(id)
+        const userId = +request.params.userId
+        const user = await authLogic.getOneUser(userId)
         response.json(user)
     }
     catch(err: any) {

@@ -8,7 +8,7 @@ class UserModel {
     public userEmail: string
     public userPassword: string
     public userRole: RoleModel
-    public followedVacations: []
+    public followedVacations: number[]
 }
 
 export default UserModel

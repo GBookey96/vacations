@@ -25,8 +25,8 @@ class AuthService {
         return authStore.getState().token !== null
     }
 
-    public async getOneUser(id: number): Promise<UserModel> {
-        const response = await axios.get(appConfig.usersUrl + id)
+    public async getOneUser(userId: number): Promise<UserModel> {
+        const response = await axios.get(appConfig.usersUrl + userId)
         const user = response.data
         return user
     }

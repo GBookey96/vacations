@@ -6,6 +6,7 @@ import appConfig from "../../../Utils/config";
 import { authStore } from "../../../Redux/AuthState";
 import vacationsService from "../../../Services/VacationsService";
 import LikeButton from "./LikeButton/LikeButton";
+import authService from "../../../Services/AuthService";
 
 
 interface VacationsCardProps {
@@ -16,6 +17,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     const [userId, setUserId] = useState<number>()
     const [isAdmin, setIsAdmin] = useState<boolean>()
     const [followerCount, setFollowerCount] = useState<number>()
+    const [following, setFollowing] = useState<number[]>([])
     
     const navigate = useNavigate()
 
@@ -27,12 +29,19 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
 
     useEffect(()=>{
         let user = authStore.getState().user
+        
+        
+        authService.getOneUser(user.userId)
+            .then(user => setFollowing(user.followedVacations))
+            .catch(err => console.log(err))
+
         if(user.userRole === "Admin") setIsAdmin(true)
         setUserId(user.userId)
         const unsubscribe = authStore.subscribe(()=>{
             user = authStore.getState().user
             setUserId(user.userId)
             user.userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
+            setFollowing(user.followedVacations)
         })
         return unsubscribe
     },[])
@@ -66,7 +75,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
             <p className="Dates">{formatDate(props.vacation.vacationStart)} ➡ {formatDate(props.vacation.vacationEnd)}</p>
             <p className="Description">{props.vacation.vacationDescription}</p>
                 {!isAdmin && <>
-                    <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId}/>
+                    <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId} following={following}/>
                 </>}
                 <small className="FollowerCount">{props.vacation.followerCount} following</small>
             <div className="PriceContainer">
