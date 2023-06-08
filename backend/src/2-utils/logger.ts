@@ -10,7 +10,7 @@ function logError(message: string, err?: any): void {
     msgToLog += message + "\n"
     if(typeof err === "string") msgToLog += err + "\n"
     if(err?.stack) msgToLog += `Stack: ${err.stack}`
-    msgToLog += "--------------------------------------------------------------------------------------------\n"
+    msgToLog += "\n--------------------------------------------------------------------------------------------\n"
     fs.appendFile(errorsLogFile, msgToLog, ()=>{ })
 }
 

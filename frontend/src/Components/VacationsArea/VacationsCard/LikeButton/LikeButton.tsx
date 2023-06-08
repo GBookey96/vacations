@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 interface LikeButtonProps {
 	userId: number,
     vacationId: number,
-    following: number[],
+    followedVacations: number[],
 }
 
 function LikeButton(props: LikeButtonProps): JSX.Element {
@@ -14,7 +14,8 @@ function LikeButton(props: LikeButtonProps): JSX.Element {
     const [isFollowing, setIsFollowing] = useState<boolean>(false)
     
     useEffect(()=>{
-        setIsFollowing(props.following.includes(props.vacationId))
+        setIsFollowing(props.followedVacations.includes(props.vacationId))
+        console.log(props.vacationId + " is followed? " + (props.followedVacations.includes(props.vacationId)))
     },[])
     function follow() {
         if(!isFollowing) followerService.follow(props.userId, props.vacationId)

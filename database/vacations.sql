@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2023 at 02:35 PM
+-- Generation Time: Jun 08, 2023 at 06:42 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -41,11 +41,15 @@ CREATE TABLE `followers` (
 
 INSERT INTO `followers` (`followId`, `userId`, `vacationId`) VALUES
 (42, 8, 24),
-(43, 8, 78),
-(44, 8, 29),
-(45, 9, 78),
-(46, 8, 79),
-(47, 9, 24);
+(47, 9, 24),
+(48, 8, 23),
+(50, 8, 32),
+(51, 8, 26),
+(52, 8, 30),
+(53, 8, 28),
+(54, 8, 21),
+(55, 8, 26),
+(56, 8, 29);
 
 -- --------------------------------------------------------
 
@@ -67,9 +71,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userId`, `userFirstName`, `userLastName`, `userEmail`, `userPassword`, `userRole`) VALUES
-(7, 'gershon', 'gershon', 'gershon@gershon.com', '0f85d418a2bb929d8a6bf388999238642771282123c04f50baaeb77e72cd31e6edd7bfa6a21724b0fcb5d5f78590cad0561f5f4a0145900115c361f76e8cb588', 'Admin'),
+(7, 'gershon', 'bookey', 'gershon@gershon.com', '0f85d418a2bb929d8a6bf388999238642771282123c04f50baaeb77e72cd31e6edd7bfa6a21724b0fcb5d5f78590cad0561f5f4a0145900115c361f76e8cb588', 'Admin'),
 (8, 'baily', 'bookey', 'baily@baily.com', '11b6b3bd24c49a8a088ef4906e2ba840c01d02fa84ee0225586728217be5c391ddf77b82e76e4e84104abc6e9ea4244ceb2f50928cd882a6fc6be2bf934fe7bf', 'User'),
-(9, 'yanky', 'yanky', 'yanky@yanky.com', '2b33fd890b6d0bcb6ec566c90454db7e1238cda8ffbdfdae6f80792b74ca5082420fa1ce1253a4ea4e3041487128812e7f9cb12024d78e2fad7de3fd0de5800a', 'User');
+(9, 'yanky', 'bookey', 'yanky@yanky.com', '2b33fd890b6d0bcb6ec566c90454db7e1238cda8ffbdfdae6f80792b74ca5082420fa1ce1253a4ea4e3041487128812e7f9cb12024d78e2fad7de3fd0de5800a', 'User');
 
 -- --------------------------------------------------------
 
@@ -103,9 +107,7 @@ INSERT INTO `vacations` (`vacationId`, `vacationDestination`, `vacationDescripti
 (29, 'Kruger National Park', 'Embark on an exciting and immersive two-week adventure in Kruger National Park, South Africa, perfect for teenagers. Experience the thrill of wildlife encounters and the beauty of the African wilderness. Stay in comfortable safari lodges or campsites within the park, surrounded by nature. Participate in guided game drives and bushwalks, led by experienced rangers, to spot the Big Five (lion, leopard, elephant, buffalo, and rhino) and other incredible wildlife species. Learn about conservation efforts and engage in educational activities, such as tracking animals and identifying bird species. Explore the diverse ecosystems of Kruger, including rivers, grasslands, and woodlands, all teeming with unique flora and fauna. Take part in community-based initiatives, such as visiting local villages and learning about the local culture. This teenager getaway promises an unforgettable wildlife experience, educational opportunities, and a chance to connect with nature in one of Africa\'s most iconic national parks', '2023-06-06', '2023-06-20', '2695.00', 'e01bfaad-4fa2-49aa-803a-6b75a1f418e2.jpg'),
 (30, 'Hawaii', 'Embark on a memorable family vacation in the tropical paradise of Hawaii. With its stunning beaches, lush landscapes, and diverse activities, Hawaii offers something for everyone in the family. Relax and play on world-famous beaches like Waikiki in Oahu or Ka\'anapali in Maui, where you can swim, snorkel, and build sandcastles together. Explore the fascinating marine life through family-friendly snorkeling or take a guided boat tour to spot dolphins and sea turtles. Discover the unique culture and history of Hawaii by visiting Pearl Harbor in Oahu or exploring the Polynesian Cultural Center. Hike through breathtaking trails, such as the Diamond Head Crater or the Pipiwai Trail in Maui, where you can witness stunning waterfalls and lush rainforests. Enjoy exciting water sports like surfing, paddleboarding, or kayaking. Don\'t miss the opportunity to attend a traditional luau, complete with Hawaiian music, hula dancing, and a delicious feast. With its family-friendly attractions, natural wonders, and warm hospitality, Hawaii promises an unforgettable vacation for the whole family', '2023-07-05', '2023-07-13', '1995.00', '274b1a29-4263-40e2-8af5-fc9915a6f3df.jpg'),
 (31, 'Jerusalem', 'Experience the magic of Jerusalem during the festive season of Sukkot. During Sukkot, Jerusalem comes alive with joyous celebrations and special events. Explore the Old City adorned with beautiful sukkahs (temporary huts) and join in the festive atmosphere. Visit the Western Wall, where thousands gather to pray and celebrate. Take part in the lively Sukkot parades and processions through the streets, featuring music, dancing, and traditional costumes. Explore the vibrant Machane Yehuda Market, filled with colorful decorations and holiday treats. Attend concerts, performances, and cultural events showcasing the rich traditions of Sukkot. Enjoy delicious meals in outdoor sukkahs, immersing yourself in the unique ambiance of the holiday. Take time to explore the historical and religious sites of Jerusalem, including the Holy Sepulchre, the Dome of the Rock, and the Tower of David. Embrace the festive spirit and the special connection to Jewish heritage that Sukkot brings in the ancient and sacred city of Jerusalem', '2023-09-27', '2023-10-10', '6495.00', '4cefff67-718a-4d92-80f1-88763ee896a1.jpg'),
-(32, 'Singapore', 'Embark on an all-inclusive week-long vacation in vibrant Singapore. Discover captivating attractions, cultural experiences, and hidden gems. Enjoy midrange hotel accommodations and seamless transport arrangements for a hassle-free journey.\r\n\r\nMarvel at iconic landmarks like Marina Bay Sands and immerse yourself in the cultural tapestry of Chinatown. Explore hidden treasures like Little India and the historic neighborhoods of Kampong Glam and Katong. Engage with locals, participate in cultural workshops, and savor diverse cuisine.\r\n\r\nThis comprehensive package ensures an enriching experience, blending must-see attractions with lesser-known destinations. Create unforgettable memories in enchanting Singapore. Book now for an effortless and memorable journey.', '2023-07-10', '2023-07-17', '3695.00', '7cd2a450-94af-4ccc-b22e-cc39fb81a364.jpg'),
-(78, 'asdasd', 'aslkddjfj hgaslkdfh laksj dhflaksj hdf kljash dfg jklashj dfkljash dklfh aslkjdfh asdlkjdfh laksjdh fkljas h dfglkuasdhdfglkjsdh kjfdgh sdkhjfhg sdjkhfg', '2023-05-24', '2023-05-24', '231.00', '6a7d42b9-bef2-4012-8497-5d01ba8c6940.png'),
-(79, 'asdasdasd', 'asldjfh aslkjdfh aslkjdh flkasj hdflakshdflkjas hdflkjas hdflk haslkdfh aslkjdfhaslkjdfh aslkdfh alskjdfhlaksdh flkasjhdflkjas hflkja sfkjas dfkjh aslkdjf haslkjd fh', '2023-06-06', '2023-06-06', '123.00', '31be307b-1525-4e8f-9cc7-46235ed8bb63.png');
+(32, 'Singapore', 'Embark on an all-inclusive week-long vacation in vibrant Singapore. Discover captivating attractions, cultural experiences, and hidden gems. Enjoy midrange hotel accommodations and seamless transport arrangements for a hassle-free journey.\r\n\r\nMarvel at iconic landmarks like Marina Bay Sands and immerse yourself in the cultural tapestry of Chinatown. Explore hidden treasures like Little India and the historic neighborhoods of Kampong Glam and Katong. Engage with locals, participate in cultural workshops, and savor diverse cuisine.\r\n\r\nThis comprehensive package ensures an enriching experience, blending must-see attractions with lesser-known destinations. Create unforgettable memories in enchanting Singapore. Book now for an effortless and memorable journey.', '2023-07-10', '2023-07-17', '3695.00', '7cd2a450-94af-4ccc-b22e-cc39fb81a364.jpg');
 
 --
 -- Indexes for dumped tables
@@ -139,7 +141,7 @@ ALTER TABLE `vacations`
 -- AUTO_INCREMENT for table `followers`
 --
 ALTER TABLE `followers`
-  MODIFY `followId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+  MODIFY `followId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -161,8 +163,8 @@ ALTER TABLE `vacations`
 -- Constraints for table `followers`
 --
 ALTER TABLE `followers`
-  ADD CONSTRAINT `followers_ibfk_1` FOREIGN KEY (`vacationId`) REFERENCES `vacations` (`vacationId`),
-  ADD CONSTRAINT `followers_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`);
+  ADD CONSTRAINT `followers_ibfk_2` FOREIGN KEY (`userId`) REFERENCES `users` (`userId`),
+  ADD CONSTRAINT `followers_ibfk_3` FOREIGN KEY (`vacationId`) REFERENCES `vacations` (`vacationId`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

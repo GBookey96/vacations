@@ -1,4 +1,3 @@
-import FollowersModel from "./follower-model"
 import RoleModel from "./role-model"
 
 class UserModel {

@@ -17,7 +17,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     const [userId, setUserId] = useState<number>()
     const [isAdmin, setIsAdmin] = useState<boolean>()
     const [followerCount, setFollowerCount] = useState<number>()
-    const [following, setFollowing] = useState<number[]>([])
+    const [followedVacations, setFollowedVacations] = useState<number[]>([])
     
     const navigate = useNavigate()
 
@@ -32,7 +32,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
         
         
         authService.getOneUser(user.userId)
-            .then(user => setFollowing(user.followedVacations))
+            .then(user => setFollowedVacations(user.followedVacations))
             .catch(err => console.log(err))
 
         if(user.userRole === "Admin") setIsAdmin(true)
@@ -41,7 +41,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
             user = authStore.getState().user
             setUserId(user.userId)
             user.userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
-            setFollowing(user.followedVacations)
+            setFollowedVacations(user.followedVacations)
         })
         return unsubscribe
     },[])
@@ -75,7 +75,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
             <p className="Dates">{formatDate(props.vacation.vacationStart)} ➡ {formatDate(props.vacation.vacationEnd)}</p>
             <p className="Description">{props.vacation.vacationDescription}</p>
                 {!isAdmin && <>
-                    <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId} following={following}/>
+                    <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId} followedVacations={followedVacations}/>
                 </>}
                 <small className="FollowerCount">{props.vacation.followerCount} following</small>
             <div className="PriceContainer">
