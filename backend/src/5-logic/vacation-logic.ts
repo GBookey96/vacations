@@ -83,19 +83,10 @@ async function deleteVaction(vacation: VacationModel): Promise<void> {
     fs.unlinkSync("./src/1-assets/vacationImages/" + thisVacationImgName)
 }
 
-// async function listOfVacationsWithFollowerCount(): Promise<[]>{
-//     const sql = `SELECT V.vacationId, V.vacationDestination, COUNT(DISTINCT F.userId) AS followerCount
-//     FROM vacations AS V
-//     LEFT JOIN followers AS F ON V.vacationId = F.vacationId
-//     GROUP BY V.vacationId, V.vacationDestination`
-//     return await dal.execute(sql)
-// }
-
 export default {
     getAllVacations,
     getOneVacation,
     addVacation,
     updateVacation,
-    deleteVaction,
-    // listOfVacationsWithFollowerCount
+    deleteVaction
 }

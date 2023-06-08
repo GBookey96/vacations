@@ -55,12 +55,7 @@ class VacationsService {
         await axios.delete(appConfig.deleteVacationsUrl + id)
         vacationsStore.dispatch({type: VacationsActionType.DeleteVacations, payload: id})
     }
-
-    // public async listOfVacationsWithFollowerCount(): Promise<[]>{
-    //     let response = await axios.get(appConfig.listOfVacationsUrl)
-    //     const listOfVacations = response.data
-    //     return listOfVacations
-    // }
+    
 }
 
 const vacationsService = new VacationsService()
