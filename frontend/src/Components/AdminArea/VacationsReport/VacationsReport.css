@@ -1,3 +1,16 @@
 .VacationsReport {
-	
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.VacationsReport > h2 {
+    text-align: center;
+}
+
+.VacationsReport > .BarChartContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
