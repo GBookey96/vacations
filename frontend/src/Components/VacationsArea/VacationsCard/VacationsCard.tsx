@@ -70,15 +70,15 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
                     <button className="Button" onClick={toggleDeleteModal}>Cancel</button>
                 </div>
                 </>}
-            </div>
+             </div>
+             {!isAdmin && <>
+                <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId} followedVacations={followedVacations}/>
+            </>}
+            <small className="FollowerCount">{props.vacation.followerCount} following</small>
             <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />
             <p className="Dates">{formatDate(props.vacation.vacationStart)} ➡ {formatDate(props.vacation.vacationEnd)}</p>
             <p className="Description">{props.vacation.vacationDescription}</p>
-                {!isAdmin && <>
-                    <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId} followedVacations={followedVacations}/>
-                </>}
-                <small className="FollowerCount">{props.vacation.followerCount} following</small>
-            <div className="PriceContainer">
+           <div className="PriceContainer">
                 <h3 className="Price">${props.vacation.vacationPrice}</h3>
             </div>
         </div>

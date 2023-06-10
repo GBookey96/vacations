@@ -41,8 +41,6 @@ function Menu(): JSX.Element {
                     <NavLink to="/home">Home</NavLink>
                     <span> | </span>
                     <NavLink to={"/profile/edit/" + user.userId}>Edit Profile</NavLink>
-                    <span> | </span>
-                    <NavLink to="/logout">Logout</NavLink>
                 </>
             }
             {isAdmin &&
@@ -51,6 +49,13 @@ function Menu(): JSX.Element {
                     <NavLink to="/vacations-report">Vacations Report</NavLink>
                 </>
             }
+            {user && 
+                <>
+                    <span> | </span>
+                    <NavLink to="/logout">Logout</NavLink>
+                </>
+            }
+            
         </div>
     );
 }

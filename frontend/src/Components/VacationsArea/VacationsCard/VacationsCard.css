@@ -55,8 +55,6 @@
 
 .VacationsCard > .Description {
   text-align: justify;
-  /* max-height: 300px;
-  overflow: auto; */
 }
 
 .VacationsCard > .PriceContainer {

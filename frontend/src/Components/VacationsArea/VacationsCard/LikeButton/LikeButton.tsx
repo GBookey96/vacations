@@ -15,7 +15,6 @@ function LikeButton(props: LikeButtonProps): JSX.Element {
     
     useEffect(()=>{
         setIsFollowing(props.followedVacations.includes(props.vacationId))
-        console.log(props.vacationId + " is followed? " + (props.followedVacations.includes(props.vacationId)))
     },[])
     function follow() {
         if(!isFollowing) followerService.follow(props.userId, props.vacationId)
