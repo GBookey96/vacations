@@ -4,24 +4,24 @@ export class ErrorModel {
 
 export class RouteNotFoundErrorModel extends ErrorModel {
     public constructor(route:string) {
-        super(`Route ${route} not exist`,404)
+        super(`Route ${route} does not exist`,404)
     }
 }
 
 export class ResourceNotFoundErrorModel extends ErrorModel {
     public constructor(id:number) {
-        super(`id ${id} not exist`,404)
+        super(`id ${id} cannot be found`,404)
     }
 }
 
 export class ValidationErrorModel extends ErrorModel {
     public constructor(message: string) {
-        super(message,400)
+        super(message, 400)
     }
 }
 
 export class UnauthorizedErrorModel extends ErrorModel {
     public constructor(message:string) {
-        super(message,401)
+        super(message, 401)
     }
 }

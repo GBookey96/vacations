@@ -8,9 +8,7 @@ function Layout(): JSX.Element {
     return (
         <div className="Layout">
             <Header />
-
 			<Menu />
-
             <Routing />
             <Footer />
         </div>

@@ -1,10 +1,8 @@
-// General config:
 class AppConfig {
-    public salesEmail = "sales@northwind.com";
-    public helpPage = "http://northwind.com/help";
+    public salesEmail = "sales@travelhub.com";
+    public helpPage = "http://travelhub.com/help";
 }
 
-// Development config: 
 class DevelopmentConfig extends AppConfig {
     public isDevelopment = true;
     public isProduction = false;
@@ -16,7 +14,6 @@ class DevelopmentConfig extends AppConfig {
     public frontEndUrl = "http://localhost:3000";
 }
 
-// Production config:
 class ProductionConfig extends AppConfig {
     public isDevelopment = false;
     public isProduction = true;
@@ -25,7 +22,7 @@ class ProductionConfig extends AppConfig {
     public password = "";
     public database = "";
     public port = 0;
-    public frontEndUrl = "http://vacations.com";
+    public frontEndUrl = "http://travelhub.com";
 }
 
 const appConfig = (process.env.NODE_ENV === "production") ? new ProductionConfig() : new DevelopmentConfig();

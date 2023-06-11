@@ -7,31 +7,20 @@ import VacationModel from "../../../Models/vacations-model";
 import VacationsCard from "../VacationsCard/VacationsCard";
 import filterVacationsService from "../../../Services/FilterVacationService";
 import FollowersModel from "../../../Models/follower-model";
+import vacationsService from "../../../Services/VacationsService";
 
 function AllVacations(): JSX.Element {
     const [allVacations, setAllVacations] = useState<VacationModel[]>([])
     const [showVacations, setShowVacations] = useState<VacationModel[]>([])
-    const [vacationsFollowing, setVacationsFollowing] = useState<FollowersModel[]>([])
-    const [notYetStarted, setNotYetStarted] = useState<VacationModel[]>([])
-    const [activeVacations, setActiveVacations] = useState<VacationModel[]>([])
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
     const [userId, setUserId] = useState<number>()
 
-    // brings all vacations from backend
     useEffect(()=>{
-        filterVacationsService.sortByDate()
+        vacationsService.getAllVacations()
             .then(vacations => {
                 setAllVacations(vacations)
                 setShowVacations(vacations)
             })
-            .catch(err => console.log(err))
-
-        filterVacationsService.notyetStarted()
-            .then(vacations => setNotYetStarted(vacations))
-            .catch(err => console.log(err))
-
-        filterVacationsService.activeVacations()
-            .then(vacations => setActiveVacations(vacations))
             .catch(err => console.log(err))
 
         const unsubscribe = vacationsStore.subscribe(()=>{
@@ -59,13 +48,20 @@ function AllVacations(): JSX.Element {
 
     function showAll() {setShowVacations(allVacations)}
 
-    function showOnlyFollowing() {
-        // setShowVacations(vacationsFollowing)
+    async function showOnlyFollowing() {
+        const vacationsFollowing = await filterVacationsService.followedVacations(userId)
+        setShowVacations(vacationsFollowing)
     }
 
-    function showNotYetStartedVacations() {setShowVacations(notYetStarted)}
+    async function showNotYetStartedVacations() {
+        const notYetStarted = await filterVacationsService.notyetStarted()
+        setShowVacations(notYetStarted)
+    }
 
-    function showActiveVacations() {setShowVacations(activeVacations)}
+    async function showActiveVacations() {
+        const activeVacations = await filterVacationsService.activeVacations()
+        setShowVacations(activeVacations)
+    }
 
     return (
         <div className="AllVacations">

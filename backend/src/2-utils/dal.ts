@@ -1,8 +1,6 @@
 import mysql from "mysql"
 import appConfig from './app-config';
 
-
-// create pool of connections through mysql
 const connection = mysql.createPool({
     host: appConfig.host,
     user: appConfig.user,

@@ -18,7 +18,7 @@ function logActivity(message: string): void {
     const now = new Date()
     let msgToLog = now.toUTCString() + "\n"
     msgToLog += message + "\n"
-    msgToLog += "--------------------------------------------------------------------------------------------\n"
+    msgToLog += "\n--------------------------------------------------------------------------------------------\n"
     fs.appendFile(activitiesLogFile, msgToLog, ()=>{ })
 }
 export default {

@@ -1,16 +1,18 @@
+import { ResourceNotFoundErrorModel, ValidationErrorModel } from "../4-models/error-model"
+import { v4 as uuid } from "uuid";
 import { OkPacket } from "mysql"
 import dal from "../2-utils/dal"
 import VacationModel from "../4-models/vacation-model"
-import { ResourceNotFoundErrorModel, ValidationErrorModel } from "../4-models/error-model"
-import { v4 as uuid } from "uuid";
 import fs from "fs"
 
 async function getAllVacations(): Promise<VacationModel[]> {
+    // selects all info from vacations table, along with a count of how many users are following each vacation
     const sql = `
             SELECT V.*, COUNT(DISTINCT F.userId) AS followerCount
             FROM vacations AS V
             LEFT JOIN followers AS F ON V.vacationId = F.vacationId
-            GROUP BY V.vacationId, V.vacationDestination`
+            GROUP BY V.vacationId, V.vacationDestination
+            ORDER BY V.vacationStart`
     const vacations = await dal.execute(sql)
     return vacations
 }

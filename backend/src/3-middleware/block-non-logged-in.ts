@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
-import cyber from "../2-utils/cyber";
 import { UnauthorizedErrorModel } from "../4-models/error-model";
+import cyber from "../2-utils/cyber";
 
 async function blockNonLoggedIn(request: Request, response: Response, next: NextFunction) {
     try {

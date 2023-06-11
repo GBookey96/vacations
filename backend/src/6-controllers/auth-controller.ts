@@ -29,7 +29,7 @@ router.post("/auth/login", async(request: Request, response: Response, next: Nex
     }
 })
 
-router.get("/users/:userId", async(request: Request, response: Response, next: NextFunction)=> {
+router.get("/users/:userId", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const userId = +request.params.userId
         const user = await authLogic.getOneUser(userId)

@@ -66,9 +66,7 @@ function AddVacation(): JSX.Element {
                     </form>
                 </div>
             </>}
-            {!isAdmin && <>
-                <AdminOnly />
-            </>}
+            {!isAdmin && <AdminOnly />}
         </div>
     );
 }

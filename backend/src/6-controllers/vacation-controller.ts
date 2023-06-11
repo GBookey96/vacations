@@ -7,7 +7,7 @@ import verifyAdmin from "../3-middleware/verify-admin"
 
 const router = express.Router()
 
-router.get("/vacations", async(request: Request, response: Response, next: NextFunction)=> {
+router.get("/vacations", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const allVacations = await vacationLogic.getAllVacations()
         response.json(allVacations)
@@ -28,7 +28,7 @@ router.get("/vacations/:id([0-9]+)", blockNonLoggedIn, async(request: Request, r
     }
 })
 
-router.get("/vacationsfollowercount", async(request: Request, response: Response, next: NextFunction)=> {
+router.get("/vacationsfollowercount", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const getVacationsWithFollowerCount = await vacationLogic.getVacationsWithFollowerCount()
         response.json(getVacationsWithFollowerCount)
@@ -46,6 +46,7 @@ router.get("/vacations/img/:imageName", async(request: Request, response: Respon
         response.sendFile(absolutePath)
     }
     catch(err: any) {
+        console.log(err)
         next(err)
     }
 })

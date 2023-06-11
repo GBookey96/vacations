@@ -3,8 +3,7 @@
     line-height: 1.5;
     color: #555;
     margin-bottom: 20px;
-    text-align: justify;
-
+    text-align: center !important;
     max-width: 800px;
     margin: 20px auto;
     text-align: left;
