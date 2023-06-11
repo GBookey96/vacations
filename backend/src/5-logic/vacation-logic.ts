@@ -15,6 +15,15 @@ async function getAllVacations(): Promise<VacationModel[]> {
     return vacations
 }
 
+async function getVacationsWithFollowerCount(): Promise<VacationModel[]> {
+    const sql = `SELECT V.vacationId, V.vacationDestination, COUNT(DISTINCT F.userId) AS followerCount
+    FROM vacations AS V
+    LEFT JOIN followers AS F ON V.vacationId = F.vacationId
+    GROUP BY V.vacationId, V.vacationDestination`
+    const vacations = await dal.execute(sql)
+    return vacations
+}
+
 async function getOneVacation(vacationId: number): Promise<VacationModel> {
     const sql = "SELECT * FROM vacations WHERE vacationId = ?"
     const vacation = await dal.execute(sql, [vacationId])
@@ -85,6 +94,7 @@ async function deleteVaction(vacation: VacationModel): Promise<void> {
 
 export default {
     getAllVacations,
+    getVacationsWithFollowerCount,
     getOneVacation,
     addVacation,
     updateVacation,

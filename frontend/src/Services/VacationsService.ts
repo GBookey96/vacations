@@ -25,6 +25,11 @@ class VacationsService {
         return vacation
     }
 
+    public async vacationsWithFollowerCount(): Promise<VacationModel[]> {
+        const response = await axios.get(appConfig.vacationsWithFollowerCount)
+        return response.data
+    }
+
     public async addVacations(vacation: VacationModel): Promise<void> {
         const myFormData = new FormData()
         myFormData.append("vacationDestination", vacation.vacationDestination)

@@ -28,6 +28,17 @@ router.get("/vacations/:id([0-9]+)", blockNonLoggedIn, async(request: Request, r
     }
 })
 
+router.get("/vacationsfollowercount", async(request: Request, response: Response, next: NextFunction)=> {
+    try {
+        const getVacationsWithFollowerCount = await vacationLogic.getVacationsWithFollowerCount()
+        response.json(getVacationsWithFollowerCount)
+    }
+    catch (err: any) {
+        next(err)
+    }
+})
+
+
 router.get("/vacations/img/:imageName", async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const imageName = request.params.imageName
