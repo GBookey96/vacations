@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2023 at 06:42 PM
+-- Generation Time: Jun 11, 2023 at 10:15 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -48,8 +48,9 @@ INSERT INTO `followers` (`followId`, `userId`, `vacationId`) VALUES
 (52, 8, 30),
 (53, 8, 28),
 (54, 8, 21),
-(55, 8, 26),
-(56, 8, 29);
+(56, 8, 29),
+(57, 9, 30),
+(58, 8, 31);
 
 -- --------------------------------------------------------
 
@@ -141,7 +142,7 @@ ALTER TABLE `vacations`
 -- AUTO_INCREMENT for table `followers`
 --
 ALTER TABLE `followers`
-  MODIFY `followId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `followId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `users`
