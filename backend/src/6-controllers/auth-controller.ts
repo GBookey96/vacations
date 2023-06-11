@@ -43,8 +43,6 @@ router.get("/users/:userId", blockNonLoggedIn, async(request: Request, response:
 router.patch("/users/:id", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
     try {
         request.body.userId = +request.params.id
-        console.log(typeof request.body.id)
-        console.log(request.body.id)
         const user = new UserModel(request.body)
         const updatedUser = await authLogic.updateUser(user)
         response.json(updatedUser)

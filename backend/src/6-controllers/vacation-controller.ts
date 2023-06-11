@@ -46,7 +46,6 @@ router.get("/vacations/img/:imageName", async(request: Request, response: Respon
         response.sendFile(absolutePath)
     }
     catch(err: any) {
-        console.log(err)
         next(err)
     }
 })

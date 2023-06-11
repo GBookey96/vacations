@@ -8,7 +8,6 @@ const router = express.Router()
 router.post("/follow", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const userId = +request.query.userId
-        console.log(typeof userId)
         const vacationId = +request.query.vacationId
         const addedFollow = await followersLogic.follow(+userId, vacationId)
         response.status(201).json(addedFollow)
