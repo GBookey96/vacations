@@ -23,9 +23,23 @@
     color: #003366
 }
 
+.AllVacations > .FilterOptions > button {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.AllVacations > .AddNew {
+    margin: 25px;
+}
+
 .AllVacations button {
     margin: 5px;
     background-color: #003366;
     color: #F7F7F7;
+}
+
+.AllVacations > .Pagination {
+    margin-top: 20px;
 }
 

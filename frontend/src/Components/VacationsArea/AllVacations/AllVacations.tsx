@@ -14,31 +14,24 @@ function AllVacations(): JSX.Element {
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
     const [userId, setUserId] = useState<number>()
 
-    // useEffect(()=>{
-    //     vacationsService.getAllVacations()
-    //         .then(vacations => setAllVacations(vacations))
-    //         .catch(err => console.log(err))
-
-    //     const unsubscribe = vacationsStore.subscribe(()=>{
-    //         const vacations = vacationsStore.getState().vacations
-    //         setAllVacations(vacations)
-    //     })
-    //     return unsubscribe
-    // },[])
-
-    
     useEffect(()=>{
         let user = authStore.getState().user
-        if(user.userRole === "Admin") setIsAdmin(true)
+        if(user.userRole === "Admin") {
+            setIsAdmin(true)
+            vacationsService.getAllVacations()
+                .then(v => setAllVacations(v))
+        }
         setUserId(user.userId)
 
         const unsubscribe = authStore.subscribe(()=>{
             user = authStore.getState().user
             setUserId(user.userId)
             user.userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
+            setShowVacations(vacationsStore.getState().vacations)
         })
         return unsubscribe
     },[])
+
 
 
     async function showAll() {
@@ -62,43 +55,59 @@ function AllVacations(): JSX.Element {
     }
 
     // pagination functions
-    const [currentPage, setCurrentPage] = useState<number>(2)
+    const [currentPage, setCurrentPage] = useState<number>(1)
     const vacationsPerPage = 9
     const lastVacationIndex = currentPage * vacationsPerPage
     const firstVacationIndex = lastVacationIndex - vacationsPerPage
-    
+    const totalPages = Math.ceil(allVacations.length/vacationsPerPage)
+
     useEffect(()=>{
         setShowVacations(allVacations.slice(firstVacationIndex, lastVacationIndex))
     })
 
     let pages = []
-    for(let i = 1; i <= Math.ceil(allVacations.length/vacationsPerPage); i++) {
+    for(let i = 1; i <= totalPages; i++) {
         pages.push(i)
     }
 
     return (
         <div className="AllVacations">
-            {isAdmin && <NavLink to="/add-vacation">Add New Vacation</NavLink>}
-            {!isAdmin && <>
             <div className="FilterOptions">
                 <h3>Filters</h3>
-                <button onClick={showOnlyFollowing}>Vacations you are following</button>
+                <button onClick={showAll}>Show All</button>
                 <br />
+                {!isAdmin && <>
+                    <button onClick={showOnlyFollowing}>Vacations you are following</button>
+                    <br />
+                </>}
                 <button onClick={showNotYetStartedVacations}>Vacations that have not yet started</button>
                 <br />
                 <button onClick={showActiveVacations}>Active vacations</button>
-                <br />
-                <button onClick={showAll}>Show All</button>
             </div>
+            {isAdmin && <>
+                <div className="AddNew">
+                    <NavLink to="/add-vacation">Add New Vacation</NavLink>
+                </div>
             </>}
-            
+            {pages.length > 1 &&<>
+                <div className="Pagination">
+                <button onClick={()=>{setCurrentPage(1)}}>⏮</button>
+                {pages.map(p => <button key={p} onClick={()=>setCurrentPage(p)}>{p}</button>)}
+                <button onClick={()=>{setCurrentPage(totalPages)}}>⏭</button>
+            </div>
             <br />
+            </>}
             <div className="Vacations">
                 {showVacations.map(v => <VacationsCard key={v.vacationId} vacation={v} />)}
             </div>
-            <div>
+            {pages.length > 1 &&<>
+                <div className="Pagination">
+                <button onClick={()=>{setCurrentPage(1)}}>⏮</button>
                 {pages.map(p => <button key={p} onClick={()=>setCurrentPage(p)}>{p}</button>)}
+                <button onClick={()=>{setCurrentPage(totalPages)}}>⏭</button>
             </div>
+            <br />
+            </>}
         </div>
     );
 }
