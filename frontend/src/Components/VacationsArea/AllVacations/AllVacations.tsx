@@ -6,7 +6,6 @@ import { vacationsStore } from "../../../Redux/VacationsState";
 import VacationModel from "../../../Models/vacations-model";
 import VacationsCard from "../VacationsCard/VacationsCard";
 import filterVacationsService from "../../../Services/FilterVacationService";
-import FollowersModel from "../../../Models/follower-model";
 import vacationsService from "../../../Services/VacationsService";
 
 function AllVacations(): JSX.Element {
@@ -15,21 +14,17 @@ function AllVacations(): JSX.Element {
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
     const [userId, setUserId] = useState<number>()
 
-    useEffect(()=>{
-        vacationsService.getAllVacations()
-            .then(vacations => {
-                setAllVacations(vacations)
-                setShowVacations(vacations)
-            })
-            .catch(err => console.log(err))
+    // useEffect(()=>{
+    //     vacationsService.getAllVacations()
+    //         .then(vacations => setAllVacations(vacations))
+    //         .catch(err => console.log(err))
 
-        const unsubscribe = vacationsStore.subscribe(()=>{
-            const vacations = vacationsStore.getState().vacations
-            setAllVacations(vacations)
-            setShowVacations(vacations)
-        })
-        return unsubscribe
-    },[])
+    //     const unsubscribe = vacationsStore.subscribe(()=>{
+    //         const vacations = vacationsStore.getState().vacations
+    //         setAllVacations(vacations)
+    //     })
+    //     return unsubscribe
+    // },[])
 
     
     useEffect(()=>{
@@ -46,21 +41,39 @@ function AllVacations(): JSX.Element {
     },[])
 
 
-    function showAll() {setShowVacations(allVacations)}
+    async function showAll() {
+        const allVacations = await vacationsService.getAllVacations()
+        setAllVacations(allVacations)
+    }
 
     async function showOnlyFollowing() {
         const vacationsFollowing = await filterVacationsService.followedVacations(userId)
-        setShowVacations(vacationsFollowing)
+        setAllVacations(vacationsFollowing)
     }
 
     async function showNotYetStartedVacations() {
         const notYetStarted = await filterVacationsService.notyetStarted()
-        setShowVacations(notYetStarted)
+        setAllVacations(notYetStarted)
     }
 
     async function showActiveVacations() {
         const activeVacations = await filterVacationsService.activeVacations()
-        setShowVacations(activeVacations)
+        setAllVacations(activeVacations)
+    }
+
+    // pagination functions
+    const [currentPage, setCurrentPage] = useState<number>(2)
+    const vacationsPerPage = 9
+    const lastVacationIndex = currentPage * vacationsPerPage
+    const firstVacationIndex = lastVacationIndex - vacationsPerPage
+    
+    useEffect(()=>{
+        setShowVacations(allVacations.slice(firstVacationIndex, lastVacationIndex))
+    })
+
+    let pages = []
+    for(let i = 1; i <= Math.ceil(allVacations.length/vacationsPerPage); i++) {
+        pages.push(i)
     }
 
     return (
@@ -82,6 +95,9 @@ function AllVacations(): JSX.Element {
             <br />
             <div className="Vacations">
                 {showVacations.map(v => <VacationsCard key={v.vacationId} vacation={v} />)}
+            </div>
+            <div>
+                {pages.map(p => <button key={p} onClick={()=>setCurrentPage(p)}>{p}</button>)}
             </div>
         </div>
     );

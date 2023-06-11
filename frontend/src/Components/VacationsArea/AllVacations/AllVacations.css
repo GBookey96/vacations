@@ -23,7 +23,7 @@
     color: #003366
 }
 
-.AllVacations > .FilterOptions > button {
+.AllVacations button {
     margin: 5px;
     background-color: #003366;
     color: #F7F7F7;
