@@ -1,5 +1,5 @@
 import "./Header.css";
-import logo from "../../../assets/travelhub-logo.png"
+import logo from "../../../assets/images/travelhub-logo.png"
 
 function Header(): JSX.Element {
     return (

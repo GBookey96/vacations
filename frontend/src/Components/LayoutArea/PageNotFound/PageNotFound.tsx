@@ -1,6 +1,6 @@
 import "./PageNotFound.css";
 import { NavLink } from "react-router-dom";
-import background from "../../../assets/pageNotFoundBackground.jpg"
+import background from "../../../assets/images/pageNotFoundBackground.jpg"
 
 function PageNotFound(): JSX.Element {
     return (

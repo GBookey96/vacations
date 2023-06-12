@@ -7,8 +7,16 @@ import vacationController from "./6-controllers/vacation-controller";
 import authController from "./6-controllers/auth-controller";
 import expressFileUpload from 'express-fileupload'
 import followersController from "./6-controllers/followers-controller"
+import expressRateLimit from "express-rate-limit";
+
 
 const server = express()
+
+// server.use("/api", expressRateLimit({
+//     max: 5,
+//     windowMs: 1000,
+//     message: "Why are you hacking?"
+// }))
 
 server.use(cors())
 

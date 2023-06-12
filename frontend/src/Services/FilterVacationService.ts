@@ -21,7 +21,6 @@ class FilterVacationsService {
 
     public async followedVacations(userId: number): Promise<VacationModel[]> {
         const followedVacationIdList = (await authService.getOneUser(userId)).followedVacations
-        console.log(followedVacationIdList)
         const followedVacations = []
         for(const vacationId of followedVacationIdList) {
             const vacation = await vacationsService.getOneVacation(vacationId)

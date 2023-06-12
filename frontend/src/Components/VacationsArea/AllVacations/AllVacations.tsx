@@ -14,13 +14,16 @@ function AllVacations(): JSX.Element {
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
     const [userId, setUserId] = useState<number>()
 
+    
+
     useEffect(()=>{
         let user = authStore.getState().user
-        if(user.userRole === "Admin") {
-            setIsAdmin(true)
-            vacationsService.getAllVacations()
-                .then(v => setAllVacations(v))
-        }
+        if(user.userRole === "Admin") setIsAdmin(true)
+        vacationsService.getAllVacations()
+            .then(v => {
+                setAllVacations(v)
+            })
+            .catch(err => console.log(err))
         setUserId(user.userId)
 
         const unsubscribe = authStore.subscribe(()=>{
@@ -31,8 +34,6 @@ function AllVacations(): JSX.Element {
         })
         return unsubscribe
     },[])
-
-
 
     async function showAll() {
         const allVacations = await vacationsService.getAllVacations()
@@ -61,14 +62,15 @@ function AllVacations(): JSX.Element {
     const firstVacationIndex = lastVacationIndex - vacationsPerPage
     const totalPages = Math.ceil(allVacations.length/vacationsPerPage)
 
-    useEffect(()=>{
-        setShowVacations(allVacations.slice(firstVacationIndex, lastVacationIndex))
-    })
-
     let pages = []
     for(let i = 1; i <= totalPages; i++) {
         pages.push(i)
     }
+    
+    useEffect(()=>{
+        const vacationsForThisPage = allVacations.slice(firstVacationIndex, lastVacationIndex)
+        setShowVacations(vacationsForThisPage)
+    },[allVacations, firstVacationIndex, lastVacationIndex])
 
     return (
         <div className="AllVacations">

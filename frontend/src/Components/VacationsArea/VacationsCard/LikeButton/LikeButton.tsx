@@ -1,5 +1,5 @@
-import followerService from "../../../../Services/FollowerService";
 import "./LikeButton.css";
+import followerService from "../../../../Services/FollowerService";
 import { useEffect, useState } from 'react';
 
 interface LikeButtonProps {

@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
 import "./VacationsReport.css";
+import { useEffect, useState } from "react";
 import vacationsService from "../../../Services/VacationsService";
-import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from "recharts";
+import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from "recharts";
 import VacationModel from "../../../Models/vacations-model";
 import { vacationsStore } from "../../../Redux/VacationsState";
 import { CSVLink } from "react-csv";
