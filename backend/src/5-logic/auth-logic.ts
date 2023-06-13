@@ -58,7 +58,6 @@ async function getOneUser(id: number): Promise<UserModel> {
         user.followedVacations = user.followedVacations.split(",")
         user.followedVacations = user.followedVacations.map((Number))
     }
-
     return user
 }
 

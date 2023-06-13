@@ -16,7 +16,6 @@ interface VacationsCardProps {
 function VacationsCard(props: VacationsCardProps): JSX.Element {
     const [userId, setUserId] = useState<number>()
     const [isAdmin, setIsAdmin] = useState<boolean>()
-    const [followerCount, setFollowerCount] = useState<number>()
     const [followedVacations, setFollowedVacations] = useState<number[]>([])
     
     const navigate = useNavigate()
@@ -29,7 +28,6 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
 
     useEffect(()=>{
         let user = authStore.getState().user
-        
         
         authService.getOneUser(user.userId)
             .then(user => setFollowedVacations(user.followedVacations))
@@ -60,8 +58,8 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
         <div className="VacationsCard">
             <div className="TopSection">
                 {isAdmin && <button onClick={()=>navigate("/vacation/edit/" + props.vacation.vacationId)} className="Button">Edit</button>}
-                {isAdmin && <button onClick={()=>toggleDeleteModal()} className="Button">Delete</button>}
                 <h2 className="Destination">{props.vacation.vacationDestination}</h2>
+                {isAdmin && <button onClick={()=>toggleDeleteModal()} className="Button">Delete</button>}
                 {showModal && <>
                 <div className="ConfirmDeleteModal" onClick={toggleDeleteModal}>
                     <p>Are you sure you want to delete this vacation?</p>
@@ -72,9 +70,12 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
                 </>}
              </div>
              {!isAdmin && <>
-                <LikeButton key={userId} userId={userId} vacationId={props.vacation.vacationId} followedVacations={followedVacations}/>
+                <LikeButton key={userId}
+                userId={userId}
+                vacationId={props.vacation.vacationId}
+                followedVacations={followedVacations}
+                followerCount={props.vacation.followerCount}/>
             </>}
-            <small className="FollowerCount">{props.vacation.followerCount} following</small>
             <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />
             <p className="Dates">{formatDate(props.vacation.vacationStart)} ➡ {formatDate(props.vacation.vacationEnd)}</p>
             <p className="Description">{props.vacation.vacationDescription}</p>
@@ -82,7 +83,6 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
                 <h3 className="Price">${props.vacation.vacationPrice}</h3>
             </div>
         </div>
-
     );
 }
 

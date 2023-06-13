@@ -4,3 +4,22 @@ html, body, #root {
 	background-color: #8dbdff;
   font-family: "Open Sans", Arial, sans-serif;
 }
+
+@font-face {
+  font-family: 'TravelhubSigmarOne';
+  src: url("./assets/fonts/travelhub-sigmar-one-regular.ttf") format('truetype');
+}
+
+@font-face {
+  font-family: 'TravelhubYanoneKaffeesatzMedium';
+  src: url("./assets/fonts/travelhub-yanone-kaffeesatz-medium.ttf")  format('truetype');
+}
+
+h1 {
+  font-family: 'TravelhubSigmarOne', Arial, Helvetica, sans-serif !important;
+}
+
+p, span, div, button, input {
+  font-family: 'TravelhubYanoneKaffeesatzMedium' !important;
+  font-size: large !important;
+}
