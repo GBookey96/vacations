@@ -6,6 +6,7 @@ import { authStore } from "../../../Redux/AuthState";
 import vacationsService from "../../../Services/VacationsService";
 import VacationModel from "../../../Models/vacations-model";
 import AdminOnly from "../../AuthArea/AdminOnly/AdminOnly";
+import notifyService from "../../../Services/NotifyService";
 
 function AddVacation(): JSX.Element {
     const {register, handleSubmit} = useForm<VacationModel>()
@@ -26,11 +27,11 @@ function AddVacation(): JSX.Element {
     async function submit(vacation: VacationModel) {
         try {
             await vacationsService.addVacations(vacation)
-            alert("Vacation Added")
+            notifyService.success("Vacation Added")
             navigate("/home")
         }
         catch(err: any) {
-            alert(err)
+            notifyService.error(err)
         }
     }
 

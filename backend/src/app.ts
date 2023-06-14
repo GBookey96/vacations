@@ -9,7 +9,7 @@ import expressFileUpload from 'express-fileupload'
 import followersController from "./6-controllers/followers-controller"
 import expressRateLimit from "express-rate-limit";
 import sanitize from "./3-middleware/sanitize";
-
+import helmet from "helmet";
 
 const server = express()
 
@@ -18,6 +18,8 @@ server.use("/api", expressRateLimit({
     windowMs: 1000,
     message: "Why are you hacking?"
 }))
+
+server.use(helmet())
 
 server.use(cors({origin: appConfig.frontEndUrl}))
 

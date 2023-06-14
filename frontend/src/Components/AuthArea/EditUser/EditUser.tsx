@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import UserModel from "../../../Models/user-model";
 import authService from "../../../Services/AuthService";
+import notifyService from "../../../Services/NotifyService";
 
 function EditUser(): JSX.Element {
     
@@ -27,11 +28,11 @@ function EditUser(): JSX.Element {
     async function submit(user: UserModel) {
         try {
             await authService.updateUser(user)
-            alert("Update Successful")
+            notifyService.success("Update Successful")
             navigate("/home")
         }
         catch(err: any) {
-            alert(err)            
+            notifyService.error(err)            
         }
     }
     

@@ -6,6 +6,7 @@ import { NavLink } from "react-router-dom";
 import authService from "../../../Services/AuthService";
 import ReCAPTCHA from "react-google-recaptcha";
 import UserModel from "../../../Models/user-model";
+import notifyService from "../../../Services/NotifyService";
 
 function Register(): JSX.Element {
 
@@ -16,11 +17,11 @@ function Register(): JSX.Element {
     async function submit(user: UserModel) {
         try {
             await authService.register(user);
-            alert("Welcome!");
+            notifyService.success("Welcome!");
             navigate("/home");
         }
         catch (err: any) {
-            alert(err);
+            notifyService.error(err);
         }
     }
 

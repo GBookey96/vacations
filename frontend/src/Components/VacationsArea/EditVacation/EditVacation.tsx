@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import VacationModel from "../../../Models/vacations-model";
 import vacationsService from "../../../Services/VacationsService";
 import AdminOnly from "../../AuthArea/AdminOnly/AdminOnly";
+import notifyService from "../../../Services/NotifyService";
 
 function EditVacation(): JSX.Element {
     
@@ -44,11 +45,11 @@ function EditVacation(): JSX.Element {
     async function submit(vacation: VacationModel) {
         try {
             await vacationsService.updateVacation(vacation)
-            alert("Vacation Updated Successfully")
+            notifyService.success("Vacation Updated Successfully")
             navigate("/home")
         }
         catch(err: any) {
-            alert(err)
+            notifyService.error(err)
         }
     }
 

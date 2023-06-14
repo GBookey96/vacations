@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import CredentialsModel from "../../../Models/credentials-model";
 import authService from "../../../Services/AuthService";
+import notifyService from "../../../Services/NotifyService";
 
 function Login(): JSX.Element {
     const { register, handleSubmit} = useForm<CredentialsModel>()
@@ -12,11 +13,11 @@ function Login(): JSX.Element {
     async function submit(credentials: CredentialsModel) {
         try {
             await authService.login(credentials)
-            alert("Login Successful")
+            notifyService.success("Login Successful")
             navigate("/home")
         }
         catch(err: any) {
-            alert(err)
+            notifyService.error(err)
         }
     }
 
