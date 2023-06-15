@@ -4,7 +4,7 @@ import { Notyf } from "notyf";
 class NotifyService {
     private notify = new Notyf ({
         duration: 3000,
-        position: {x: "center", y: "center"},
+        position: {x: "right", y: "bottom"},
         dismissible: true
     })
 

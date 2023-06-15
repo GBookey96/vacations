@@ -76,7 +76,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
                 followedVacations={followedVacations}
                 followerCount={props.vacation.followerCount}/>
             </>}
-            <img src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />
+            <img crossOrigin="anonymous" src={appConfig.vacationImgUrl + props.vacation.vacationImgName} alt="Vacation Image" className="Image" />
             <p className="Dates">{formatDate(props.vacation.vacationStart)} ➡ {formatDate(props.vacation.vacationEnd)}</p>
             <p className="Description">{props.vacation.vacationDescription}</p>
            <div className="PriceContainer">

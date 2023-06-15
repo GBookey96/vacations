@@ -14,7 +14,7 @@ import helmet from "helmet";
 const server = express()
 
 server.use("/api", expressRateLimit({
-    max: 5,
+    max: 50,
     windowMs: 1000,
     message: "Why are you hacking?"
 }))
