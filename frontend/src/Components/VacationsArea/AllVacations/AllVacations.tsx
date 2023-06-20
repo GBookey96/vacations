@@ -14,25 +14,30 @@ function AllVacations(): JSX.Element {
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
     const [userId, setUserId] = useState<number>()
 
-    
-
     useEffect(()=>{
         let user = authStore.getState().user
         if(user.userRole === "Admin") setIsAdmin(true)
-        vacationsService.getAllVacations()
-            .then(v => {
-                setAllVacations(v)
-            })
-            .catch(err => console.log(err))
         setUserId(user.userId)
 
         const unsubscribe = authStore.subscribe(()=>{
             user = authStore.getState().user
             setUserId(user.userId)
             user.userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
-            setShowVacations(vacationsStore.getState().vacations)
         })
-        return unsubscribe
+        return () => unsubscribe()
+    },[])
+
+    useEffect(()=>{
+        vacationsService.getAllVacations()
+            .then(v => setAllVacations(v))
+            .catch(err => console.log(err))
+            
+        const unsubscribe = vacationsStore.subscribe(()=>{
+            vacationsService.getAllVacations()
+            .then(v => setAllVacations(v))
+            .catch(err => console.log(err))    
+        })
+        return () => unsubscribe()
     },[])
 
     async function showAll() {
