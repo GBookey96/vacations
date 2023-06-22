@@ -25,13 +25,15 @@ function EditVacation(): JSX.Element {
             userRole = user?.userRole
             userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
         })
-        return unsubscribe
+        return ()=> unsubscribe()
     },[])
 
     useEffect(()=>{
         const id = +params.vacationId
         vacationsService.getOneVacation(id)
             .then(v => {
+                console.log(v.vacationStart)
+                console.log(new Date(v.vacationStart).toISOString().split("T")[0])
                 setValue("vacationId", v.vacationId)
                 setValue("vacationDestination", v.vacationDestination)
                 setValue("vacationDescription", v.vacationDescription)
@@ -39,7 +41,7 @@ function EditVacation(): JSX.Element {
                 setValue("vacationEnd", new Date(v.vacationEnd).toISOString().split("T")[0])
                 setValue("vacationPrice", v.vacationPrice)
             })
-            .catch(err => alert(err.message))
+            .catch(err => notifyService.error(err.message))
     },[])
 
     async function submit(vacation: VacationModel) {

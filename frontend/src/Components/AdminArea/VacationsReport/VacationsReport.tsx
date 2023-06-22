@@ -25,7 +25,7 @@ function VacationsReport(): JSX.Element {
                 vacations.forEach(v => v.vacationDestination = v.vacationDestination.substring(0,10))
                 setVacations(vacations)
             })
-            return unsubscribe
+            return ()=> unsubscribe()
     },[])
 
     useEffect(()=>{

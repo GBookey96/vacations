@@ -1,5 +1,5 @@
 import "./Home.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { authStore } from "../../../Redux/AuthState";
 import AllVacations from "../../VacationsArea/AllVacations/AllVacations";
@@ -7,7 +7,7 @@ import AllVacations from "../../VacationsArea/AllVacations/AllVacations";
 function Home(): JSX.Element {
 
     const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false)
-    const navigate = useNavigate()
+    
     useEffect(()=>{
         let user = authStore.getState().user
         if(user) setIsLoggedIn(true)
@@ -15,7 +15,7 @@ function Home(): JSX.Element {
             user = authStore.getState().user
             user ? setIsLoggedIn(true) : setIsLoggedIn(false)
         })
-        return unsubscribe
+        return ()=> unsubscribe()
     },[])
 
     return (

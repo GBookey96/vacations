@@ -2,6 +2,7 @@ import "./AdminOnly.css";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { authStore } from "../../../Redux/AuthState";
+import { subscribe } from "diagnostics_channel";
 
 function AdminOnly(): JSX.Element {
 
@@ -17,6 +18,7 @@ function AdminOnly(): JSX.Element {
             user ? setUserName(userName) : setUserName("Guest")
 
         })
+        return ()=> unsubscribe()
     },[])
     return (
         <div className="AdminOnly">

@@ -28,14 +28,10 @@ function AllVacations(): JSX.Element {
     },[])
 
     useEffect(()=>{
-        vacationsService.getAllVacations()
-            .then(v => setAllVacations(v))
-            .catch(err => console.log(err))
-            
+        vacationsService.getAllVacations().then().catch()
+        setAllVacations(vacationsStore.getState().vacations)
         const unsubscribe = vacationsStore.subscribe(()=>{
-            vacationsService.getAllVacations()
-            .then(v => setAllVacations(v))
-            .catch(err => console.log(err))    
+            setAllVacations(vacationsStore.getState().vacations)
         })
         return () => unsubscribe()
     },[])
@@ -68,9 +64,7 @@ function AllVacations(): JSX.Element {
     const totalPages = Math.ceil(allVacations.length/vacationsPerPage)
 
     let pages = []
-    for(let i = 1; i <= totalPages; i++) {
-        pages.push(i)
-    }
+    for(let i = 1; i <= totalPages; i++) pages.push(i)
     
     useEffect(()=>{
         const vacationsForThisPage = allVacations.slice(firstVacationIndex, lastVacationIndex)

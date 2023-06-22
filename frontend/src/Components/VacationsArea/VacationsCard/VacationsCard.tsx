@@ -7,6 +7,7 @@ import appConfig from "../../../Utils/config";
 import vacationsService from "../../../Services/VacationsService";
 import LikeButton from "./LikeButton/LikeButton";
 import authService from "../../../Services/AuthService";
+import notifyService from "../../../Services/NotifyService";
 
 
 interface VacationsCardProps {
@@ -41,7 +42,7 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
             user.userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
             setFollowedVacations(user.followedVacations)
         })
-        return unsubscribe
+        return ()=> unsubscribe()
     },[])
 
     const [showModal, setShowModal] = useState<boolean>(false)
@@ -50,8 +51,14 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
     }
 
     async function deleteVacation(id: number) {
-        await vacationsService.deleteVacation(id)
-        alert("Vacation has been deleted!")
+        try {
+            await vacationsService.deleteVacation(id)
+            notifyService.success("Vacation has been deleted!")
+        }
+        catch(err: any) {
+            notifyService.error(err)
+        }
+        
     }
     
     return (
@@ -75,6 +82,9 @@ function VacationsCard(props: VacationsCardProps): JSX.Element {
                 vacationId={props.vacation.vacationId}
                 followedVacations={followedVacations}
                 followerCount={props.vacation.followerCount}/>
+            </>}
+            {isAdmin && <>
+                <span>{props.vacation.followerCount} followers</span>
             </>}
             <img crossOrigin="anonymous" src={appConfig.vacationImgUrl + props.vacation.vacationImgName + '?{Date.now()}'} alt="Vacation Image" className="Image" />
             <p className="Dates">{formatDate(props.vacation.vacationStart)} ➡ {formatDate(props.vacation.vacationEnd)}</p>

@@ -36,11 +36,15 @@ async function addVacation(vacation: VacationModel): Promise<VacationModel> {
     const error = vacation.validate()
     if(error) throw new ValidationErrorModel(error)
         
-        const imageExtension = vacation.vacationImg.name.substr(vacation.vacationImg.name.lastIndexOf("."))
-        vacation.vacationImgName = uuid() + imageExtension
-        
-        await vacation.vacationImg.mv("./src/1-assets/vacationImages/" + vacation.vacationImgName)
-        delete vacation.vacationImg
+    const today = new Date().toISOString().split("T")[0]
+
+    if(vacation.vacationStart < today) throw new ValidationErrorModel("Start date must be no earlier than " + today)
+    if(vacation.vacationEnd <= vacation.vacationStart) throw new ValidationErrorModel("Please ensure the end date is at least one day after the start date.")
+
+    const imageExtension = vacation.vacationImg.name.substr(vacation.vacationImg.name.lastIndexOf("."))
+    vacation.vacationImgName = uuid() + imageExtension
+    await vacation.vacationImg.mv("./src/1-assets/vacationImages/" + vacation.vacationImgName)
+    delete vacation.vacationImg
     
 
     const sql = `INSERT INTO vacations VALUES( DEFAULT, ?, ?, ?, ?, ?, ?)`
@@ -52,6 +56,9 @@ async function addVacation(vacation: VacationModel): Promise<VacationModel> {
 async function updateVacation(vacation: VacationModel): Promise<VacationModel> {
     const error = vacation.validate()
     if(error) throw new ValidationErrorModel(error)
+    
+    if(vacation.vacationEnd <= vacation.vacationStart) throw new ValidationErrorModel("Please ensure the end date is at least one day after the start date.")
+
     if(vacation.vacationImg) {
         const originalVacation = await getOneVacation(vacation.vacationId)
         fs.unlinkSync("./src/1-assets/vacationImages/" + originalVacation[0].vacationImgName)
@@ -72,15 +79,17 @@ async function updateVacation(vacation: VacationModel): Promise<VacationModel> {
         if(info.affectedRows === 0) throw new ResourceNotFoundErrorModel(vacation.vacationId)
     }
     else {
+        const originalVacation = await getOneVacation(vacation.vacationId)
         const sql = `UPDATE vacations SET 
         vacationDestination = ?,
         vacationDescription = ?,
         vacationStart = ?,
         vacationEnd = ?,
-        vacationPrice = ?
+        vacationPrice = ?,
+        vacationImgName = ?
         WHERE vacationId = ?
         `
-        const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationPrice, vacation.vacationId])
+        const info: OkPacket = await dal.execute(sql, [vacation.vacationDestination, vacation.vacationDescription, vacation.vacationStart, vacation.vacationEnd, vacation.vacationPrice, originalVacation.vacationImgName, vacation.vacationId])
         if(info.affectedRows === 0) throw new ResourceNotFoundErrorModel(vacation.vacationId)
     }
     return vacation

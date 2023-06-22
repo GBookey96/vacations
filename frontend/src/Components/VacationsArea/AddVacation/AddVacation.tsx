@@ -21,7 +21,7 @@ function AddVacation(): JSX.Element {
             userRole = authStore.getState().user.userRole
             userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
         })
-        return unsubscribe
+        return ()=> unsubscribe()
     },[])
 
     async function submit(vacation: VacationModel) {
@@ -46,13 +46,13 @@ function AddVacation(): JSX.Element {
                     <form onSubmit={handleSubmit(submit)}>
 
                         <label>Destination</label>
-                        <input type="text" maxLength={30} {...register("vacationDestination")} placeholder="Enter Destination name" />
+                        <input type="text" maxLength={30} {...register("vacationDestination")} placeholder="Enter Destination name" autoFocus/>
 
                         <label>Vacation Description</label>
                         <textarea cols={30} rows={10} maxLength={1000} {...register("vacationDescription")} placeholder="Provide a description of the vacation in less than 1000 characters"></textarea>
 
                         <label>Start Date</label>
-                        <input type="date" id="start" min={new Date().toISOString().split("T")[0]} {...register("vacationStart")}/>
+                        <input type="date" id="start" {...register("vacationStart")}/>
 
                         <label>End Date</label>
                         <input type="date" id="end" {...register("vacationEnd")}/>

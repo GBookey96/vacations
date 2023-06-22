@@ -19,7 +19,7 @@ function Menu(): JSX.Element {
             setUser(user)
             setIsAdmin(user?.userRole === "Admin" ? true : false)
         })
-        return unsubscribe
+        return ()=> unsubscribe()
     },[])
     
     return (

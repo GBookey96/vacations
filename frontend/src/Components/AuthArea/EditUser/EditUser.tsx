@@ -22,7 +22,7 @@ function EditUser(): JSX.Element {
                 setValue("userLastName", user.userLastName)
                 setValue("userEmail", user.userEmail)
             })
-            .catch(err => alert(err.message))
+            .catch(err => notifyService.error(err.message))
     },[])
 
     async function submit(user: UserModel) {
