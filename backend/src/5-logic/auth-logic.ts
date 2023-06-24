@@ -20,9 +20,9 @@ async function register(user: UserModel): Promise<string> {
 }
 
 async function isEmailTaken(email: string) {
-    const sql = `SELECT COUNT(*) FROM users WHERE userEmail = ?`
-    const count = await dal.execute(sql, [email])[0]
-    return count > 0
+    const sql = `SELECT * FROM users WHERE userEmail = ?`
+    const count = await dal.execute(sql, [email])
+    return count.length > 0
 }
 
 async function login(credentials: CredentialsModel): Promise<string> {
