@@ -45,25 +45,27 @@ function AddVacation(): JSX.Element {
 
                     <form onSubmit={handleSubmit(submit)}>
 
-                        <label>Destination</label>
+                        <label>Destination<span className="Required">*</span></label>
                         <input type="text" minLength={3} maxLength={30} {...register("vacationDestination")} placeholder="Enter Destination name" autoFocus/>
 
-                        <label>Vacation Description</label>
+                        <label>Vacation Description<span className="Required">*</span></label>
                         <textarea cols={30} rows={10} minLength={100} maxLength={1000} {...register("vacationDescription")} placeholder="Provide a description of the vacation in less than 1000 characters"></textarea>
 
-                        <label>Start Date</label>
+                        <label>Start Date<span className="Required">*</span></label>
                         <input type="date" id="start" {...register("vacationStart")}/>
 
-                        <label>End Date</label>
+                        <label>End Date<span className="Required">*</span></label>
                         <input type="date" id="end" {...register("vacationEnd")}/>
                         
-                        <label>Price</label>
+                        <label>Price<span className="Required">*</span></label>
                         <input type="number" min={0} max={10000} {...register("vacationPrice")} placeholder="Enter Price"/>
 
-                        <label>Image</label>
+                        <label>Image<span className="Required">*</span></label>
                         <input type="file" accept="image/*" {...register("vacationImg")} />
 
                         <button>Add</button>
+                        <small className="Required">* required fields</small>
+
                     </form>
                 </div>
             </>}

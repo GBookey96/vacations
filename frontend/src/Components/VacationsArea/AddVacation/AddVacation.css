@@ -33,3 +33,7 @@ div.AddVacation {
   background-color: #003366;
   color: #F7F7F7;
 }
+
+.AddVacation .Required {
+  color: red
+}

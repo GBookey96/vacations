@@ -92,9 +92,9 @@ function AllVacations(): JSX.Element {
             </>}
             {pages.length > 1 &&<>
                 <div className="Pagination">
-                <button onClick={()=>{setCurrentPage(1)}}>⏮</button>
+                <button onClick={()=>{setCurrentPage(1)}}>First</button>
                 {pages.map(p => <button key={p} onClick={()=>setCurrentPage(p)}>{p}</button>)}
-                <button onClick={()=>{setCurrentPage(totalPages)}}>⏭</button>
+                <button onClick={()=>{setCurrentPage(totalPages)}}>Last</button>
             </div>
             <br />
             </>}
@@ -103,9 +103,9 @@ function AllVacations(): JSX.Element {
             </div>
             {pages.length > 1 &&<>
                 <div className="Pagination">
-                <button onClick={()=>{setCurrentPage(1)}}>⏮</button>
+                <button onClick={()=>{setCurrentPage(1)}}>First</button>
                 {pages.map(p => <button key={p} onClick={()=>setCurrentPage(p)}>{p}</button>)}
-                <button onClick={()=>{setCurrentPage(totalPages)}}>⏭</button>
+                <button onClick={()=>{setCurrentPage(totalPages)}}>Last</button>
             </div>
             <br />
             </>}

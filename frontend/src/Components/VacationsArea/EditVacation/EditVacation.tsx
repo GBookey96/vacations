@@ -62,25 +62,26 @@ function EditVacation(): JSX.Element {
 
                         <input type="hidden" {...register("vacationId")} />
 
-                        <label>Destination</label>
+                        <label>Destination<span className="Required">*</span></label>
                         <input type="text" {...register("vacationDestination")} autoFocus/>
 
-                        <label>Vacation Description</label>
+                        <label>Vacation Description<span className="Required">*</span></label>
                         <textarea cols={30} rows={10} {...register("vacationDescription")}></textarea>
 
-                        <label>Start Date</label>
+                        <label>Start Date<span className="Required">*</span></label>
                         <input type="date" {...register("vacationStart")}/>
 
-                        <label>End Date</label>
+                        <label>End Date<span className="Required">*</span></label>
                         <input type="date" {...register("vacationEnd")}/>
                         
-                        <label>Price</label>
+                        <label>Price<span className="Required">*</span></label>
                         <input type="number" {...register("vacationPrice")}/>
 
                         <label>Image</label>
                         <input type="file" accept="image/*" {...register("vacationImg")}/>
 
                         <button>Update</button>
+
                     </form>
                 </div>
             </>}
