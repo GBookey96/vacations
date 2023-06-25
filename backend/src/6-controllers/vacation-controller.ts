@@ -62,7 +62,7 @@ router.post("/vacations", verifyAdmin, async(request: Request, response: Respons
     }
 })
 
-router.put("/vacations/update/:id([0-9]+)", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
+router.patch("/vacations/update/:id([0-9]+)", verifyAdmin, async(request: Request, response: Response, next: NextFunction)=> {
     try {
         request.body.id = +request.params.id
         request.body.vacationImg = request.files?.vacationImg

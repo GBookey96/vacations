@@ -32,8 +32,6 @@ function EditVacation(): JSX.Element {
         const id = +params.vacationId
         vacationsService.getOneVacation(id)
             .then(v => {
-                console.log(v.vacationStart)
-                console.log(new Date(v.vacationStart).toISOString().split("T")[0])
                 setValue("vacationId", v.vacationId)
                 setValue("vacationDestination", v.vacationDestination)
                 setValue("vacationDescription", v.vacationDescription)

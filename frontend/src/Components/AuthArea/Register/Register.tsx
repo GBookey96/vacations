@@ -37,16 +37,16 @@ function Register(): JSX.Element {
                 <input type="hidden" value="User" {...register("userRole")} />
 
                 <label>First Name:</label>
-                <input type="text" {...register("userFirstName")} required autoFocus />
+                <input type="text" {...register("userFirstName")} required autoFocus placeholder="John"/>
 
                 <label>Last Name:</label>
-                <input type="text" {...register("userLastName")} required />
+                <input type="text" {...register("userLastName")} required placeholder="Doe"/>
 
                 <label>Email Address:</label>
-                <input type="email" {...register("userEmail")} required />
+                <input type="email" {...register("userEmail")} required placeholder="john@doe.com"/>
 
                 <label>Password:</label>
-                <input type="password" {...register("userPassword")} required />
+                <input type="password" {...register("userPassword")} required placeholder="******" minLength={4}/>
 
                 <div className="ReCaptchaContainer">
                     <ReCAPTCHA sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" onChange={reCaptchaChecked} />

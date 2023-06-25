@@ -52,7 +52,7 @@ class VacationsService {
         myFormData.append("vacationPrice", vacation.vacationPrice.toString())
         if(vacation.vacationImg[0]) myFormData.append("vacationImg", vacation.vacationImg[0])
 
-        const response = await axios.put<VacationModel>(appConfig.updateVacationsUrl + vacation.vacationId, myFormData)
+        const response = await axios.patch<VacationModel>(appConfig.updateVacationsUrl + vacation.vacationId, myFormData)
 
         const updatedVacation = response.data
         
