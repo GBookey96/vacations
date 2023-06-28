@@ -35,6 +35,7 @@ function EditVacation(): JSX.Element {
                 setValue("vacationId", v.vacationId)
                 setValue("vacationDestination", v.vacationDestination)
                 setValue("vacationDescription", v.vacationDescription)
+                console.log(typeof (new Date(v.vacationStart).toISOString().split("T")[0]))
                 setValue("vacationStart", new Date(v.vacationStart).toISOString().split("T")[0])
                 setValue("vacationEnd", new Date(v.vacationEnd).toISOString().split("T")[0])
                 setValue("vacationPrice", v.vacationPrice)

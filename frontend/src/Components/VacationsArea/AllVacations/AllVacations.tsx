@@ -14,27 +14,42 @@ function AllVacations(): JSX.Element {
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
     const [userId, setUserId] = useState<number>()
 
+        // pagination functions
+        const [currentPage, setCurrentPage] = useState<number>(1)
+        const vacationsPerPage = 9
+        const lastVacationIndex = currentPage * vacationsPerPage
+        const firstVacationIndex = lastVacationIndex - vacationsPerPage
+        const totalPages = Math.ceil(allVacations.length/vacationsPerPage)
+    
+        let pages = []
+        for(let i = 1; i <= totalPages; i++) pages.push(i)
+        
+
     useEffect(()=>{
         let user = authStore.getState().user
         if(user.userRole === "Admin") setIsAdmin(true)
         setUserId(user.userId)
-
-        const unsubscribe = authStore.subscribe(()=>{
+        const unsubscribe1 = authStore.subscribe(()=>{
             user = authStore.getState().user
             setUserId(user.userId)
             user.userRole === "Admin" ? setIsAdmin(true) : setIsAdmin(false)
         })
-        return () => unsubscribe()
-    },[])
 
-    useEffect(()=>{
         vacationsService.getAllVacations().then().catch()
-        setAllVacations(vacationsStore.getState().vacations)
-        const unsubscribe = vacationsStore.subscribe(()=>{
-            setAllVacations(vacationsStore.getState().vacations)
+        setShowVacations(vacationsStore.getState().vacations)
+        const unsubscribe2 = vacationsStore.subscribe(()=>{
+            vacationsService.getAllVacations().then().catch()
+            setShowVacations(vacationsStore.getState().vacations)
         })
-        return () => unsubscribe()
-    },[])
+
+        const vacationsForThisPage = allVacations.slice(firstVacationIndex, lastVacationIndex)
+        setShowVacations(vacationsForThisPage)
+        return () => {
+            unsubscribe1()
+            unsubscribe2()
+        }
+        
+    },[allVacations, firstVacationIndex, lastVacationIndex])
 
     async function showAll() {
         const allVacations = await vacationsService.getAllVacations()
@@ -55,21 +70,6 @@ function AllVacations(): JSX.Element {
         const activeVacations = await filterVacationsService.activeVacations()
         setAllVacations(activeVacations)
     }
-
-    // pagination functions
-    const [currentPage, setCurrentPage] = useState<number>(1)
-    const vacationsPerPage = 9
-    const lastVacationIndex = currentPage * vacationsPerPage
-    const firstVacationIndex = lastVacationIndex - vacationsPerPage
-    const totalPages = Math.ceil(allVacations.length/vacationsPerPage)
-
-    let pages = []
-    for(let i = 1; i <= totalPages; i++) pages.push(i)
-    
-    useEffect(()=>{
-        const vacationsForThisPage = allVacations.slice(firstVacationIndex, lastVacationIndex)
-        setShowVacations(vacationsForThisPage)
-    },[allVacations, firstVacationIndex, lastVacationIndex])
 
     return (
         <div className="AllVacations">
