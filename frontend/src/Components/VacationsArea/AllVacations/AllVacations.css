@@ -8,7 +8,7 @@
     justify-content: center;
 }
 
-.AllVacations .FilterOptions {
+.AllVacations > .FilterOptions {
     height: fit-content;
     width: 300px;
     padding: 10px;
@@ -31,12 +31,14 @@
 
 .AllVacations > .AddNew {
     margin: 25px;
+    width: 300px;
 }
 
 .AllVacations button {
     margin: 5px;
     background-color: #003366;
     color: #F7F7F7;
+    text-decoration: none;
     padding: 3px;
 }
 

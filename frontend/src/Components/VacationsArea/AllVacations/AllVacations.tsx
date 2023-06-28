@@ -1,6 +1,6 @@
 import "./AllVacations.css";
 import { useState, useEffect } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { authStore } from "../../../Redux/AuthState";
 import { vacationsStore } from "../../../Redux/VacationsState";
 import VacationModel from "../../../Models/vacations-model";
@@ -14,6 +14,7 @@ function AllVacations(): JSX.Element {
     const [isAdmin, setIsAdmin] = useState<boolean>(false)
     const [userId, setUserId] = useState<number>()
 
+    const navigate = useNavigate()
 
     useEffect(()=>{
         let user = authStore.getState().user
@@ -30,7 +31,7 @@ function AllVacations(): JSX.Element {
     useEffect(()=>{
         
         vacationsService.getAllVacations().then().catch()
-        setShowVacations(vacationsStore.getState().vacations)
+        setAllVacations(vacationsStore.getState().vacations)
         const unsubscribe = vacationsStore.subscribe(()=>{
             setAllVacations(vacationsStore.getState().vacations)
         })
@@ -72,6 +73,10 @@ function AllVacations(): JSX.Element {
         const vacationsForThisPage = allVacations.slice(firstVacationIndex, lastVacationIndex)
         setShowVacations(vacationsForThisPage)        
     },[allVacations, firstVacationIndex, lastVacationIndex])
+
+    function addNewVacation() {
+        navigate("/add-vacation")
+    }
     
 
     return (
@@ -89,9 +94,9 @@ function AllVacations(): JSX.Element {
                 <button onClick={showActiveVacations}>Active vacations</button>
             </div>
             {isAdmin && <>
-                <div className="AddNew">
-                    <NavLink to="/add-vacation">Add New Vacation</NavLink>
-                </div>
+                <button className="AddNew" onClick={addNewVacation}>
+                    Add New Vacation
+                </button>
             </>}
             {pages.length > 1 && <>
                 <div className="Pagination">
