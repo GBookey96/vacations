@@ -14,6 +14,7 @@ async function getAllVacations(): Promise<VacationModel[]> {
             GROUP BY V.vacationId, V.vacationDestination
             ORDER BY V.vacationStart`
     const vacations = await dal.execute(sql)
+    console.log(vacations)
     return vacations
 }
 

@@ -17,7 +17,7 @@ router.get("/vacations", blockNonLoggedIn, async(request: Request, response: Res
     }
 })
 
-router.get("/vacations/:id([0-9]+)", blockNonLoggedIn, async(request: Request, response: Response, next: NextFunction)=> {
+router.get("/vacations/:id([0-9]+)", async(request: Request, response: Response, next: NextFunction)=> {
     try {
         const id = +request.params.id
         const vacation = await vacationLogic.getOneVacation(id)
