@@ -7,6 +7,7 @@ import VacationModel from "../../../Models/vacations-model";
 import VacationsCard from "../VacationsCard/VacationsCard";
 import filterVacationsService from "../../../Services/FilterVacationService";
 import vacationsService from "../../../Services/VacationsService";
+import NoVacations from './../NoVacations/NoVacations';
 
 function AllVacations(): JSX.Element {
     const [allVacations, setAllVacations] = useState<VacationModel[]>([])
@@ -117,7 +118,9 @@ function AllVacations(): JSX.Element {
             </div>
             <br />
             </>}
-
+            {showVacations.length === 0 && <>
+            <NoVacations/>
+            </>}
         </div>
     );
 }
